@@ -32,13 +32,14 @@ const faqs = [
 ];
 
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout>
   <header class="fixed inset-x-0 top-0 z-50 border-b border-[#17352b]/10 bg-[#fbfaf5]/92 backdrop-blur-xl">
     <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between px-5 sm:px-8">
       <a href="#top" class="flex items-center gap-3" aria-label="Marius Capră - Acasă">
-        <img src="/logo.svg" alt="" class="h-11 w-11" width="44" height="44" />
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
         <span class="leading-none">
           <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#073d2c]">CAPRĂ</strong>
           <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0b6b49]">Fonduri & Mediu</span>
@@ -108,7 +109,7 @@ const currentYear = new Date().getFullYear();
         <div data-reveal data-reveal-delay="2" class="relative mx-auto w-full max-w-[520px] lg:mx-0 lg:ml-auto">
           <div class="grain absolute -inset-5 rotate-3 rounded-[2.5rem] bg-[#0b6b49]"></div>
           <div class="soft-shadow relative overflow-hidden rounded-[2rem] border-[7px] border-white bg-[#dff1df]">
-            <img src="/images/marius-capra.jpg" alt="Marius Capră, consultant în fonduri nerambursabile și auditor de mediu" class="aspect-[4/5] w-full object-cover object-[50%_35%]" width="1500" height="1500" fetchpriority="high" />
+            <img src={`${base}/images/marius-capra.jpg`} alt="Marius Capră, consultant în fonduri nerambursabile și auditor de mediu" class="aspect-[4/5] w-full object-cover object-[50%_35%]" width="1500" height="1500" fetchpriority="high" />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#073d2c]/95 via-[#073d2c]/70 to-transparent px-7 pb-7 pt-28 text-white sm:px-9 sm:pb-9">
               <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#cfe8a8]">Strategie • Conformitate • Implementare</p>
               <p class="mt-2 max-w-sm text-lg font-bold leading-snug">Un singur partener pentru întregul parcurs al proiectului.</p>
@@ -381,7 +382,7 @@ const currentYear = new Date().getFullYear();
 
   <footer class="px-5 py-10 sm:px-8">
     <div class="mx-auto flex max-w-[1240px] flex-col gap-6 border-t border-[#17352b]/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
-      <div class="flex items-center gap-3"><img src="/logo.svg" alt="" class="h-9 w-9" width="36" height="36" /><div><strong class="block text-xs font-extrabold tracking-[0.16em] text-[#073d2c]">CAPRĂ</strong><span class="text-[10px] uppercase tracking-[0.14em] text-[#0b6b49]">Fonduri & Mediu</span></div></div>
+      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><div><strong class="block text-xs font-extrabold tracking-[0.16em] text-[#073d2c]">CAPRĂ</strong><span class="text-[10px] uppercase tracking-[0.14em] text-[#0b6b49]">Fonduri & Mediu</span></div></div>
       <p class="text-xs text-[#17352b]/52">© {currentYear} Marius Capră. Toate drepturile rezervate.</p>
       <div class="flex gap-5 text-xs font-bold text-[#17352b]/62"><a class="hover:text-[#0b6b49]" href="https://www.linkedin.com/in/marius-capr%C4%83-83381919b" target="_blank" rel="noreferrer">LinkedIn</a><a class="hover:text-[#0b6b49]" href="#top">Sus ↑</a></div>
     </div>
