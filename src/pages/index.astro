@@ -24,6 +24,26 @@ const credentials = [
   ['2024—prezent', 'Coordonator fonduri europene', 'Management integral, de la oportunitate până la post-implementare'],
 ];
 
+interface Partner {
+  name: string;
+  logo: string;
+  role: string;
+  description: string;
+  services: string[];
+  url?: string;
+}
+
+// Logo-urile vor fi adăugate aici pe măsură ce sunt primite.
+const partners: Partner[] = [
+  {
+    name: 'Nexum Energy',
+    logo: 'images/partners/nexum-energy.jpg',
+    role: 'Partener tehnic — energie verde',
+    description: 'Specialist în soluții fotovoltaice, Nexum Energy asigură componenta tehnică a proiectelor: de la consultanță și configurarea soluției până la furnizarea echipamentelor și montajul complet al sistemelor.',
+    services: ['Soluții fotovoltaice', 'Furnizare echipamente', 'Montaj specializat'],
+  },
+];
+
 const faqs = [
   ['Cu ce tipuri de beneficiari lucrezi?', 'Colaborez cu IMM-uri, antreprenori, ONG-uri și organizații care pregătesc investiții sau implementează proiecte finanțate. Primul pas este o discuție scurtă pentru a verifica potrivirea.'],
   ['Poți garanta obținerea finanțării?', 'Nicio consultanță serioasă nu poate garanta aprobarea. Pot însă să evaluez realist eligibilitatea și punctajul, să construiesc o documentație coerentă și să reduc riscurile de neconformitate.'],
@@ -46,10 +66,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </span>
       </a>
 
-      <nav class="hidden items-center gap-8 lg:flex" aria-label="Navigare principală">
+      <nav class="hidden items-center gap-6 lg:flex" aria-label="Navigare principală">
         <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#fonduri">Fonduri</a>
         <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#audit">Audit de mediu</a>
         <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#despre">Despre</a>
+        <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#parteneri">Parteneri</a>
         <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#intrebari">Întrebări</a>
       </nav>
 
@@ -70,6 +91,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#fonduri">Fonduri nerambursabile</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#audit">Audit de mediu</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#despre">Despre mine</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#parteneri">Parteneri</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#intrebari">Întrebări frecvente</a>
         <a class="mt-2 rounded-xl bg-[#0b6b49] px-4 py-3 text-center font-bold text-white" href="#contact">Hai să discutăm</a>
       </nav>
@@ -310,6 +332,63 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="parteneri" class="relative overflow-hidden border-y border-[#17352b]/10 bg-[#f7f4e9] py-24 sm:py-28">
+      <div class="absolute -right-24 -top-24 h-64 w-64 rounded-full border-[44px] border-[#a7d46f]/25"></div>
+      <div class="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-[#dff1df]/70"></div>
+
+      <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div data-reveal class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Parteneri</p>
+          <h2 class="display-font mt-5 text-5xl leading-[1.02] text-[#073d2c] sm:text-6xl">Colaborări care duc proiectele mai departe.</h2>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#17352b]/65">Construim relații bazate pe încredere, competențe complementare și obiective comune, pentru rezultate solide și sustenabile.</p>
+        </div>
+
+        {partners.length > 0 ? (
+          <div class="mx-auto mt-12 grid max-w-5xl gap-6">
+            {partners.map((partner, index) => (
+              <article data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow grid overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-white md:grid-cols-[0.8fr_1.2fr]">
+                <div class="grid min-h-64 place-items-center overflow-hidden bg-white p-8 sm:p-10">
+                  <img src={`${base}/${partner.logo}`} alt={`Logo ${partner.name}`} class="h-56 w-full scale-125 object-contain" loading="lazy" />
+                </div>
+                <div class="relative overflow-hidden bg-[#073d2c] p-7 text-white sm:p-10">
+                  <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full border-[26px] border-[#a7d46f]/12"></div>
+                  <div class="relative">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-[#a7d46f]/25 bg-[#a7d46f]/10 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#cfe8a8]">
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#a7d46f]"></span>
+                      {partner.role}
+                    </span>
+                    <h3 class="display-font mt-5 text-4xl text-white sm:text-5xl">{partner.name}</h3>
+                    <p class="mt-5 max-w-xl text-sm leading-7 text-white/68 sm:text-base">{partner.description}</p>
+                    <div class="mt-7 flex flex-wrap gap-2">
+                      {partner.services.map((service) => (
+                        <span class="rounded-full bg-white/9 px-3 py-2 text-xs font-bold text-white/82">{service}</span>
+                      ))}
+                    </div>
+                    {partner.url && (
+                      <a href={partner.url} target="_blank" rel="noreferrer" class="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-[#cfe8a8] transition hover:text-white">
+                        Vizitează partenerul
+                        <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div data-reveal class="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-5 rounded-[2rem] border border-dashed border-[#0b6b49]/30 bg-white/75 px-7 py-10 text-center sm:flex-row sm:px-10 sm:text-left">
+            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-[#dff1df] text-[#0b6b49]">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-8 w-8 fill-none stroke-current" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12 5.5 9.5a2.1 2.1 0 0 0-3 3L7 17a3 3 0 0 0 4.2 0l1-1M16 12l2.5-2.5a2.1 2.1 0 0 1 3 3L17 17a3 3 0 0 1-4.2 0l-1-1" /><path d="m9 14 6-6M8 8l2-2a3 3 0 0 1 4.2 0L16 8" /></svg>
+            </span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#073d2c]">O rețea în dezvoltare</h3>
+              <p class="mt-2 text-sm leading-6 text-[#17352b]/60">Identitățile partenerilor vor fi prezentate aici, într-un format unitar și adaptat fiecărui logo.</p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
 
