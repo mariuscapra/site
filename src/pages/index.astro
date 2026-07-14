@@ -369,28 +369,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
 
         {partners.length > 0 ? (
-          <div class="mx-auto mt-12 grid max-w-5xl gap-6">
+          <div class="mx-auto mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {partners.map((partner, index) => (
-              <article data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow grid overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-white md:grid-cols-[0.8fr_1.2fr]">
-                <div class="grid min-h-64 place-items-center overflow-hidden bg-white p-8 sm:p-10">
-                  <img src={`${base}/${partner.logo}`} alt={`Logo ${partner.name}`} class="h-56 w-full scale-125 object-contain" loading="lazy" />
+              <article data-reveal data-reveal-delay={String(index % 4)} class="soft-shadow group flex min-h-[31rem] flex-col overflow-hidden rounded-[1.75rem] border border-[#17352b]/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(7,61,44,0.16)]">
+                <div class="grid h-44 shrink-0 place-items-center overflow-hidden bg-white p-6">
+                  <img src={`${base}/${partner.logo}`} alt={`Logo ${partner.name}`} class="h-32 w-full scale-110 object-contain transition duration-300 group-hover:scale-[1.15]" loading="lazy" />
                 </div>
-                <div class="relative overflow-hidden bg-[#073d2c] p-7 text-white sm:p-10">
-                  <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full border-[26px] border-[#a7d46f]/12"></div>
-                  <div class="relative">
-                    <span class="inline-flex items-center gap-2 rounded-full border border-[#a7d46f]/25 bg-[#a7d46f]/10 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#cfe8a8]">
+                <div class="relative flex flex-1 flex-col overflow-hidden bg-[#073d2c] p-6 text-white">
+                  <div class="absolute -right-12 -top-12 h-36 w-36 rounded-full border-[24px] border-[#a7d46f]/10"></div>
+                  <div class="relative flex h-full flex-col">
+                    <span class="inline-flex w-fit items-center gap-2 rounded-full border border-[#a7d46f]/25 bg-[#a7d46f]/10 px-2.5 py-1.5 text-[9px] font-extrabold uppercase leading-4 tracking-[0.12em] text-[#cfe8a8]">
                       <span class="h-1.5 w-1.5 rounded-full bg-[#a7d46f]"></span>
                       {partner.role}
                     </span>
-                    <h3 class="display-font mt-5 text-4xl text-white sm:text-5xl">{partner.name}</h3>
-                    <p class="mt-5 max-w-xl text-sm leading-7 text-white/68 sm:text-base">{partner.description}</p>
-                    <div class="mt-7 flex flex-wrap gap-2">
+                    <h3 class="display-font mt-4 text-3xl leading-none text-white">{partner.name}</h3>
+                    <p class="mt-4 text-xs leading-5 text-white/68">{partner.description}</p>
+                    <div class="mt-5 flex flex-wrap gap-1.5">
                       {partner.services.map((service) => (
-                        <span class="rounded-full bg-white/9 px-3 py-2 text-xs font-bold text-white/82">{service}</span>
+                        <span class="rounded-full bg-white/9 px-2.5 py-1.5 text-[10px] font-bold leading-4 text-white/82">{service}</span>
                       ))}
                     </div>
                     {partner.url && (
-                      <a href={partner.url} target="_blank" rel="noreferrer" class="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-[#cfe8a8] transition hover:text-white">
+                      <a href={partner.url} target="_blank" rel="noreferrer" class="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-extrabold text-[#cfe8a8] transition hover:text-white">
                         Vizitează partenerul
                         <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
                       </a>
