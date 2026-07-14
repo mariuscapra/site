@@ -17,9 +17,11 @@ export interface FundingProgram {
   process: string[];
   eligibleCosts: string[];
   obligations: string[];
-  officialUrl: string;
-  consolidatedUrl: string;
-  programUrl: string;
+  eligibleCaen?: [string, string][];
+  sources: {
+    label: string;
+    url: string;
+  }[];
 }
 
 export const fundingPrograms: FundingProgram[] = [
@@ -66,9 +68,86 @@ export const fundingPrograms: FundingProgram[] = [
       'Menținerea activității întreprinderii timp de minimum trei ani de la plata integrală a ajutorului.',
       'Respectarea bugetului aprobat, a condițiilor de eligibilitate și a regulilor de informare și publicitate.',
     ],
-    officialUrl: 'https://economie.gov.ro/wp-content/uploads/2025/03/Procedura-SUN-202413032025.doc',
-    consolidatedUrl: 'https://legislatie.just.ro/Public/DetaliiDocument/298759',
-    programUrl: 'https://www.imm.gov.ro/start-up-nation-2024/',
+    sources: [
+      { label: 'Procedura oficială (.doc)', url: 'https://economie.gov.ro/wp-content/uploads/2025/03/Procedura-SUN-202413032025.doc' },
+      { label: 'Forma consolidată', url: 'https://legislatie.just.ro/Public/DetaliiDocument/298759' },
+      { label: 'Pagina oficială a programului', url: 'https://www.imm.gov.ro/start-up-nation-2024/' },
+    ],
+  },
+  {
+    id: 'pro-infra',
+    title: 'PRO-INFRA',
+    officialName: 'Schemă de ajutor de stat privind promovarea producției de materii prime, materiale și produse pentru susținerea implementării proiectelor de infrastructură de transport – „PRO INFRA”.',
+    category: 'Ajutor de stat · Industrie pentru infrastructură',
+    status: 'Urmează',
+    description: 'Granturi pentru creșterea eficienței energetice a capacităților care produc materii prime, materiale și produse necesare infrastructurii de transport.',
+    image: 'images/programs/pro-infra.jpg',
+    imageAlt: 'Producție industrială modernă pentru infrastructură de transport, cu materiale de construcții, oțel, cabluri și tehnologii eficiente energetic',
+    funding: 'Până la 15 mil. euro',
+    cofinancing: 'Până la 100% eligibil',
+    deadline: 'Consultarea publică s-a încheiat la 09.12.2025; perioada de depunere urmează să fie anunțată oficial de MTI',
+    keyFacts: [
+      ['Bugetul schemei', '200 mil. euro'],
+      ['Ajutor maxim', '15 mil. euro / beneficiar'],
+      ['Intensitate maximă', '100% din costurile eligibile'],
+      ['Selecție', 'ofertare concurențială'],
+    ],
+    eligibility: [
+      'Pot aplica microîntreprinderi, întreprinderi mici, mijlocii și mari, legal constituite și înregistrate la Registrul Comerțului din România cel târziu la data primei plăți.',
+      'Investiția trebuie realizată în România, într-o activitate aferentă unuia dintre cele 17 coduri CAEN eligibile, și trebuie să înlocuiască instalații, utilaje sau echipamente existente.',
+      'Solicitantul nu trebuie să fie întreprindere în dificultate, insolvență, faliment sau lichidare și trebuie să își fi achitat obligațiile fiscale.',
+      'Este necesară capacitate tehnică și financiară. Raportul dintre datoriile totale și capitalurile proprii trebuie să fie pozitiv și sub 7,5; în situațiile prevăzute de schemă poate fi solicitată o scrisoare de confort bancar.',
+      'Se pot depune mai multe proiecte într-o sesiune, dar maximum un proiect pentru fiecare locație.',
+    ],
+    process: [
+      'Realizarea auditului energetic pentru conturul proiectului, raportat la ultimul an calendaristic încheiat înaintea deschiderii apelului, și pregătirea analizei de oportunitate.',
+      'Definirea investiției: înlocuirea echipamentelor cu alternative eficiente energetic sau electrice și integrarea obligatorie a unui sistem de management al energiei (EMS).',
+      'Depunerea solicitării înainte de demararea lucrărilor, în sesiunea de ofertare concurențială ce va fi anunțată de MTI.',
+      'Clasificarea ofertelor: 90% din punctaj urmărește ajutorul solicitat per MWh economisit, iar 10% utilizarea energiei regenerabile.',
+      'Contractarea proiectelor în ordinea punctajului, până la epuizarea bugetului, și implementarea investiției cel târziu la 30.06.2030.',
+    ],
+    eligibleCosts: [
+      'Achiziționarea și instalarea instalațiilor de producție, utilajelor și echipamentelor eficiente din punct de vedere energetic.',
+      'Achiziționarea și instalarea utilajelor și echipamentelor electrice, cu emisii zero la țeava de eșapament, care înlocuiesc echipamente cu ardere internă.',
+      'Achiziționarea și integrarea sistemului de management al energiei (EMS) aferent investiției.',
+      'TVA-ul și cheltuielile care nu se încadrează în categoriile de mai sus nu sunt eligibile și se suportă integral de beneficiar.',
+    ],
+    obligations: [
+      'Instalarea și operaționalizarea unui sistem EMS care monitorizează în timp real consumul de energie și performanța proiectului.',
+      'Prezentarea anuală, în perioada de monitorizare, a unui audit energetic care integrează și validează datele furnizate de EMS.',
+      'Casarea instalației, utilajului sau echipamentului înlocuit în maximum 30 de zile de la recepția noului echipament.',
+      'Menținerea investiției și a activității timp de cinci ani de la finalizarea implementării, fără înstrăinarea activelor sau modificări substanțiale.',
+      'Interdicția dublei finanțări pentru aceleași cheltuieli eligibile și păstrarea evidențelor privind ajutorul primit pentru minimum zece ani.',
+    ],
+    eligibleCaen: [
+      ['0811', 'Extracția pietrei ornamentale și a pietrei pentru construcții, extracția pietrei calcaroase, ghipsului, cretei și a ardeziei'],
+      ['0812', 'Extracția pietrișului și nisipului, extracția argilei și caolinului'],
+      ['2320', 'Fabricarea de produse refractare'],
+      ['2343', 'Fabricarea de izolatori electrici și piese izolante din ceramică'],
+      ['2352', 'Fabricarea varului și ipsosului'],
+      ['2361', 'Fabricarea produselor din beton pentru construcții'],
+      ['2363', 'Fabricarea betonului'],
+      ['2364', 'Fabricarea mortarului'],
+      ['2369', 'Fabricarea altor articole din beton, ciment și ipsos'],
+      ['2370', 'Tăierea, fasonarea și finisarea pietrei'],
+      ['2399', 'Fabricarea altor produse din minerale nemetalice, n.c.a.'],
+      ['2431', 'Tragere la rece a barelor'],
+      ['2432', 'Laminare la rece a benzilor înguste'],
+      ['2433', 'Producția de profile obținute la rece'],
+      ['2434', 'Trefilarea firelor la rece'],
+      ['2511', 'Fabricarea de construcții metalice și părți componente ale structurilor metalice'],
+      ['2732', 'Fabricarea altor fire și cabluri electrice și electronice'],
+    ],
+    sources: [
+      {
+        label: 'Schema PRO-INFRA (.pdf)',
+        url: 'https://www.mt.ro/documente/comunicate-de-presa/2025/11/schema_pro_infra.pdf',
+      },
+      {
+        label: 'Anunțul consultării publice',
+        url: 'https://oportunitati-ue.gov.ro/consultare-publica-privind-schema-de-ajutor-de-stat-pentru-promovarea-productiei-de-materii-prime-materiale-si-produse-pentru-sustinerea-implementarii-proiectelor-de-infrastructura-de-transport/',
+      },
+    ],
   },
 ];
 
