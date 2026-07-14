@@ -149,6 +149,69 @@ export const fundingPrograms: FundingProgram[] = [
       },
     ],
   },
+  {
+    id: 'pr-bi-transformare-digitala-imm',
+    title: 'Digitalizare avansată IMM',
+    officialName: 'Programul Regional București-Ilfov 2021-2027, Prioritatea 1, Acțiunea 1.7 – Sprijin pentru transformarea digitală avansată a IMM.',
+    category: 'Program regional · Digitalizare',
+    status: 'Urmează',
+    description: 'Granturi de minimis pentru adoptarea tehnologiilor digitale avansate, automatizarea proceselor și implementarea soluțiilor de securitate cibernetică în IMM-urile din București-Ilfov.',
+    image: 'images/programs/pr-bi-digitalizare-imm.jpg',
+    imageAlt: 'Companie modernă din București-Ilfov care utilizează automatizare, analiză de date, inteligență artificială și soluții de securitate cibernetică',
+    funding: '25.000–200.000 euro',
+    cofinancing: 'Minimum 10%',
+    deadline: 'Consultare estimată în iulie 2026 și lansare estimată la 01.09.2026, conform calendarului orientativ ADR București-Ilfov',
+    keyFacts: [
+      ['Bugetul apelului', '25 mil. euro'],
+      ['Grant nerambursabil', '25.000–200.000 euro'],
+      ['Contribuție proprie', 'minimum 10%'],
+      ['Plafon de minimis', '300.000 euro / 3 ani'],
+    ],
+    eligibility: [
+      'Pot aplica microîntreprinderi, întreprinderi mici și întreprinderi mijlocii, inclusiv societăți cooperative, care se încadrează în categoria IMM împreună cu întreprinderile partenere și legate.',
+      'Solicitantul trebuie să aibă sediul social în regiunea București-Ilfov, iar locația de implementare, urbană sau rurală, trebuie să fie în aceeași regiune cel târziu la momentul primei plăți.',
+      'Este necesar minimum un an fiscal integral de activitate, fără suspendarea activității în anul depunerii și în anul fiscal anterior.',
+      'Investiția trebuie să vizeze un singur cod CAEN eligibil, înscris în obiectul de activitate și autorizat la locația proiectului cel târziu la acordarea ajutorului.',
+      'Solicitantul trebuie să dețină un drept valabil asupra locației pe întreaga perioadă de implementare și durabilitate și să nu fie în insolvență, faliment sau dificultate.',
+    ],
+    process: [
+      'Realizarea auditului de maturitate digitală și pregătirea planului de digitalizare, cu descrierea situației inițiale, a nevoilor și a soluției digitale propuse.',
+      'Configurarea proiectului și a bugetului; investițiile digitale de bază trebuie să reprezinte minimum 50% din bugetul eligibil.',
+      'Depunerea cererii în MySMIS înainte de demararea procedurilor de achiziție, cu excepțiile prevăzute pentru documentația proiectului.',
+      'Evaluarea tehnică și financiară, cu maximum 100 de puncte; proiectele sunt finanțate în ordinea descrescătoare a punctajelor.',
+      'Contractarea, implementarea în maximum 24 de luni și efectuarea auditului IT final care confirmă funcționarea soluției digitale.',
+    ],
+    eligibleCosts: [
+      'Active corporale și necorporale pentru soluții TIC, ERP, CRM, RPA, IoT, inteligență artificială, aplicații web, automatizarea producției și digitalizarea proceselor interne.',
+      'Servicii pentru implementarea securității cibernetice la nivelul rețelelor, dispozitivelor, aplicațiilor și sistemelor, pe durata proiectului.',
+      'Alte investiții directe necesare transformării digitale avansate, justificate prin auditul de maturitate digitală.',
+      'Servicii pentru cererea de finanțare, planul de digitalizare și auditul de maturitate digitală.',
+      'Costuri indirecte pentru management, audit IT, expertiză contabilă și comunicare, stabilite prin rata forfetară de 7% din costurile directe.',
+      'TVA-ul nedeductibil aferent cheltuielilor eligibile poate fi eligibil, în condițiile legislației aplicabile.',
+    ],
+    obligations: [
+      'Asigurarea unei contribuții proprii de minimum 10% din cheltuielile eligibile și acoperirea integrală a cheltuielilor neeligibile.',
+      'Menținerea investiției, activității și activelor finanțate în regiunea București-Ilfov timp de trei ani de la plata finală.',
+      'Evitarea dublei finanțări: proiectul nu poate primi simultan alte fonduri publice pentru aceleași cheltuieli și nu trebuie să fi beneficiat de finanțare publică pentru același tip de activități în ultimii trei ani.',
+      'Respectarea plafonului cumulat de minimis de 300.000 euro pentru întreprinderea unică, calculat continuu pe o perioadă de trei ani.',
+      'Respectarea cerințelor DNSH, de accesibilitate și de economie circulară, inclusiv trasabilitatea deșeurilor electrice și electronice rezultate din înlocuirea echipamentelor.',
+      'Păstrarea evidențelor privind ajutorul primit pentru minimum zece ani și respectarea obligațiilor de comunicare și vizibilitate.',
+    ],
+    sources: [
+      {
+        label: 'Calendarul oficial al apelurilor ADRBI',
+        url: 'https://regiobucuresti-ilfov.ro/calendar-apeluri',
+      },
+      {
+        label: 'Criteriile de selecție aprobate (.pdf)',
+        url: 'https://www.adrbi.ro/media/4122/anexa_decizia28_criteriiselectie_17_transformaredigitalaavansataimm.pdf',
+      },
+      {
+        label: 'Grila de evaluare tehnică și financiară (.pdf)',
+        url: 'https://prod-inafaceri-uploads.s3.eu-central-1.amazonaws.com/documente/2024/1a2cf5d3-f12a-4daa-bf2e-48405833f4ce/grila-etf-17.pdf',
+      },
+    ],
+  },
 ];
 
 export const fundingStatusStyles: Record<FundingStatus, string> = {
