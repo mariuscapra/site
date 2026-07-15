@@ -120,6 +120,154 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <p class="mt-3 text-base font-bold leading-7 text-[#684508]">{program.deadline}. Calendarul și situația fiecărui solicitant trebuie verificate în platforma și comunicările oficiale.</p>
         </div>
 
+        {program.id === 'dr-12-consolidare-exploatatii' && (
+          <section data-dr12-calculator class="grain relative mt-8 overflow-hidden rounded-[2rem] bg-[#073d2c] text-white shadow-[0_30px_80px_rgba(7,61,44,0.22)]">
+            <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full border-[70px] border-[#a7d46f]/10"></div>
+            <div class="relative border-b border-white/10 p-7 sm:p-10">
+              <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-[#a7d46f] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-[#073d2c]">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#073d2c]"></span>
+                    Instrument interactiv
+                  </span>
+                  <h2 class="display-font mt-5 text-5xl leading-none sm:text-6xl">Verificator rapid DR-12</h2>
+                  <p class="mt-5 max-w-2xl text-sm leading-7 text-white/68">Completează profilul fermei și valoarea investiției. Primești instant o estimare a intensității, grantului și contribuției proprii.</p>
+                </div>
+                <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-white/58">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-none stroke-[#a7d46f]" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M12 8v4m0 4h.01" /></svg>
+                  Estimare orientativă pe baza ghidului consultativ
+                </div>
+              </div>
+            </div>
+
+            <div class="relative grid lg:grid-cols-[1.08fr_0.92fr]">
+              <div class="border-b border-white/10 p-7 sm:p-10 lg:border-b-0 lg:border-r">
+                <fieldset>
+                  <legend class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#cfe8a8]">1. Profilul solicitantului</legend>
+                  <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                    <label class="cursor-pointer">
+                      <input class="peer sr-only" type="radio" name="dr12-profile" value="young" checked />
+                      <span class="flex h-full min-h-24 flex-col rounded-2xl border border-white/12 bg-white/5 p-4 transition peer-checked:border-[#a7d46f] peer-checked:bg-[#a7d46f]/12">
+                        <strong class="text-sm text-white">Tânăr fermier</strong>
+                        <span class="mt-1 text-xs leading-5 text-white/55">Până la 40 de ani inclusiv</span>
+                        <span class="mt-auto pt-3 text-[10px] font-black uppercase tracking-[0.12em] text-[#a7d46f]">max. 80%</span>
+                      </span>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input class="peer sr-only" type="radio" name="dr12-profile" value="sm61" />
+                      <span class="flex h-full min-h-24 flex-col rounded-2xl border border-white/12 bg-white/5 p-4 transition peer-checked:border-[#a7d46f] peer-checked:bg-[#a7d46f]/12">
+                        <strong class="text-sm text-white">Beneficiar sM 6.1</strong>
+                        <span class="mt-1 text-xs leading-5 text-white/55">Planul de afaceri finalizat</span>
+                        <span class="mt-auto pt-3 text-[10px] font-black uppercase tracking-[0.12em] text-[#a7d46f]">max. 65%</span>
+                      </span>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input class="peer sr-only" type="radio" name="dr12-profile" value="installed45" />
+                      <span class="flex h-full min-h-24 flex-col rounded-2xl border border-white/12 bg-white/5 p-4 transition peer-checked:border-[#a7d46f] peer-checked:bg-[#a7d46f]/12">
+                        <strong class="text-sm text-white">Fermier instalat</strong>
+                        <span class="mt-1 text-xs leading-5 text-white/55">Între 41 și 45 de ani inclusiv</span>
+                        <span class="mt-auto pt-3 text-[10px] font-black uppercase tracking-[0.12em] text-[#a7d46f]">max. 65%</span>
+                      </span>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input class="peer sr-only" type="radio" name="dr12-profile" value="other" />
+                      <span class="flex h-full min-h-24 flex-col rounded-2xl border border-white/12 bg-white/5 p-4 transition peer-checked:border-[#e8a96a] peer-checked:bg-[#e8a96a]/10">
+                        <strong class="text-sm text-white">Alt profil</strong>
+                        <span class="mt-1 text-xs leading-5 text-white/55">Peste 45 ani, fără sM 6.1</span>
+                        <span class="mt-auto pt-3 text-[10px] font-black uppercase tracking-[0.12em] text-[#e8a96a]">de verificat</span>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="mt-8 grid gap-6 sm:grid-cols-2">
+                  <label class="block">
+                    <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#cfe8a8]">2. Dimensiunea fermei</span>
+                    <span class="mt-3 flex items-center rounded-2xl border border-white/12 bg-white/7 px-4 focus-within:border-[#a7d46f]">
+                      <input data-dr12-so type="number" min="0" step="500" value="12000" class="min-w-0 flex-1 bg-transparent py-4 text-lg font-extrabold text-white outline-none" />
+                      <span class="text-xs font-bold text-white/45">euro SO</span>
+                    </span>
+                    <span class="mt-2 block text-[11px] text-white/42">Prag orientativ: minimum 12.000 SO</span>
+                  </label>
+                  <label class="block">
+                    <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#cfe8a8]">3. Buget eligibil estimat</span>
+                    <span class="mt-3 flex items-center rounded-2xl border border-white/12 bg-white/7 px-4 focus-within:border-[#a7d46f]">
+                      <input data-dr12-budget type="number" min="1000" max="1000000" step="5000" value="250000" class="min-w-0 flex-1 bg-transparent py-4 text-lg font-extrabold text-white outline-none" />
+                      <span class="text-xs font-bold text-white/45">euro</span>
+                    </span>
+                    <input data-dr12-budget-range aria-label="Buget eligibil estimat" type="range" min="25000" max="500000" step="5000" value="250000" class="mt-3 w-full accent-[#a7d46f]" />
+                  </label>
+                </div>
+
+                <fieldset class="mt-8">
+                  <legend class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#cfe8a8]">4. Bifează ce este deja pregătit</legend>
+                  <div class="mt-4 grid gap-3 sm:grid-cols-3">
+                    <label class="flex h-full cursor-pointer items-start gap-3 rounded-2xl border border-white/12 bg-white/5 p-4 transition hover:border-[#a7d46f]/45">
+                      <input data-dr12-check="legal" class="mt-0.5 h-5 w-5 shrink-0 accent-[#a7d46f]" type="checkbox" checked />
+                      <span><strong class="block text-xs text-white">Formă juridică</strong><span class="mt-1 block text-[11px] leading-4 text-white/45">PFA / II / IF / SRL</span></span>
+                    </label>
+                    <label class="flex h-full cursor-pointer items-start gap-3 rounded-2xl border border-white/12 bg-white/5 p-4 transition hover:border-[#a7d46f]/45">
+                      <input data-dr12-check="registry" class="mt-0.5 h-5 w-5 shrink-0 accent-[#a7d46f]" type="checkbox" checked />
+                      <span><strong class="block text-xs text-white">Înregistrări fermă</strong><span class="mt-1 block text-[11px] leading-4 text-white/45">APIA / ANSVSA / ANZ</span></span>
+                    </label>
+                    <label class="flex h-full cursor-pointer items-start gap-3 rounded-2xl border border-white/12 bg-white/5 p-4 transition hover:border-[#a7d46f]/45">
+                      <input data-dr12-check="skills" class="mt-0.5 h-5 w-5 shrink-0 accent-[#a7d46f]" type="checkbox" checked />
+                      <span><strong class="block text-xs text-white">Competențe</strong><span class="mt-1 block text-[11px] leading-4 text-white/45">Pregătire profesională</span></span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <aside class="bg-[#062f22]/72 p-7 sm:p-10">
+                <div class="flex items-center justify-between gap-5">
+                  <div>
+                    <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#a7d46f]">Rezultat preliminar</span>
+                    <strong data-dr12-status class="mt-2 block text-2xl text-white">Profil bine conturat</strong>
+                  </div>
+                  <div data-dr12-progress class="grid h-20 w-20 shrink-0 place-items-center rounded-full p-[7px]" style="background: conic-gradient(#a7d46f 100%, rgba(255,255,255,.12) 0)">
+                    <div class="grid h-full w-full place-items-center rounded-full bg-[#062f22] text-sm font-black text-white"><span data-dr12-score>100%</span></div>
+                  </div>
+                </div>
+
+                <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                  <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+                    <span class="text-[9px] font-black uppercase tracking-[0.12em] text-white/42">Intensitate</span>
+                    <strong data-dr12-intensity class="mt-2 block text-2xl text-[#a7d46f]">80%</strong>
+                  </div>
+                  <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+                    <span class="text-[9px] font-black uppercase tracking-[0.12em] text-white/42">Grant estimat</span>
+                    <strong data-dr12-grant class="mt-2 block text-2xl text-[#a7d46f]">200.000 €</strong>
+                  </div>
+                  <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+                    <span class="text-[9px] font-black uppercase tracking-[0.12em] text-white/42">Contribuție minimă</span>
+                    <strong data-dr12-private class="mt-2 block text-2xl text-white">50.000 €</strong>
+                  </div>
+                </div>
+
+                <div class="mt-7 rounded-2xl border border-[#a7d46f]/20 bg-[#a7d46f]/8 p-5">
+                  <p data-dr12-message class="text-sm font-semibold leading-6 text-[#eaf5db]">Datele introduse indică o posibilă încadrare. Următorul pas este calcularea punctajului și verificarea documentelor.</p>
+                </div>
+
+                <div class="mt-7">
+                  <div role="tablist" aria-label="Pregătirea proiectului DR-12" class="grid grid-cols-3 gap-1 rounded-xl bg-white/7 p-1">
+                    <button data-dr12-tab="eligibility" type="button" role="tab" aria-selected="true" class="rounded-lg px-2 py-2.5 text-[10px] font-black uppercase tracking-[0.08em] text-white/55 transition aria-selected:bg-[#a7d46f] aria-selected:text-[#073d2c]">Eligibilitate</button>
+                    <button data-dr12-tab="score" type="button" role="tab" aria-selected="false" class="rounded-lg px-2 py-2.5 text-[10px] font-black uppercase tracking-[0.08em] text-white/55 transition aria-selected:bg-[#a7d46f] aria-selected:text-[#073d2c]">Punctaj</button>
+                    <button data-dr12-tab="documents" type="button" role="tab" aria-selected="false" class="rounded-lg px-2 py-2.5 text-[10px] font-black uppercase tracking-[0.08em] text-white/55 transition aria-selected:bg-[#a7d46f] aria-selected:text-[#073d2c]">Documente</button>
+                  </div>
+                  <div data-dr12-panel="eligibility" role="tabpanel" class="mt-4 text-xs leading-6 text-white/60">Verifică vârsta și instalarea, forma juridică, dimensiunea SO, calitatea de șef al exploatației și înregistrarea completă a fermei.</div>
+                  <div data-dr12-panel="score" role="tabpanel" class="mt-4 hidden text-xs leading-6 text-white/60">Prima etapă pornește la 75 de puncte, iar pragul minim este 45. Contează calificarea, asocierea, proprietatea, agricultura de precizie și managementul riscului.</div>
+                  <div data-dr12-panel="documents" role="tabpanel" class="mt-4 hidden text-xs leading-6 text-white/60">Pregătește cererea AFIR, studiul de fezabilitate, documentele exploatației, drepturile asupra imobilelor, ofertele, avizele și dovada cofinanțării.</div>
+                </div>
+
+                <a href={`${base}/#contact`} class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#a7d46f] px-6 py-4 text-sm font-extrabold text-[#073d2c] transition hover:-translate-y-0.5 hover:bg-[#cfe8a8]">
+                  Cere analiza completă DR-12
+                  <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+                </a>
+              </aside>
+            </div>
+          </section>
+        )}
+
         {program.eligibleCaen && program.eligibleCaen.length > 0 && (
           <section class="mt-8 rounded-[1.75rem] border border-[#17352b]/10 bg-white p-7 sm:p-9">
             <div class="max-w-3xl">
@@ -172,4 +320,84 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <a href={`${base}/`} class="font-bold text-[#0b6b49] hover:text-[#073d2c]">Înapoi la pagina principală</a>
     </div>
   </footer>
+
+  <script is:inline>
+    (() => {
+      const calculator = document.querySelector('[data-dr12-calculator]');
+      if (!calculator) return;
+
+      const profileInputs = [...calculator.querySelectorAll('input[name="dr12-profile"]')];
+      const soInput = calculator.querySelector('[data-dr12-so]');
+      const budgetInput = calculator.querySelector('[data-dr12-budget]');
+      const budgetRange = calculator.querySelector('[data-dr12-budget-range]');
+      const checks = [...calculator.querySelectorAll('[data-dr12-check]')];
+      const formatEuro = new Intl.NumberFormat('ro-RO', { maximumFractionDigits: 0 });
+
+      const readChecked = (name) => calculator.querySelector(`[data-dr12-check="${name}"]`)?.checked ?? false;
+      const setText = (selector, value) => {
+        const element = calculator.querySelector(selector);
+        if (element) element.textContent = value;
+      };
+
+      const update = () => {
+        const profile = profileInputs.find((input) => input.checked)?.value ?? 'other';
+        const so = Math.max(0, Number(soInput?.value) || 0);
+        const budget = Math.max(0, Number(budgetInput?.value) || 0);
+        const profileEligible = profile !== 'other';
+        const legal = readChecked('legal');
+        const registry = readChecked('registry');
+        const skills = readChecked('skills');
+        const soEligible = so >= 12000;
+        const conditions = [profileEligible, soEligible, legal, registry, skills];
+        const readiness = Math.round((conditions.filter(Boolean).length / conditions.length) * 100);
+        const intensity = profileEligible ? (profile === 'young' && skills ? 0.8 : 0.65) : 0;
+        const grant = Math.min(budget * intensity, 200000);
+        const privateContribution = Math.max(0, budget - grant);
+
+        setText('[data-dr12-score]', `${readiness}%`);
+        setText('[data-dr12-intensity]', intensity ? `${Math.round(intensity * 100)}%` : '—');
+        setText('[data-dr12-grant]', intensity ? `${formatEuro.format(grant)} €` : '—');
+        setText('[data-dr12-private]', intensity ? `${formatEuro.format(privateContribution)} €` : '—');
+
+        const progress = calculator.querySelector('[data-dr12-progress]');
+        if (progress) progress.style.background = `conic-gradient(${readiness === 100 ? '#a7d46f' : '#e8a96a'} ${readiness}%, rgba(255,255,255,.12) 0)`;
+
+        let status = 'Profil bine conturat';
+        let message = 'Datele introduse indică o posibilă încadrare. Următorul pas este calcularea punctajului și verificarea documentelor.';
+        if (!profileEligible) {
+          status = 'Profilul necesită clarificare';
+          message = 'Categoria selectată nu se regăsește direct între beneficiarii prevăzuți de ghidul consultativ. Verifică istoricul instalării și o eventuală finanțare sM 6.1.';
+        } else if (!soEligible) {
+          status = 'Dimensiune SO sub prag';
+          message = 'Exploatația introdusă este sub pragul orientativ de 12.000 SO. Dimensiunea economică trebuie recalculată pe baza culturilor și efectivelor declarate.';
+        } else if (!legal || !registry || !skills) {
+          status = 'Mai sunt pași de pregătit';
+          message = 'Profilul de bază poate fi potrivit, dar elementele nebifate trebuie clarificate înainte de depunere. Verificarea completă poate schimba rezultatul.';
+        }
+        setText('[data-dr12-status]', status);
+        setText('[data-dr12-message]', message);
+      };
+
+      budgetRange?.addEventListener('input', () => {
+        budgetInput.value = budgetRange.value;
+        update();
+      });
+      budgetInput?.addEventListener('input', () => {
+        const value = Math.min(500000, Math.max(25000, Number(budgetInput.value) || 25000));
+        budgetRange.value = String(value);
+        update();
+      });
+      [...profileInputs, soInput, ...checks].filter(Boolean).forEach((input) => input.addEventListener('input', update));
+
+      const tabs = [...calculator.querySelectorAll('[data-dr12-tab]')];
+      const panels = [...calculator.querySelectorAll('[data-dr12-panel]')];
+      tabs.forEach((tab) => tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-dr12-tab');
+        tabs.forEach((item) => item.setAttribute('aria-selected', String(item === tab)));
+        panels.forEach((panel) => panel.classList.toggle('hidden', panel.getAttribute('data-dr12-panel') !== target));
+      }));
+
+      update();
+    })();
+  </script>
 </Layout>

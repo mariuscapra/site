@@ -276,6 +276,74 @@ export const fundingPrograms: FundingProgram[] = [
       },
     ],
   },
+  {
+    id: 'dr-12-consolidare-exploatatii',
+    title: 'DR-12 · Consolidarea exploatațiilor',
+    officialName: 'Intervenția DR-12 – Investiții în consolidarea exploatațiilor tinerilor fermieri instalați și a fermierilor cu vârsta de maximum 45 de ani, PS PAC 2023–2027.',
+    category: 'AFIR · Investiții agricole',
+    status: 'Urmează',
+    description: 'Sprijin pentru ferme mai competitive prin construcții, utilaje, procesare la nivelul fermei, agricultură de precizie, energie regenerabilă și soluții pentru reducerea impactului asupra mediului.',
+    image: 'images/programs/dr-12-consolidare-exploatatii.jpg',
+    imageAlt: 'Fermă românească modernă cu utilaje, spații protejate, zootehnie, agricultură de precizie și energie regenerabilă',
+    funding: 'Până la 200.000 euro',
+    cofinancing: 'Minimum 20% sau 35%',
+    deadline: 'Lansare estimată în perioada august–septembrie 2026; AFIR nu a publicat încă anunțul oficial și intervalul exact de depunere',
+    keyFacts: [
+      ['Grant nerambursabil', 'max. 200.000 euro'],
+      ['Intensitate', 'maximum 80% / 65%'],
+      ['Dimensiune fermă', 'minimum 12.000 SO'],
+      ['Prag de calitate', '75 p. / 45 p.'],
+    ],
+    eligibility: [
+      'Pot aplica tinerii fermieri care au cel mult 40 de ani, înainte de împlinirea vârstei de 41 de ani, sunt șefi ai exploatației și dețin competențele profesionale solicitate.',
+      'Sunt eligibili și fermierii care au finalizat planul de afaceri finanțat prin submăsura 6.1, indiferent de vârsta actuală, precum și fermierii instalați care au cel mult 45 de ani, înainte de împlinirea vârstei de 46 de ani.',
+      'Solicitantul trebuie să fie organizat ca PFA, întreprindere individuală, întreprindere familială sau SRL; persoana fizică neautorizată nu este eligibilă.',
+      'Exploatația trebuie să aibă minimum 12.000 euro SO, să fie înregistrată pe forma solicitantului și să aibă cod de exploatație și cel puțin o cerere unică de plată IACS/APIA depusă.',
+      'Solicitantul trebuie să figureze, după caz, în bazele APIA, ANSVSA/DSVSA și ANZ înainte de depunere, iar toate suprafețele și animalele exploatației trebuie declarate corect.',
+    ],
+    process: [
+      'Verificarea profilului solicitantului, a formei juridice, a vârstei, competențelor profesionale, dimensiunii SO și înregistrărilor exploatației.',
+      'Alegerea componentei – sector zootehnic sau alte sectoare – și realizarea unui prescoring realist. Ghidul consultativ prevede două etape lunare, cu praguri de 75 și 45 de puncte.',
+      'Definirea investiției, a devizului și a fluxului tehnologic, obținerea drepturilor asupra terenurilor/clădirilor și pregătirea studiului de fezabilitate și a avizelor.',
+      'Depunerea online pe platforma AFIR, după publicarea ghidului final și a notei de lansare, utilizând semnătură electronică calificată.',
+      'Contractarea, dovada cofinanțării, achizițiile și implementarea proiectului în maximum trei ani, urmate de perioada de monitorizare.',
+    ],
+    eligibleCosts: [
+      'Construcții noi, extinderi și modernizări, inclusiv spații protejate, utilități, facilități pentru condiționarea și depozitarea producției proprii.',
+      'Utilaje agricole, remorci și semiremorci tehnologice, echipamente performante, automatizări și dotări pentru gestionarea îngrășămintelor și produselor de protecție a plantelor.',
+      'Unități de procesare la nivelul fermei și dotările aferente, numai ca o componentă secundară a proiectului, pentru creșterea valorii produselor agricole.',
+      'Sisteme și echipamente de irigații la nivelul fermei, ca o componentă secundară și cu respectarea condițiilor specifice privind utilizarea și economia de apă.',
+      'Soluții integrate de agricultură de precizie: senzori, drone, FMIS, IoT, telemetrie, roboți, GPS integrat, aplicare variabilă a inputurilor și sisteme automate de monitorizare.',
+      'Producerea și stocarea energiei regenerabile pentru consumul propriu al fermei, fără introducerea energiei în Sistemul Energetic Național și fără calitatea de prosumator.',
+      'Software, patente, licențe, sisteme de management al calității, marketingul produselor obținute – în limita a 5% – și costuri generale/consultanță în limitele ghidului.',
+    ],
+    obligations: [
+      'Asigurarea contribuției private de minimum 20% pentru intensitatea de 80% sau de minimum 35% pentru intensitatea de 65%, plus acoperirea cheltuielilor neeligibile.',
+      'Prezentarea dovezii cofinanțării la contractare prin extras de cont și/sau contract de credit, în condițiile stabilite de AFIR.',
+      'Implementarea investiției în maximum trei ani și menținerea acesteia, a activității și a condițiilor contractuale pe perioada de monitorizare de cinci ani.',
+      'Menținerea drepturilor de folosință asupra terenurilor și clădirilor pe durata implementării și monitorizării și păstrarea suprafețelor deținute în proprietate dacă au adus punctaj.',
+      'Evitarea dublei finanțări și a creării de condiții artificiale; aceeași cheltuială nu poate fi solicitată prin alte intervenții sau scheme de sprijin.',
+      'Sprijinul funcționează în principal prin rambursarea cheltuielilor eligibile plătite; beneficiarul poate solicita un avans de până la 50% din contribuția publică, în condițiile ghidului.',
+    ],
+    sources: [
+      {
+        label: 'Ghidul solicitantului DR-12 – versiune consultativă (.pdf)',
+        url: 'https://www.afir.ro/api/file?filename=Ghidul+Solicitantului+DR+12+-+versiunea+consultativ%C4%83&filetype=pdf&url=%2Fmedia%2Flm3fg4k1%2Fghidul-solicitantului-dr-12.pdf',
+      },
+      {
+        label: 'Comunicatul oficial AFIR despre DR-12',
+        url: 'https://www.afir.ro/comunicate/consultare-publica-pentru-consolidarea-exploatatiilor-tinerilor-fermieri/',
+      },
+      {
+        label: 'Pașii de aplicare – material orientativ',
+        url: 'https://fermierinformat.ro/pasii-pentru-aplicarea-cu-succes-la-masura-dr-12/',
+      },
+      {
+        label: 'Sesiuni de proiecte AFIR',
+        url: 'https://www.afir.ro/instrumente/sesiuni/sesiuni-primire-proiecte/',
+      },
+    ],
+  },
 ];
 
 export const fundingStatusStyles: Record<FundingStatus, string> = {
