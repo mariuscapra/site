@@ -212,6 +212,70 @@ export const fundingPrograms: FundingProgram[] = [
       },
     ],
   },
+  {
+    id: 'pr-ne-modernizare-microintreprinderi',
+    title: 'Modernizare microîntreprinderi Nord-Est',
+    officialName: 'Programul Regional Nord-Est 2021-2027, Prioritatea 1, Obiectiv specific RSO 1.3 – Investiții pentru modernizarea microîntreprinderilor, apelul 2.',
+    category: 'Program regional · Investiții productive',
+    status: 'Urmează',
+    description: 'Finanțare pentru modernizarea și diversificarea microîntreprinderilor prin construcții, echipamente, tehnologii noi, energie regenerabilă, digitalizare, marketing și branding.',
+    image: 'images/programs/pr-ne-modernizare-microintreprinderi.jpg',
+    imageAlt: 'Microîntreprindere modernizată din regiunea Nord-Est, cu echipamente tehnologice, automatizare, energie regenerabilă și dezvoltare comercială',
+    funding: '100.000–300.000 euro',
+    cofinancing: 'Minimum 10%',
+    deadline: 'Consultarea publică s-a încheiat la 13.03.2026; lansarea este estimată pentru septembrie 2026, iar data exactă rămâne de confirmat prin ghidul final ADR Nord-Est',
+    keyFacts: [
+      ['Bugetul apelului', '20,37 mil. euro'],
+      ['Grant nerambursabil', '100.000–300.000 euro'],
+      ['Finanțare maximă', '90% din costurile eligibile'],
+      ['Prag minim', '70 puncte'],
+    ],
+    eligibility: [
+      'Pot aplica societăți comerciale care se încadrează în categoria microîntreprinderilor și îndeplinesc toate condițiile prevăzute de ghidul final.',
+      'Sediul social și locația de implementare trebuie să fie în regiunea Nord-Est, în mediul urban sau rural, într-unul dintre județele Bacău, Botoșani, Iași, Neamț, Suceava și Vaslui.',
+      'Solicitantul trebuie să fi desfășurat activitate pentru cel puțin un an fiscal integral și să fi înregistrat profit din exploatare mai mare de zero în anul fiscal anterior depunerii.',
+      'Investiția trebuie să vizeze o activitate eligibilă și să fie realizată la o locație adecvată, asupra căreia solicitantul deține drepturile solicitate prin ghid.',
+      'Proiectul trebuie să prevadă crearea a cel puțin unui loc de muncă după semnarea contractului de finanțare.',
+    ],
+    process: [
+      'Verificarea încadrării ca microîntreprindere, a sediului și locației, a profitului din exploatare, a codului CAEN și a capacității de cofinanțare.',
+      'Definirea investiției și pregătirea planului de afaceri, a bugetului, ofertelor și, dacă este cazul, a documentației tehnice pentru lucrări.',
+      'Depunerea cererii după publicarea ghidului final, fără demararea lucrărilor sau plasarea unei comenzi ferme pentru bunurile incluse în proiect înainte de depunere.',
+      'Evaluarea competitivă; proiectul trebuie să obțină minimum 70 de puncte, iar finanțarea se acordă în ordinea descrescătoare a punctajului, în limita bugetului.',
+      'Contractarea, realizarea achizițiilor, implementarea investiției, cererile de rambursare și monitorizarea indicatorilor asumați.',
+    ],
+    eligibleCosts: [
+      'Construirea, extinderea sau modernizarea spațiilor de producție și prestări servicii, inclusiv utilitățile generale și lucrările conexe eligibile.',
+      'Echipamente tehnologice, utilaje, instalații de lucru, mobilier, echipamente informatice și alte dotări încadrate ca mijloace fixe.',
+      'Sisteme pentru producerea energiei din surse regenerabile sau alternative, precum panouri fotovoltaice, sisteme solare termice și pompe de căldură.',
+      'Active necorporale: brevete, licențe, mărci comerciale, programe informatice și alte drepturi sau active similare.',
+      'Servicii de marketing și branding, inclusiv evaluarea pieței, dezvoltarea produselor, promovarea vânzărilor, social media, strategie și identitate de brand.',
+      'Activități pentru creșterea intensității digitale și valorificarea produselor sau serviciilor întreprinderii.',
+      'Costuri indirecte pentru consultanță, management, audit financiar, achiziții, proiectare, avize, asistență tehnică și comunicare, printr-o rată forfetară de maximum 7% din costurile directe eligibile.',
+    ],
+    obligations: [
+      'Asigurarea unei contribuții proprii de minimum 10% din cheltuielile eligibile și suportarea integrală a cheltuielilor neeligibile.',
+      'Crearea a cel puțin unui loc de muncă după semnarea contractului și menținerea indicatorilor de ocupare asumați în condițiile ghidului final.',
+      'Investiția nu poate fi demarată înainte de depunerea cererii: nu se începe execuția lucrărilor și nu se lansează comenzi ferme care fac proiectul ireversibil.',
+      'Menținerea investiției, activității și activelor finanțate pe întreaga perioadă de durabilitate stabilită prin contractul de finanțare.',
+      'Respectarea regulilor de achiziții, a cerințelor de mediu și DNSH, a obligațiilor de comunicare și vizibilitate și a condițiilor de evitare a dublei finanțări.',
+      'Echipamentele second-hand, autovehiculele și mijloacele de transport sunt neeligibile, cu excepțiile expres prevăzute pentru utilaje și instalații de transportat și ridicat.',
+    ],
+    sources: [
+      {
+        label: 'Pagina oficială a apelului 2',
+        url: 'https://regionordest.ro/prioritatea-1/modernizare-microintreprinderi/',
+      },
+      {
+        label: 'Ghid și anexe în consultare (.zip)',
+        url: 'https://regionordest.ro/wp-content/uploads/2026/01/Ghidul-Solicitantului-de-finantare-Investitii-microintreprinderi_Apel-2_in_consultare_30_01_2026.zip',
+      },
+      {
+        label: 'Calendarul orientativ ADR Nord-Est',
+        url: 'https://regionordest.ro/calendar-orientativ-lansari-apeluri-proiecte/',
+      },
+    ],
+  },
 ];
 
 export const fundingStatusStyles: Record<FundingStatus, string> = {
