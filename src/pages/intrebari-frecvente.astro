@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    category: 'Colaborare',
+    question: 'Cu ce tipuri de beneficiari lucrezi?',
+    answer: 'Colaborez cu IMM-uri, antreprenori, ONG-uri și organizații care pregătesc investiții sau implementează proiecte finanțate. Primul pas este o discuție scurtă pentru a verifica dacă experiența și serviciile mele se potrivesc situației tale.',
+  },
+  {
+    category: 'Finanțare',
+    question: 'Poți garanta obținerea finanțării?',
+    answer: 'Nu. Nicio consultanță serioasă nu poate garanta aprobarea, deoarece decizia aparține autorității finanțatoare și depinde de eligibilitate, punctaj, bugetul disponibil și concurență. Pot evalua realist șansele, construi o documentație coerentă și reduce riscurile evitabile.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Te ocupi și de implementare și achiziții?',
+    answer: 'Da. Colaborarea poate continua după contractare cu planificarea achizițiilor, pregătirea documentațiilor, selecția furnizorilor, monitorizarea bugetului, cereri de plată sau rambursare și obligațiile din perioada de durabilitate.',
+  },
+  {
+    category: 'Mediu',
+    question: 'Când este necesar un audit de mediu?',
+    answer: 'Auditul este util pentru verificarea conformării legale, pregătirea unei investiții, îndeplinirea cerințelor unui finanțator sau identificarea riscurilor și oportunităților de îmbunătățire a performanței de mediu.',
+  },
+  {
+    category: 'Finanțare',
+    question: 'Cum aflu dacă firma sau ideea mea este eligibilă?',
+    answer: 'Analiza începe cu forma juridică, vechimea, dimensiunea întreprinderii, locația, codul CAEN, situația financiară, investiția propusă și criteriile de punctaj. O potrivire generală cu descrierea programului nu este suficientă; toate condițiile trebuie verificate cumulativ în ghidul aplicabil.',
+  },
+  {
+    category: 'Finanțare',
+    question: 'Poate aplica și o firmă nou-înființată?',
+    answer: 'Depinde de program. Unele apeluri sunt concepute pentru start-up-uri, iar altele solicită unul sau mai mulți ani fiscali încheiați, profit din exploatare ori o anumită capacitate financiară. Verificarea se face pentru fiecare apel în parte.',
+  },
+  {
+    category: 'Finanțare',
+    question: 'Am nevoie de cofinanțare proprie?',
+    answer: 'În majoritatea programelor de investiții, da. Pe lângă procentul de cofinanțare trebuie luate în calcul cheltuielile neeligibile, TVA-ul atunci când nu este eligibil și resursele necesare până la rambursarea sumelor. Capacitatea de cash-flow este la fel de importantă ca eligibilitatea.',
+  },
+  {
+    category: 'Colaborare',
+    question: 'Cât costă serviciile de consultanță?',
+    answer: 'Costul se stabilește după analiza proiectului și depinde de complexitate, valoarea investiției și serviciile solicitate: eligibilitate, scriere, depunere, achiziții sau implementare. Oferta, etapele, livrabilele și condițiile de plată sunt stabilite transparent înainte de începerea colaborării.',
+  },
+  {
+    category: 'Colaborare',
+    question: 'Cât durează pregătirea unui proiect?',
+    answer: 'Durata diferă de la câteva săptămâni la câteva luni, în funcție de complexitate, documentele existente, necesitatea avizelor, proiectarea tehnică și timpul de răspuns al furnizorilor sau instituțiilor. Recomand începerea pregătirii înainte de deschiderea oficială a apelului.',
+  },
+  {
+    category: 'Finanțare',
+    question: 'Ce documente sunt necesare la început?',
+    answer: 'De regulă sunt utile actele societății, situațiile financiare, certificatele fiscale, informațiile despre codul CAEN și locație, documentele asupra imobilului, ofertele pentru investiție și autorizațiile existente. Lista finală diferă de la un program la altul.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Pot începe lucrările sau cumpăra echipamente înainte de depunere?',
+    answer: 'Nu fără verificarea regulilor apelului. În multe programe, începerea lucrărilor sau lansarea unei comenzi ferme înainte de momentul permis poate face investiția neeligibilă. Nu semna contracte și nu plăti avansuri pentru investiție înainte de o analiză clară a efectului stimulativ și a datei de eligibilitate.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Finanțarea se primește integral în avans?',
+    answer: 'De cele mai multe ori proiectele funcționează prin rambursarea cheltuielilor eligibile deja efectuate și plătite. Unele programe permit un avans sau mecanisme de plată, dar acestea pot necesita garanții și respectarea unor condiții speciale.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Cum se fac achizițiile într-un proiect finanțat?',
+    answer: 'Achizițiile trebuie realizate conform procedurii aplicabile beneficiarului și programului: specificații nediscriminatorii, publicitate sau solicitarea ofertelor, justificarea selecției, evitarea conflictelor de interese și păstrarea unei piste complete de audit. O achiziție greșită poate conduce la corecții financiare.',
+  },
+  {
+    category: 'Finanțare',
+    question: 'Ce se întâmplă dacă ghidul se modifică înainte de lansare?',
+    answer: 'Documentele aflate în consultare pot fi schimbate. Pregătirea preliminară ajută, dar eligibilitatea, punctajul și bugetul trebuie reverificate după publicarea ghidului final și a anexelor oficiale. Varianta finală și eventualele corrigendumuri prevalează.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Ce obligații rămân după finalizarea investiției?',
+    answer: 'Beneficiarul trebuie, de regulă, să mențină investiția, activitatea, locația, activele și indicatorii asumați pe perioada de durabilitate. Se păstrează documentele, se respectă cerințele de vizibilitate și se răspunde verificărilor autorității finanțatoare.',
+  },
+  {
+    category: 'Mediu',
+    question: 'Auditul de mediu poate fi contractat separat de proiectul de finanțare?',
+    answer: 'Da. Auditul poate fi realizat ca serviciu distinct pentru conformarea activității curente, pregătirea unui control, organizarea evidențelor și fluxurilor de deșeuri sau stabilirea unui plan de îmbunătățire a performanței de mediu.',
+  },
+];
+
+const categories = ['Toate', 'Finanțare', 'Colaborare', 'Implementare', 'Mediu'];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentYear = new Date().getFullYear();
+---
+
+<Layout
+  title="Întrebări frecvente | Marius Capră"
+  description="Răspunsuri clare despre fonduri nerambursabile, eligibilitate, consultanță, cofinanțare, achiziții, implementare și audit de mediu."
+>
+  <header class="sticky top-0 z-50 border-b border-[#17352b]/10 bg-[#fbfaf5]/94 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-5 px-5 sm:px-8">
+      <a href={`${base}/`} class="flex items-center gap-3" aria-label="Înapoi la pagina principală">
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
+        <span class="leading-none">
+          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#073d2c]">CAPRĂ</strong>
+          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0b6b49]">Fonduri & Mediu</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Navigare întrebări frecvente">
+        <a href={`${base}/#lista-programe`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Programe</a>
+        <a href={`${base}/audit-de-mediu/`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Audit de mediu</a>
+        <a href={`${base}/#despre`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Despre</a>
+        <a href={`${base}/#parteneri`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Parteneri</a>
+      </nav>
+
+      <a href={`${base}/#contact`} class="inline-flex items-center gap-2 rounded-full bg-[#0b6b49] px-4 py-3 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#073d2c] sm:px-5 sm:text-sm">
+        Pune o întrebare
+        <svg aria-hidden="true" viewBox="0 0 20 20" class="hidden h-4 w-4 fill-none stroke-current sm:block" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="paper-grid relative overflow-hidden pb-16 pt-20 sm:pb-24 sm:pt-28">
+      <div class="absolute -left-24 top-8 h-80 w-80 rounded-full bg-[#dff1df] blur-3xl"></div>
+      <div class="absolute right-0 top-0 h-48 w-48 rounded-bl-full bg-[#a7d46f]/35"></div>
+      <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-24">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Întrebări frecvente</p>
+            <h1 class="display-font mt-5 max-w-4xl text-[clamp(3.8rem,8vw,7rem)] leading-[0.89] text-[#073d2c]">Clar de la <span class="italic text-[#0b6b49]">început.</span></h1>
+          </div>
+          <div>
+            <p class="text-lg leading-8 text-[#17352b]/68">Răspunsuri directe despre finanțare, colaborare, implementare și mediu. Folosește căutarea sau filtrează întrebările după subiect.</p>
+            <div class="mt-6 flex items-center gap-3 text-sm font-bold text-[#0b6b49]">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-[#dff1df]">{faqs.length}</span>
+              răspunsuri practice
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-24 sm:pb-32">
+      <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div class="soft-shadow sticky top-24 z-30 rounded-[1.5rem] border border-[#17352b]/10 bg-white/95 p-4 backdrop-blur-xl sm:p-5">
+          <div class="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <label class="flex items-center gap-3 rounded-xl border border-[#17352b]/12 bg-[#f7f4e9] px-4 focus-within:border-[#0b6b49]">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-none stroke-[#0b6b49]" stroke-width="1.8"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+              <input data-faq-search type="search" class="min-w-0 flex-1 bg-transparent py-3.5 text-sm outline-none" placeholder="Caută: cofinanțare, achiziții, audit..." />
+            </label>
+            <div class="flex gap-2 overflow-x-auto pb-1 lg:justify-end">
+              {categories.map((category, index) => (
+                <button
+                  data-faq-filter={category}
+                  type="button"
+                  aria-pressed={index === 0 ? 'true' : 'false'}
+                  class="shrink-0 rounded-full border border-[#17352b]/12 px-4 py-2.5 text-xs font-extrabold text-[#17352b]/65 transition aria-pressed:border-[#0b6b49] aria-pressed:bg-[#0b6b49] aria-pressed:text-white"
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-8 lg:grid-cols-[0.32fr_0.68fr] lg:gap-16">
+          <aside>
+            <div class="sticky top-52 rounded-[1.75rem] bg-[#073d2c] p-7 text-white sm:p-8">
+              <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#a7d46f]">Rezultate afișate</p>
+              <strong data-faq-count class="display-font mt-3 block text-6xl">{faqs.length}</strong>
+              <p class="mt-4 text-sm leading-7 text-white/60">Nu ai găsit răspunsul potrivit? Trimite situația ta și o clarificăm într-o discuție inițială.</p>
+              <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[#a7d46f] px-5 py-3.5 text-sm font-extrabold text-[#073d2c] transition hover:bg-[#cfe8a8]">Contactează-mă</a>
+            </div>
+          </aside>
+
+          <div data-faq-list class="border-t border-[#17352b]/14">
+            {faqs.map((faq) => (
+              <details data-faq-item data-category={faq.category} data-search={`${faq.question} ${faq.answer}`} class="group border-b border-[#17352b]/14">
+                <summary class="flex cursor-pointer list-none items-start justify-between gap-5 py-6 sm:py-7 [&::-webkit-details-marker]:hidden">
+                  <span>
+                    <span class="text-[9px] font-black uppercase tracking-[0.16em] text-[#0b6b49]">{faq.category}</span>
+                    <strong class="mt-2 block text-base leading-7 text-[#073d2c] sm:text-lg">{faq.question}</strong>
+                  </span>
+                  <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#dff1df] text-xl font-normal text-[#0b6b49] transition group-open:rotate-45">+</span>
+                </summary>
+                <p class="max-w-3xl pb-8 pr-8 text-sm leading-7 text-[#17352b]/66 sm:text-base sm:leading-8">{faq.answer}</p>
+              </details>
+            ))}
+            <div data-faq-empty class="hidden rounded-[1.75rem] bg-[#fff8e8] p-8 text-center">
+              <strong class="text-[#684508]">Nu am găsit o întrebare care să corespundă căutării.</strong>
+              <p class="mt-2 text-sm text-[#684508]/70">Încearcă un termen mai scurt sau selectează categoria „Toate”.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#17352b]/10 px-5 py-9 sm:px-8">
+    <div class="mx-auto flex max-w-[1240px] flex-col gap-5 text-xs text-[#17352b]/55 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><strong class="tracking-[0.14em] text-[#073d2c]">CAPRĂ · FONDURI & MEDIU</strong></div>
+      <span>© {currentYear} Marius Capră. Toate drepturile rezervate.</span>
+      <a href={`${base}/`} class="font-bold text-[#0b6b49] hover:text-[#073d2c]">Înapoi la pagina principală</a>
+    </div>
+  </footer>
+
+  <script is:inline>
+    (() => {
+      const searchInput = document.querySelector('[data-faq-search]');
+      const filters = [...document.querySelectorAll('[data-faq-filter]')];
+      const items = [...document.querySelectorAll('[data-faq-item]')];
+      const count = document.querySelector('[data-faq-count]');
+      const empty = document.querySelector('[data-faq-empty]');
+      let activeCategory = 'Toate';
+
+      const normalize = (value) => value
+        .toLocaleLowerCase('ro-RO')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+
+      const update = () => {
+        const query = normalize(searchInput?.value ?? '').trim();
+        let visible = 0;
+
+        items.forEach((item) => {
+          const categoryMatches = activeCategory === 'Toate' || item.dataset.category === activeCategory;
+          const searchMatches = !query || normalize(item.dataset.search ?? '').includes(query);
+          const show = categoryMatches && searchMatches;
+          item.classList.toggle('hidden', !show);
+          if (show) visible += 1;
+        });
+
+        if (count) count.textContent = String(visible);
+        empty?.classList.toggle('hidden', visible !== 0);
+      };
+
+      filters.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeCategory = button.dataset.faqFilter ?? 'Toate';
+          filters.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+          update();
+        });
+      });
+
+      searchInput?.addEventListener('input', update);
+      update();
+    })();
+  </script>
+</Layout>

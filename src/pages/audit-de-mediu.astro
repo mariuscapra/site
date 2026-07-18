@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const auditSteps = [
+  ['01', 'Documentare', 'Analiză preliminară a activității, proceselor, autorizațiilor și obligațiilor aplicabile.'],
+  ['02', 'Evaluare', 'Verificare la fața locului, trasabilitate și identificarea neconformităților și riscurilor.'],
+  ['03', 'Raport', 'Constatări argumentate, priorități și recomandări clare, ușor de urmărit.'],
+  ['04', 'Plan de acțiune', 'Măsuri corective, responsabilități, documente necesare și termene realiste.'],
+];
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentYear = new Date().getFullYear();
+---
+
+<Layout
+  title="Audit de mediu | Marius Capră"
+  description="Audit de mediu pentru conformare legală, gestionarea deșeurilor, cerințe de finanțare și un plan de acțiune clar."
+>
+  <header class="sticky top-0 z-50 border-b border-[#17352b]/10 bg-[#fbfaf5]/94 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-5 px-5 sm:px-8">
+      <a href={`${base}/`} class="flex items-center gap-3" aria-label="Înapoi la pagina principală">
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
+        <span class="leading-none">
+          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#073d2c]">CAPRĂ</strong>
+          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0b6b49]">Fonduri & Mediu</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Navigare audit de mediu">
+        <a href={`${base}/#lista-programe`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Programe</a>
+        <a href={`${base}/#despre`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Despre</a>
+        <a href={`${base}/#parteneri`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Parteneri</a>
+        <a href={`${base}/intrebari-frecvente/`} class="text-sm font-semibold text-[#17352b]/70 transition hover:text-[#0b6b49]">Întrebări</a>
+      </nav>
+
+      <a href="#contact-audit" class="inline-flex items-center gap-2 rounded-full bg-[#0b6b49] px-4 py-3 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#073d2c] sm:px-5 sm:text-sm">
+        Solicită un audit
+        <svg aria-hidden="true" viewBox="0 0 20 20" class="hidden h-4 w-4 fill-none stroke-current sm:block" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="grain relative overflow-hidden bg-[#073d2c] py-20 text-white sm:py-28">
+      <div class="absolute -right-36 -top-40 h-[32rem] w-[32rem] rounded-full border-[88px] border-[#a7d46f]/10"></div>
+      <div class="absolute -bottom-52 -left-40 h-[30rem] w-[30rem] rounded-full bg-[#0b6b49]/55"></div>
+      <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-24">
+          <div>
+            <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#cfe8a8]">
+              <span class="h-2 w-2 rounded-full bg-[#a7d46f] ring-4 ring-[#a7d46f]/15"></span>
+              Serviciu specializat
+            </div>
+            <h1 class="display-font mt-7 max-w-4xl text-[clamp(3.7rem,8vw,7.4rem)] leading-[0.88]">Audit de <span class="italic text-[#a7d46f]">mediu.</span></h1>
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">Conformitatea devine un avantaj, nu o frână. Evaluez obiectiv obligațiile, procesele și documentele, apoi le transform într-un plan de acțiune clar.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/12 bg-white/7 p-7 backdrop-blur-sm sm:p-9">
+            <span class="grid h-14 w-14 place-items-center rounded-2xl bg-[#a7d46f] text-[#073d2c]">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-7 w-7 fill-none stroke-current" stroke-width="1.7"><path d="M7 3h10v4H7zM5 5H3v16h18V5h-2M8 12l2.5 2.5L16 9" /></svg>
+            </span>
+            <p class="mt-6 text-xs font-extrabold uppercase tracking-[0.16em] text-[#a7d46f]">Calificare profesională</p>
+            <h2 class="mt-3 text-2xl font-extrabold">Auditor de mediu calificat ANC</h2>
+            <p class="mt-4 text-sm leading-7 text-white/60">Analiză aplicată pentru conformarea activității curente, pregătirea unei investiții și respectarea angajamentelor asumate prin proiecte finanțate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative -mt-8 pb-24 sm:-mt-10 sm:pb-32">
+      <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div class="soft-shadow grid overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-white md:grid-cols-3">
+          <article class="p-7 sm:p-9 md:border-r md:border-[#17352b]/10">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-[#dff1df] text-[#0b6b49]"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-none stroke-current" stroke-width="1.7"><path d="M7 3h10v4H7zM5 5H3v16h18V5h-2M8 12l2.5 2.5L16 9" /></svg></span>
+            <h2 class="mt-7 text-xl font-extrabold text-[#073d2c]">Conformare legală</h2>
+            <p class="mt-3 text-sm leading-7 text-[#17352b]/63">Verificarea autorizațiilor, obligațiilor, evidențelor și modului în care cerințele sunt aplicate în activitatea curentă.</p>
+          </article>
+          <article class="border-y border-[#17352b]/10 p-7 sm:p-9 md:border-y-0 md:border-r">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-[#dff1df] text-[#0b6b49]"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-none stroke-current" stroke-width="1.7"><path d="M12 21a9 9 0 1 0-9-9c0 2 .7 3.8 1.8 5.3M12 21c-1.7-4.4-.9-8.1 2.3-11.1 1.4-1.3 3-2.2 4.7-2.7M12 21c1.6-2.8 3.8-4.4 6.6-4.8" /></svg></span>
+            <h2 class="mt-7 text-xl font-extrabold text-[#073d2c]">Deșeuri & circularitate</h2>
+            <p class="mt-3 text-sm leading-7 text-[#17352b]/63">Trasabilitate, colectare selectivă, reducere, reutilizare și măsuri pentru o gestionare mai eficientă a resurselor.</p>
+          </article>
+          <article class="p-7 sm:p-9">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-[#dff1df] text-[#0b6b49]"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-none stroke-current" stroke-width="1.7"><path d="M12 3v18M5 7h14M7 7c0 4-4 6-4 6h8S7 11 7 7Zm10 0c0 4-4 6-4 6h8s-4-2-4-6Z" /></svg></span>
+            <h2 class="mt-7 text-xl font-extrabold text-[#073d2c]">Cerințe de finanțare</h2>
+            <p class="mt-3 text-sm leading-7 text-[#17352b]/63">Verificarea angajamentelor de mediu asumate prin proiect și prevenirea riscurilor de neeligibilitate sau corecție.</p>
+          </article>
+        </div>
+
+        <section class="mt-20">
+          <div class="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div>
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Proces transparent</p>
+              <h2 class="display-font mt-4 text-5xl leading-none text-[#073d2c] sm:text-6xl">De la verificare la măsuri concrete.</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-8 text-[#17352b]/64 lg:ml-auto">Fiecare etapă produce un rezultat clar. La final știi ce este conform, ce trebuie corectat, cine răspunde și în ce termen.</p>
+          </div>
+          <div class="mt-10 grid overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-[#f7f4e9] sm:grid-cols-2 lg:grid-cols-4">
+            {auditSteps.map(([number, title, text], index) => (
+              <article class:list={['min-h-64 p-7 sm:p-8', index < 3 && 'lg:border-r lg:border-[#17352b]/10', index % 2 === 0 && 'sm:border-r sm:border-[#17352b]/10 lg:border-r', index < 2 && 'sm:border-b sm:border-[#17352b]/10 lg:border-b-0']}>
+                <span class="text-sm font-black tracking-[0.16em] text-[#0b6b49]">{number}</span>
+                <h3 class="mt-9 text-xl font-extrabold text-[#073d2c]">{title}</h3>
+                <p class="mt-3 text-sm leading-7 text-[#17352b]/60">{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="mt-20 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <div class="rounded-[2rem] bg-[#dff1df] p-7 sm:p-10">
+            <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#0b6b49]">Ce primești</p>
+            <h2 class="display-font mt-4 text-4xl text-[#073d2c] sm:text-5xl">Un rezultat pe care îl poți folosi.</h2>
+            <ul class="mt-8 grid gap-4 text-sm leading-7 text-[#17352b]/70">
+              <li class="flex gap-3"><span class="font-black text-[#0b6b49]">✓</span><span>Inventarul cerințelor și documentelor aplicabile activității.</span></li>
+              <li class="flex gap-3"><span class="font-black text-[#0b6b49]">✓</span><span>Lista neconformităților și evaluarea riscurilor identificate.</span></li>
+              <li class="flex gap-3"><span class="font-black text-[#0b6b49]">✓</span><span>Recomandări prioritizate și plan de măsuri corective.</span></li>
+              <li class="flex gap-3"><span class="font-black text-[#0b6b49]">✓</span><span>Suport pentru clarificarea și urmărirea acțiunilor propuse.</span></li>
+            </ul>
+          </div>
+          <div class="grain rounded-[2rem] bg-[#0b6b49] p-7 text-white sm:p-10">
+            <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#cfe8a8]">Experiență aplicată</p>
+            <div class="mt-7 grid gap-4">
+              <article class="rounded-2xl border border-white/14 bg-white/7 p-6">
+                <h3 class="font-extrabold">Activitate de producție</h3>
+                <p class="mt-2 text-sm leading-7 text-white/62">Sistem de colectare selectivă, trasabilitate și organizarea fluxului de deșeuri.</p>
+              </article>
+              <article class="rounded-2xl border border-white/14 bg-white/7 p-6">
+                <h3 class="font-extrabold">Sectorul ospitalității</h3>
+                <p class="mt-2 text-sm leading-7 text-white/62">Conformare, sustenabilitate și pregătirea cerințelor de mediu pentru investiție.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact-audit" class="grain relative mt-20 overflow-hidden rounded-[2.25rem] bg-[#073d2c] p-8 text-white sm:p-12 lg:p-16">
+          <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full border-[50px] border-[#a7d46f]/12"></div>
+          <div class="relative flex flex-col gap-9 lg:flex-row lg:items-center lg:justify-between">
+            <div class="max-w-2xl">
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a7d46f]">Primul pas</p>
+              <h2 class="display-font mt-4 text-5xl leading-none sm:text-6xl">Clarificăm situația actuală.</h2>
+              <p class="mt-5 text-base leading-8 text-white/65">Într-o discuție inițială stabilim activitatea, locația, documentele existente și obiectivul auditului.</p>
+            </div>
+            <div class="grid shrink-0 gap-3">
+              <a href="tel:+40765066463" class="inline-flex items-center justify-center gap-3 rounded-full bg-[#a7d46f] px-7 py-4 font-extrabold text-[#073d2c] transition hover:-translate-y-1 hover:bg-[#cfe8a8]">
+                Sună: 0765 066 463
+              </a>
+              <a href="mailto:mariuscapra.mc@gmail.com?subject=Solicitare%20audit%20de%20mediu" class="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 font-bold text-white transition hover:border-[#a7d46f] hover:text-[#a7d46f]">Trimite un e-mail</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#17352b]/10 px-5 py-9 sm:px-8">
+    <div class="mx-auto flex max-w-[1240px] flex-col gap-5 text-xs text-[#17352b]/55 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><strong class="tracking-[0.14em] text-[#073d2c]">CAPRĂ · FONDURI & MEDIU</strong></div>
+      <span>© {currentYear} Marius Capră. Toate drepturile rezervate.</span>
+      <a href={`${base}/`} class="font-bold text-[#0b6b49] hover:text-[#073d2c]">Înapoi la pagina principală</a>
+    </div>
+  </footer>
+</Layout>
