@@ -18,11 +18,50 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
   overflow-x: hidden;
-  background: var(--paper);
+  position: relative;
+  isolation: isolate;
+  background: #f4f8f0;
   color: var(--ink);
   font-family: "Aptos", "Inter", "Segoe UI", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+.site-backdrop {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 9% 8%, rgba(167, 212, 111, 0.42) 0, rgba(167, 212, 111, 0.16) 18rem, transparent 34rem),
+    radial-gradient(circle at 92% 15%, rgba(11, 107, 73, 0.2) 0, rgba(11, 107, 73, 0.08) 20rem, transparent 39rem),
+    radial-gradient(circle at 78% 78%, rgba(207, 232, 168, 0.38) 0, transparent 31rem),
+    radial-gradient(circle at 12% 92%, rgba(11, 107, 73, 0.12) 0, transparent 27rem),
+    linear-gradient(135deg, #fbfcf7 0%, #f1f7ee 48%, #f8f7ec 100%);
+}
+
+.site-backdrop::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0.44;
+  background-image: radial-gradient(rgba(7, 61, 44, 0.18) 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, black, transparent 44%, black 78%, transparent);
+}
+
+.site-backdrop::after {
+  position: absolute;
+  inset: -12%;
+  content: "";
+  opacity: 0.5;
+  background:
+    radial-gradient(ellipse 46% 29% at 9% 26%, transparent 66%, rgba(11, 107, 73, 0.13) 67%, transparent 68%),
+    radial-gradient(ellipse 42% 34% at 91% 28%, transparent 65%, rgba(167, 212, 111, 0.28) 66%, transparent 67%),
+    radial-gradient(ellipse 55% 35% at 62% 92%, transparent 66%, rgba(11, 107, 73, 0.1) 67%, transparent 68%);
+  transform: rotate(-4deg);
 }
 
 ::selection {
@@ -46,10 +85,20 @@ summary {
 }
 
 .paper-grid {
-  background-image:
-    linear-gradient(rgba(11, 107, 73, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(11, 107, 73, 0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background:
+    linear-gradient(118deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.18) 48%, rgba(239, 247, 234, 0.62)),
+    radial-gradient(circle at 21% 15%, rgba(167, 212, 111, 0.2), transparent 28rem),
+    radial-gradient(circle at 86% 73%, rgba(11, 107, 73, 0.09), transparent 32rem);
+}
+
+.ambient-section {
+  background:
+    linear-gradient(125deg, rgba(247, 244, 233, 0.9), rgba(239, 247, 234, 0.82)),
+    radial-gradient(circle at 84% 12%, rgba(167, 212, 111, 0.22), transparent 28rem);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(7, 61, 44, 0.04);
+  backdrop-filter: blur(18px);
 }
 
 .grain {
@@ -145,5 +194,18 @@ details[open] .faq-plus {
     transform: none;
     filter: none;
     transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-backdrop {
+    background:
+      radial-gradient(circle at 0% 7%, rgba(167, 212, 111, 0.38) 0, transparent 22rem),
+      radial-gradient(circle at 100% 40%, rgba(11, 107, 73, 0.15) 0, transparent 25rem),
+      linear-gradient(145deg, #fbfcf7, #eff6ec 56%, #f8f7ed);
+  }
+
+  .site-backdrop::before {
+    opacity: 0.3;
   }
 }
