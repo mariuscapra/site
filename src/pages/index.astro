@@ -3,13 +3,72 @@ import Layout from '../layouts/Layout.astro';
 import { fundingPrograms, fundingStatusStyles } from '../data/fundingPrograms';
 
 const fundingSteps = [
-  ['01', 'Diagnostic', 'Clarificăm ideea, profilul solicitantului și investiția vizată.'],
-  ['02', 'Eligibilitate', 'Verificăm criteriile, punctajul estimat, riscurile și fezabilitatea.'],
-  ['03', 'Strategie', 'Alegem programul și construim logica proiectului, bugetul și calendarul.'],
-  ['04', 'Scriere & depunere', 'Pregătim documentația, cererea și răspunsurile la clarificări.'],
-  ['05', 'Contractare', 'Te însoțesc în relația cu finanțatorul și în pregătirea implementării.'],
-  ['06', 'Implementare', 'Achiziții, monitorizare, rambursare și suport post-implementare.'],
+  {
+    number: '01',
+    title: 'Diagnostic',
+    text: 'Clarificăm ideea, profilul solicitantului, investiția și obiectivul real al proiectului.',
+    result: 'Decizie argumentată: continuăm, ajustăm sau alegem o alternativă.',
+  },
+  {
+    number: '02',
+    title: 'Eligibilitate',
+    text: 'Verificăm toate condițiile, punctajul, capacitatea financiară, riscurile și restricțiile.',
+    result: 'Fișă de eligibilitate și listă clară cu aspectele care trebuie rezolvate.',
+  },
+  {
+    number: '03',
+    title: 'Strategie',
+    text: 'Alegem programul și construim logica proiectului, bugetul, calendarul și indicatorii.',
+    result: 'Plan de proiect coerent, dimensionat realist și orientat spre punctaj.',
+  },
+  {
+    number: '04',
+    title: 'Scriere & depunere',
+    text: 'Pregătim cererea, anexele, justificările și răspunsurile la eventualele clarificări.',
+    result: 'Dosar complet, verificat și depus în condițiile apelului.',
+  },
+  {
+    number: '05',
+    title: 'Contractare',
+    text: 'Te însoțesc în relația cu finanțatorul și în pregătirea documentelor pentru contract.',
+    result: 'Contract înțeles, obligații planificate și calendar de implementare.',
+  },
+  {
+    number: '06',
+    title: 'Implementare',
+    text: 'Planificăm achizițiile, monitorizăm bugetul și pregătim cererile de plată sau rambursare.',
+    result: 'Investiție controlată, documentată și pregătită pentru verificări.',
+  },
 ];
+
+const servicePaths = [
+  {
+    number: '01',
+    label: 'Caut o oportunitate',
+    title: 'Găsește finanțarea potrivită',
+    text: 'Explorează programele pregătite în format clar și verifică rapid cui se adresează.',
+    action: 'Vezi programele',
+    href: '#lista-programe',
+  },
+  {
+    number: '02',
+    label: 'Am o idee de investiție',
+    title: 'Verifică eligibilitatea proiectului',
+    text: 'Pornim de la profil, investiție și buget pentru a vedea dacă merită continuată pregătirea.',
+    action: 'Cum colaborăm',
+    href: '#proces',
+  },
+  {
+    number: '03',
+    label: 'Am nevoie de conformare',
+    title: 'Audit și obligații de mediu',
+    text: 'Transformă cerințele, documentele și riscurile într-un plan de acțiune ușor de urmărit.',
+    action: 'Descoperă auditul',
+    href: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/audit-de-mediu/`,
+  },
+];
+
+const fundingStatuses = ['Toate', ...new Set(fundingPrograms.map((program) => program.status))];
 
 const expertisePillars = [
   {
@@ -89,191 +148,263 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-[#17352b]/10 bg-[#fbfaf5]/92 backdrop-blur-xl">
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-[#17352b]/10 bg-[#fbfaf5]/90 backdrop-blur-xl transition-shadow duration-300">
     <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between px-5 sm:px-8">
       <a href="#top" class="flex items-center gap-3" aria-label="Marius Capră - Acasă">
-        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11 transition duration-300 hover:rotate-3 hover:scale-105" width="44" height="44" />
         <span class="leading-none">
           <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#073d2c]">CAPRĂ</strong>
           <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0b6b49]">Fonduri & Mediu</span>
         </span>
       </a>
 
-      <nav class="hidden items-center gap-6 lg:flex" aria-label="Navigare principală">
-        <a data-funding-link class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#lista-programe">Programe</a>
-        <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
-        <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#despre">Despre</a>
-        <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href="#parteneri">Parteneri</a>
-        <a class="text-sm font-semibold text-[#17352b]/75 transition hover:text-[#0b6b49]" href={`${base}/intrebari-frecvente/`}>Întrebări</a>
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigare principală">
+        <a data-nav-link data-nav-target="fonduri" data-funding-link class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#17352b]/72 transition hover:bg-[#dff1df] hover:text-[#0b6b49]" href="#lista-programe">Programe</a>
+        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#17352b]/72 transition hover:bg-[#dff1df] hover:text-[#0b6b49]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
+        <a data-nav-link data-nav-target="despre" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#17352b]/72 transition hover:bg-[#dff1df] hover:text-[#0b6b49]" href="#despre">Expertiză</a>
+        <a data-nav-link data-nav-target="parteneri" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#17352b]/72 transition hover:bg-[#dff1df] hover:text-[#0b6b49]" href="#parteneri">Parteneri</a>
+        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#17352b]/72 transition hover:bg-[#dff1df] hover:text-[#0b6b49]" href={`${base}/intrebari-frecvente/`}>Întrebări</a>
       </nav>
 
       <div class="hidden lg:block">
-        <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-[#0b6b49] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#073d2c]">
-          Hai să discutăm
-          <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+        <a href="#contact" class="group inline-flex items-center gap-2 rounded-full bg-[#0b6b49] px-5 py-3 text-sm font-extrabold text-white shadow-[0_10px_25px_rgba(11,107,73,0.2)] transition hover:-translate-y-0.5 hover:bg-[#073d2c]">
+          Verifică proiectul
+          <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
         </a>
       </div>
 
-      <button id="menu-button" class="grid h-11 w-11 place-items-center rounded-full border border-[#17352b]/15 text-[#073d2c] lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Deschide meniul">
-        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      <button id="menu-button" class="grid h-11 w-11 place-items-center rounded-full border border-[#17352b]/15 bg-white/70 text-[#073d2c] transition hover:border-[#0b6b49]/40 hover:bg-[#dff1df] lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Deschide meniul">
+        <svg data-menu-icon aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
       </button>
     </div>
 
-    <div id="mobile-menu" class="hidden border-t border-[#17352b]/10 bg-[#fbfaf5] px-5 py-5 lg:hidden">
+    <div id="mobile-menu" class="hidden border-t border-[#17352b]/10 bg-[#fbfaf5]/98 px-5 py-5 shadow-xl lg:hidden">
       <nav class="mx-auto grid max-w-[1240px] gap-1" aria-label="Navigare mobilă">
         <a data-funding-link class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#lista-programe">Programe de finanțare</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
-        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#despre">Despre mine</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#despre">Expertiză</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href="#parteneri">Parteneri</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#dff1df]" href={`${base}/intrebari-frecvente/`}>Întrebări frecvente</a>
-        <a class="mt-2 rounded-xl bg-[#0b6b49] px-4 py-3 text-center font-bold text-white" href="#contact">Hai să discutăm</a>
+        <a class="mt-2 rounded-xl bg-[#0b6b49] px-4 py-3 text-center font-extrabold text-white" href="#contact">Verifică proiectul</a>
       </nav>
     </div>
+    <div class="absolute inset-x-0 bottom-0 h-[2px] bg-[#17352b]/6"><span id="scroll-progress" class="block h-full w-0 bg-[#a7d46f]"></span></div>
   </header>
 
   <main id="top">
-    <section class="paper-grid relative overflow-hidden pb-16 pt-32 sm:pb-24 sm:pt-40">
-      <div class="absolute -left-24 top-20 h-72 w-72 rounded-full bg-[#dff1df] blur-3xl"></div>
-      <div class="absolute right-0 top-0 h-40 w-40 rounded-bl-full bg-[#a7d46f]/40"></div>
-      <div class="relative mx-auto grid max-w-[1240px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
+    <section data-nav-section="top" class="paper-grid relative overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-40">
+      <div class="hero-orb absolute -left-24 top-20 h-80 w-80 rounded-full bg-[#dff1df] blur-3xl"></div>
+      <div class="absolute right-0 top-0 h-48 w-48 rounded-bl-full bg-[#a7d46f]/35"></div>
+      <div class="absolute bottom-10 left-[44%] h-20 w-20 rounded-full border-[15px] border-[#0b6b49]/6"></div>
+
+      <div class="relative mx-auto grid max-w-[1240px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.06fr_0.94fr] lg:gap-20">
         <div>
-          <div data-reveal class="mb-7 inline-flex items-center gap-3 rounded-full border border-[#0b6b49]/20 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.17em] text-[#0b6b49] shadow-sm">
-            <span class="h-2 w-2 rounded-full bg-[#a7d46f] ring-4 ring-[#a7d46f]/25"></span>
-            Consultanță cu perspectivă completă
+          <div data-reveal class="mb-7 inline-flex items-center gap-3 rounded-full border border-[#0b6b49]/18 bg-white/85 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.17em] text-[#0b6b49] shadow-sm sm:text-xs">
+            <span class="pulse-dot h-2 w-2 rounded-full bg-[#a7d46f] ring-4 ring-[#a7d46f]/25"></span>
+            Consultanță pentru investiții finanțate
           </div>
-          <h1 data-reveal data-reveal-delay="1" class="display-font max-w-[760px] text-[clamp(3.1rem,7vw,6.6rem)] leading-[0.92] text-[#073d2c]">
-            Proiecte <span class="italic text-[#0b6b49]">finanțabile.</span><br />Impact sustenabil.
+          <h1 data-reveal data-reveal-delay="1" class="display-font max-w-[800px] text-[clamp(3.3rem,7.4vw,7rem)] leading-[0.88] text-[#073d2c]">
+            Transformă investiția într-un proiect <span class="italic text-[#0b6b49]">finanțabil.</span>
           </h1>
-          <p data-reveal data-reveal-delay="2" class="mt-8 max-w-2xl text-lg leading-8 text-[#17352b]/72 sm:text-xl">
-            Sunt <strong class="font-bold text-[#17352b]">Marius Capră</strong>. Transform ideile de investiții în proiecte bine argumentate și ajut organizațiile să rămână conforme — de la prima analiză până la implementare.
+          <p data-reveal data-reveal-delay="2" class="mt-8 max-w-2xl text-lg leading-8 text-[#17352b]/70 sm:text-xl">
+            Sunt <strong class="font-extrabold text-[#17352b]">Marius Capră</strong>. Te ajut să alegi programul potrivit, să pregătești proiectul și să controlezi implementarea — cu decizii clare, buget realist și atenție la conformitate.
           </p>
           <div data-reveal data-reveal-delay="3" class="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#0b6b49] px-7 py-4 font-extrabold text-white shadow-lg shadow-[#0b6b49]/20 transition hover:-translate-y-1 hover:bg-[#073d2c]">
-              Evaluează ideea ta
-              <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+            <a href="#contact" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[#0b6b49] px-7 py-4 font-extrabold text-white shadow-[0_16px_35px_rgba(11,107,73,0.24)] transition hover:-translate-y-1 hover:bg-[#073d2c]">
+              Verifică eligibilitatea
+              <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
             </a>
-            <a href="#fonduri" class="inline-flex items-center justify-center rounded-full border border-[#17352b]/20 bg-white/70 px-7 py-4 font-bold text-[#17352b] transition hover:border-[#0b6b49] hover:bg-white">Explorează serviciile</a>
+            <a data-funding-link href="#lista-programe" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#17352b]/18 bg-white/80 px-7 py-4 font-bold text-[#17352b] transition hover:-translate-y-1 hover:border-[#0b6b49] hover:bg-white hover:text-[#0b6b49]">
+              Vezi programele
+              <span aria-hidden="true">↓</span>
+            </a>
           </div>
-          <div data-reveal class="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-[#17352b]/65">
-            <span class="flex items-center gap-2"><span class="text-[#0b6b49]">●</span> Programe de finanțare</span>
-            <span class="flex items-center gap-2"><span class="text-[#0b6b49]">●</span> Consultanță & implementare</span>
-            <span class="flex items-center gap-2"><span class="text-[#0b6b49]">●</span> Audit de mediu</span>
+          <div data-reveal class="mt-9 flex flex-wrap gap-3">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-2 text-xs font-bold text-[#17352b]/65"><span class="text-[#0b6b49]">✓</span> Analiză preliminară</span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-2 text-xs font-bold text-[#17352b]/65"><span class="text-[#0b6b49]">✓</span> Strategie completă</span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-2 text-xs font-bold text-[#17352b]/65"><span class="text-[#0b6b49]">✓</span> Suport în implementare</span>
           </div>
         </div>
 
         <div data-reveal data-reveal-delay="2" class="mx-auto w-full max-w-[520px] lg:mx-0 lg:ml-auto">
           <div class="relative">
-            <div class="grain absolute -inset-5 rotate-3 rounded-[2.5rem] bg-[#0b6b49]"></div>
-            <div class="soft-shadow relative overflow-hidden rounded-[2rem] border-[7px] border-white bg-[#dff1df]">
-              <img src={`${base}/images/marius-capra.jpg`} alt="Marius Capră, consultant în fonduri nerambursabile și auditor de mediu" class="aspect-[4/5] w-full object-cover object-[50%_35%]" width="1500" height="1500" fetchpriority="high" />
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#073d2c]/95 via-[#073d2c]/70 to-transparent px-7 pb-7 pt-28 text-white sm:px-9 sm:pb-9">
-                <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#cfe8a8]">Strategie • Conformitate • Implementare</p>
-                <p class="mt-2 max-w-sm text-lg font-bold leading-snug">Un singur partener pentru întregul parcurs al proiectului.</p>
+            <div class="grain absolute -inset-5 rotate-3 rounded-[2.5rem] bg-[#0b6b49] transition duration-700 hover:rotate-1"></div>
+            <div class="soft-shadow group relative overflow-hidden rounded-[2rem] border-[7px] border-white bg-[#dff1df]">
+              <img src={`${base}/images/marius-capra.jpg`} alt="Marius Capră, consultant în fonduri nerambursabile și auditor de mediu" class="aspect-[4/5] w-full object-cover object-[50%_35%] transition duration-700 group-hover:scale-[1.025]" width="1500" height="1500" fetchpriority="high" />
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#073d2c]/95 via-[#073d2c]/72 to-transparent px-7 pb-7 pt-28 text-white sm:px-9 sm:pb-9">
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#cfe8a8]">Fonduri • Economie • Mediu</p>
+                <p class="mt-2 max-w-sm text-lg font-bold leading-snug">Perspectivă completă pentru decizii mai bune.</p>
               </div>
             </div>
             <div class="absolute -bottom-6 -left-3 rounded-2xl border border-[#17352b]/10 bg-[#fbfaf5] p-4 shadow-xl sm:-left-10 sm:p-5">
-              <div class="flex items-center gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-full bg-[#a7d46f] text-[#073d2c]">
-                  <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="m5 13 4 4L19 7" /></svg>
-                </span>
-                <span><strong class="block text-sm text-[#073d2c]">Abordare integrată</strong><span class="text-xs text-[#17352b]/60">de la idee la rezultate</span></span>
-              </div>
+              <span class="text-[10px] font-black uppercase tracking-[0.15em] text-[#0b6b49]">Experiență</span>
+              <div class="mt-1 flex items-end gap-2"><strong class="display-font text-5xl leading-none text-[#073d2c]">5+</strong><span class="mb-1 text-xs font-bold text-[#17352b]/55">ani în fonduri europene</span></div>
             </div>
+            <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="group absolute -right-2 top-6 grid h-14 w-14 place-items-center rounded-2xl bg-[#0a66c2] text-white shadow-[0_14px_30px_rgba(10,102,194,0.3)] transition hover:-translate-y-1 hover:scale-105 hover:bg-[#084f99] sm:-right-7" aria-label="Vezi profilul LinkedIn al lui Marius Capră">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current"><path d="M6.5 8.3H3V21h3.5V8.3ZM4.75 3A2.05 2.05 0 1 0 4.8 7.1 2.05 2.05 0 0 0 4.75 3ZM21 13.7c0-3.82-2.04-5.6-4.76-5.6-2.2 0-3.18 1.2-3.73 2.05V8.3H9V21h3.51v-6.3c0-1.66.32-3.27 2.38-3.27 2.03 0 2.06 1.9 2.06 3.38V21H21v-7.3Z" /></svg>
+            </a>
           </div>
-          <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="group mt-12 flex w-full items-center gap-4 rounded-2xl bg-[#0a66c2] px-5 py-4 text-white shadow-[0_16px_35px_rgba(10,102,194,0.25)] transition duration-300 hover:-translate-y-1 hover:bg-[#084f99] hover:shadow-[0_20px_42px_rgba(10,102,194,0.34)]" aria-label="Vezi profilul LinkedIn al lui Marius Capră">
-            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-white/14">
-              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-                <path d="M6.5 8.3H3V21h3.5V8.3ZM4.75 3A2.05 2.05 0 1 0 4.8 7.1 2.05 2.05 0 0 0 4.75 3ZM21 13.7c0-3.82-2.04-5.6-4.76-5.6-2.2 0-3.18 1.2-3.73 2.05V8.3H9V21h3.51v-6.3c0-1.66.32-3.27 2.38-3.27 2.03 0 2.06 1.9 2.06 3.38V21H21v-7.3Z" />
-              </svg>
-            </span>
-            <span class="min-w-0 flex-1">
-              <span class="block text-[10px] font-extrabold uppercase tracking-[0.18em] text-white/70">Conectează-te cu mine</span>
-              <strong class="mt-1 block text-sm sm:text-base">Vezi profilul meu pe LinkedIn</strong>
-            </span>
-            <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/12 transition group-hover:translate-x-1 group-hover:bg-white/20">
-              <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
-            </span>
+          <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="mt-11 flex items-center justify-center gap-2 text-sm font-extrabold text-[#0a66c2] transition hover:text-[#084f99]">
+            Vezi experiența mea pe LinkedIn
+            <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="border-y border-[#17352b]/10 bg-white">
-      <div class="mx-auto grid max-w-[1240px] grid-cols-2 px-5 sm:px-8 lg:grid-cols-4">
-        <div class="border-b border-r border-[#17352b]/10 py-7 pr-5 lg:border-b-0">
-          <strong class="block text-lg font-extrabold text-[#073d2c]">Experiență din 2019</strong><span class="mt-1 block text-sm text-[#17352b]/60">în proiecte finanțate</span>
+    <section aria-label="Repere profesionale" class="relative z-10 -mt-6 px-5 sm:-mt-8 sm:px-8">
+      <div class="soft-shadow mx-auto grid max-w-[1240px] overflow-hidden rounded-[1.75rem] border border-[#17352b]/10 bg-white sm:grid-cols-2 lg:grid-cols-4">
+        <div class="border-b border-[#17352b]/10 p-6 sm:border-r lg:border-b-0">
+          <strong class="display-font block text-4xl text-[#0b6b49]">5+ ani</strong><span class="mt-1 block text-xs font-bold text-[#17352b]/55">experiență în fonduri europene</span>
         </div>
-        <div class="border-b border-[#17352b]/10 py-7 pl-5 lg:border-b-0 lg:border-r lg:px-7">
-          <strong class="block text-lg font-extrabold text-[#073d2c]">PNRR • POR • PNS</strong><span class="mt-1 block text-sm text-[#17352b]/60">portofoliu divers</span>
+        <div class="border-b border-[#17352b]/10 p-6 lg:border-b-0 lg:border-r">
+          <strong class="display-font block text-4xl text-[#0b6b49]">{fundingPrograms.length}</strong><span class="mt-1 block text-xs font-bold text-[#17352b]/55">programe sintetizate pe site</span>
         </div>
-        <div class="border-r border-[#17352b]/10 py-7 pr-5 lg:px-7">
-          <strong class="block text-lg font-extrabold text-[#073d2c]">Expert achiziții</strong><span class="mt-1 block text-sm text-[#17352b]/60">calificare ANC</span>
+        <div class="border-b border-[#17352b]/10 p-6 sm:border-b-0 sm:border-r">
+          <strong class="display-font block text-4xl text-[#0b6b49]">2× ANC</strong><span class="mt-1 block text-xs font-bold text-[#17352b]/55">mediu și achiziții publice</span>
         </div>
-        <div class="py-7 pl-5 lg:pl-7">
-          <strong class="block text-lg font-extrabold text-[#073d2c]">Auditor de mediu</strong><span class="mt-1 block text-sm text-[#17352b]/60">calificare ANC</span>
+        <div class="p-6">
+          <strong class="display-font block text-4xl text-[#0b6b49]">360°</strong><span class="mt-1 block text-xs font-bold text-[#17352b]/55">de la idee la implementare</span>
         </div>
       </div>
     </section>
 
-    <section id="fonduri" class="py-24 sm:py-32">
+    <section id="servicii" class="py-20 sm:py-24">
       <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+        <div data-reveal class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Alege punctul de pornire</p>
+            <h2 class="display-font mt-4 text-4xl leading-none text-[#073d2c] sm:text-6xl">Cu ce te pot ajuta acum?</h2>
+          </div>
+          <p class="max-w-xl text-sm leading-7 text-[#17352b]/62">Nu trebuie să cunoști programul sau documentele. Alege situația care seamănă cel mai mult cu nevoia ta.</p>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          {servicePaths.map((service, index) => (
+            <a href={service.href} data-reveal data-reveal-delay={String(index)} class:list={['group relative flex min-h-72 flex-col overflow-hidden rounded-[2rem] border p-7 transition duration-500 hover:-translate-y-2 hover:shadow-[0_26px_60px_rgba(7,61,44,0.16)] sm:p-8', index === 1 ? 'border-[#073d2c] bg-[#073d2c] text-white' : 'border-[#17352b]/10 bg-white text-[#073d2c]']}>
+              <div class:list={['absolute -right-12 -top-12 h-40 w-40 rounded-full border-[28px] transition duration-500 group-hover:scale-110', index === 1 ? 'border-[#a7d46f]/12' : 'border-[#0b6b49]/7']}></div>
+              <span class:list={['relative text-xs font-black tracking-[0.16em]', index === 1 ? 'text-[#a7d46f]' : 'text-[#0b6b49]']}>{service.number}</span>
+              <span class:list={['relative mt-9 text-[10px] font-extrabold uppercase tracking-[0.16em]', index === 1 ? 'text-[#cfe8a8]' : 'text-[#0b6b49]']}>{service.label}</span>
+              <h3 class="relative mt-3 text-2xl font-extrabold leading-tight">{service.title}</h3>
+              <p class:list={['relative mt-4 text-sm leading-7', index === 1 ? 'text-white/62' : 'text-[#17352b]/62']}>{service.text}</p>
+              <span class:list={['relative mt-auto flex items-center gap-2 pt-8 text-sm font-extrabold', index === 1 ? 'text-[#a7d46f]' : 'text-[#0b6b49]']}>
+                {service.action}
+                <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="fonduri" data-nav-section="fonduri" class="relative overflow-hidden border-y border-[#17352b]/10 bg-[#f7f4e9] py-24 sm:py-32">
+      <div class="absolute -right-28 top-16 h-72 w-72 rounded-full border-[50px] border-[#a7d46f]/18"></div>
+      <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div class="relative grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
           <div data-reveal>
-            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">01 — Oportunități de finanțare</p>
-            <h2 class="display-font mt-5 text-5xl leading-[1.02] text-[#073d2c] sm:text-6xl">Programe de finanțare</h2>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Oportunități de finanțare</p>
+            <h2 class="display-font mt-5 text-5xl leading-[0.98] text-[#073d2c] sm:text-7xl">Programe explicate <span class="italic text-[#0b6b49]">clar.</span></h2>
           </div>
           <div data-reveal data-reveal-delay="1" class="flex items-end">
-            <p class="max-w-2xl text-lg leading-8 text-[#17352b]/68">Aici vei găsi programele relevante pentru investiții, prezentate clar și actualizate în funcție de stadiul fiecăruia. Pentru fiecare oportunitate vei putea vedea rapid cui se adresează, termenul și statusul apelului.</p>
+            <p class="max-w-2xl text-lg leading-8 text-[#17352b]/68">Vezi rapid stadiul, valoarea finanțării și domeniul fiecărui program. Fiecare card deschide o sinteză completă, într-o pagină separată.</p>
           </div>
         </div>
 
-        <details id="lista-programe" data-funding-list class="group mt-14" open>
-          <summary data-reveal class="soft-shadow flex cursor-pointer list-none items-center justify-between gap-5 rounded-[1.5rem] border border-[#17352b]/10 bg-white px-6 py-5 transition hover:border-[#0b6b49]/30 sm:px-8 [&::-webkit-details-marker]:hidden">
-            <span>
-              <span class="block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0b6b49]">Lista programelor</span>
-              <strong class="mt-1 block text-lg text-[#073d2c]">{fundingPrograms.length} {fundingPrograms.length === 1 ? 'program disponibil' : 'programe disponibile'}</strong>
-            </span>
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dff1df] text-[#0b6b49] transition duration-300 group-open:rotate-180">
-              <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="m5 7.5 5 5 5-5" /></svg>
-            </span>
-          </summary>
+        <div id="lista-programe" data-funding-list class="relative mt-12 scroll-mt-28">
+          <div data-reveal class="flex flex-col gap-4 rounded-[1.5rem] border border-[#17352b]/10 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-5">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0b6b49]">Filtrează după stadiu</span>
+              <strong class="mt-1 block text-sm text-[#073d2c]"><span data-program-count aria-live="polite">{fundingPrograms.length}</span> programe afișate</strong>
+            </div>
+            <div class="flex gap-2 overflow-x-auto pb-1 sm:justify-end">
+              {fundingStatuses.map((status, index) => (
+                <button
+                  data-program-filter={status}
+                  type="button"
+                  aria-pressed={index === 0 ? 'true' : 'false'}
+                  class="shrink-0 rounded-full border border-[#17352b]/12 px-4 py-2.5 text-xs font-extrabold text-[#17352b]/60 transition hover:border-[#0b6b49]/30 hover:text-[#0b6b49] aria-pressed:border-[#0b6b49] aria-pressed:bg-[#0b6b49] aria-pressed:text-white"
+                >
+                  {status}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {fundingPrograms.map((program, index) => (
-              <article data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow group/card relative aspect-square overflow-hidden rounded-[1.75rem] border border-[#17352b]/10 bg-[#073d2c] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(7,61,44,0.2)]">
-                <img src={`${base}/${program.image}`} alt={program.imageAlt} class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover/card:scale-[1.03]" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-b from-[#021b13]/15 via-transparent to-[#021b13]/72"></div>
-                <div class="relative flex h-full flex-col items-end p-5 sm:p-6">
-                  <span class:list={['rounded-full border px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.1em] shadow-lg', fundingStatusStyles[program.status]]}>
-                    {program.status}
-                  </span>
-                  <div class="mt-auto w-full text-white drop-shadow-lg">
-                    <p class="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#cfe8a8]">{program.category}</p>
-                    <h3 class="display-font mt-2 text-4xl leading-none">{program.title}</h3>
+              <article data-program-card data-status={program.status} data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow group/card relative aspect-square overflow-hidden rounded-[1.75rem] border border-[#17352b]/10 bg-[#073d2c] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_70px_rgba(7,61,44,0.22)]">
+                <img src={`${base}/${program.image}`} alt={program.imageAlt} class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover/card:scale-[1.055]" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-b from-[#021b13]/28 via-[#021b13]/4 to-[#021b13]/94"></div>
+                <div class="relative flex h-full flex-col p-5 sm:p-6">
+                  <div class="flex items-start justify-between gap-3">
+                    <span class="rounded-full border border-white/18 bg-[#073d2c]/78 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-white shadow-lg backdrop-blur-md">{program.funding}</span>
+                    <span class:list={['rounded-full border px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.1em] shadow-lg', fundingStatusStyles[program.status]]}>{program.status}</span>
                   </div>
-                  <a href={`${base}/programe/${program.id}/`} target="_blank" rel="noreferrer" class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#a7d46f] px-5 py-3.5 text-sm font-extrabold text-[#073d2c] shadow-xl transition hover:bg-[#cfe8a8]" aria-label={`Deschide sinteza programului ${program.title} într-o filă nouă`}>
-                    Vezi sinteza programului
-                    <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+                  <div class="mt-auto text-white">
+                    <p class="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#cfe8a8]">{program.category}</p>
+                    <h3 class="display-font mt-2 text-4xl leading-[0.96]">{program.title}</h3>
+                    <p class="mt-3 line-clamp-2 text-xs leading-5 text-white/65">{program.description}</p>
+                  </div>
+                  <a href={`${base}/programe/${program.id}/`} target="_blank" rel="noreferrer" class="group/link mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#a7d46f] px-5 py-3.5 text-sm font-extrabold text-[#073d2c] shadow-xl transition hover:bg-[#cfe8a8]" aria-label={`Deschide sinteza programului ${program.title} într-o filă nouă`}>
+                    Vezi programul
+                    <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover/link:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
                   </a>
                 </div>
               </article>
             ))}
           </div>
-        </details>
-
-        <div class="mt-24">
-          <div data-reveal class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <div><p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Fluxul colaborării</p><h3 class="display-font mt-3 text-4xl text-[#073d2c] sm:text-5xl">De la idee la implementare</h3></div>
-            <p class="max-w-md text-sm leading-6 text-[#17352b]/60">Fiecare etapă are un rezultat clar și o decizie de continuare fundamentată.</p>
+          <div data-program-empty class="mt-6 hidden rounded-[1.75rem] border border-dashed border-[#0b6b49]/25 bg-white p-9 text-center">
+            <strong class="text-[#073d2c]">Nu există programe în această categorie.</strong>
+            <p class="mt-2 text-sm text-[#17352b]/58">Selectează „Toate” pentru a vedea lista completă.</p>
           </div>
-          <div class="mt-10 grid overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-white sm:grid-cols-2 lg:grid-cols-3">
-            {fundingSteps.map(([number, title, text], index) => (
-              <article data-reveal data-reveal-delay={String(index % 3)} class:list={['min-h-56 p-7 sm:p-8', index < 3 && 'lg:border-b lg:border-[#17352b]/10', index % 3 !== 2 && 'lg:border-r lg:border-[#17352b]/10', index % 2 === 0 && 'max-sm:border-b max-sm:border-[#17352b]/10']}>
-                <span class="text-sm font-black tracking-[0.15em] text-[#0b6b49]">{number}</span>
-                <h4 class="mt-8 text-xl font-extrabold text-[#073d2c]">{title}</h4>
-                <p class="mt-3 text-sm leading-6 text-[#17352b]/63">{text}</p>
-              </article>
-            ))}
+        </div>
+
+        <div id="proces" class="mt-24 scroll-mt-28">
+          <div data-reveal class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div><p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Fluxul colaborării</p><h3 class="display-font mt-3 text-4xl text-[#073d2c] sm:text-6xl">Știi mereu ce urmează.</h3></div>
+            <p class="max-w-md text-sm leading-7 text-[#17352b]/60">Selectează o etapă pentru a vedea ce facem și ce rezultat concret obții.</p>
+          </div>
+          <div data-reveal class="mt-10 grid overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-white shadow-[0_24px_65px_rgba(7,61,44,0.11)] lg:grid-cols-[0.44fr_0.56fr]">
+            <div role="tablist" aria-label="Etapele colaborării" class="grid sm:grid-cols-2 lg:grid-cols-1">
+              {fundingSteps.map((step, index) => (
+                <button
+                  data-process-step
+                  data-number={step.number}
+                  data-title={step.title}
+                  data-text={step.text}
+                  data-result={step.result}
+                  type="button"
+                  role="tab"
+                  aria-selected={index === 0 ? 'true' : 'false'}
+                  tabindex={index === 0 ? '0' : '-1'}
+                  class:list={[
+                    'group flex items-center gap-4 border-b border-[#17352b]/10 px-6 py-5 text-left transition last:border-b-0 hover:bg-[#dff1df]/55 aria-selected:bg-[#dff1df] lg:border-r-0 lg:px-8',
+                    index % 2 === 0 && 'sm:border-r sm:border-[#17352b]/10 lg:border-r-0',
+                  ]}
+                >
+                  <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#0b6b49]/18 text-xs font-black text-[#0b6b49] transition group-aria-selected:bg-[#0b6b49] group-aria-selected:text-white">{step.number}</span>
+                  <span>
+                    <strong class="block text-sm text-[#073d2c]">{step.title}</strong>
+                    <span class="mt-1 block text-[10px] font-bold uppercase tracking-[0.1em] text-[#17352b]/40">Vezi etapa</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+            <div aria-live="polite" class="grain relative min-h-[31rem] overflow-hidden bg-[#073d2c] p-8 text-white sm:p-11 lg:p-14">
+              <div class="absolute -right-28 -top-28 h-80 w-80 rounded-full border-[56px] border-[#a7d46f]/10"></div>
+              <div class="relative flex h-full flex-col">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#a7d46f]">Etapa selectată</span>
+                  <strong data-process-number class="display-font text-6xl leading-none text-white/12">01</strong>
+                </div>
+                <h4 data-process-title class="display-font mt-10 text-5xl leading-none sm:text-6xl">{fundingSteps[0].title}</h4>
+                <p data-process-text class="mt-7 max-w-xl text-base leading-8 text-white/65">{fundingSteps[0].text}</p>
+                <div class="mt-auto rounded-2xl border border-[#a7d46f]/20 bg-[#a7d46f]/9 p-6">
+                  <span class="text-[9px] font-black uppercase tracking-[0.16em] text-[#cfe8a8]">Rezultatul etapei</span>
+                  <p data-process-result class="mt-3 text-sm font-bold leading-7 text-white/82">{fundingSteps[0].result}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -367,23 +498,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
     </section>
 
-    <section id="parteneri" class="relative overflow-hidden border-y border-[#17352b]/10 bg-[#f7f4e9] py-24 sm:py-28">
+    <section id="parteneri" data-nav-section="parteneri" class="relative overflow-hidden border-y border-[#17352b]/10 bg-[#f7f4e9] py-24 sm:py-32">
       <div class="absolute -right-24 -top-24 h-64 w-64 rounded-full border-[44px] border-[#a7d46f]/25"></div>
       <div class="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-[#dff1df]/70"></div>
 
       <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div data-reveal class="mx-auto max-w-3xl text-center">
-          <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Parteneri</p>
-          <h2 class="display-font mt-5 text-5xl leading-[1.02] text-[#073d2c] sm:text-6xl">Colaborări care duc proiectele mai departe.</h2>
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#17352b]/65">Construim relații bazate pe încredere, competențe complementare și obiective comune, pentru rezultate solide și sustenabile.</p>
+        <div data-reveal class="grid gap-7 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-20">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b6b49]">Rețea de parteneri</p>
+            <h2 class="display-font mt-5 max-w-4xl text-5xl leading-[0.98] text-[#073d2c] sm:text-7xl">Competențe care duc proiectul <span class="italic text-[#0b6b49]">mai departe.</span></h2>
+          </div>
+          <div>
+            <p class="text-lg leading-8 text-[#17352b]/65">Tehnic, echipamente, promovare și audit — colaboratori specializați pentru componentele importante ale implementării.</p>
+            <div class="mt-5 inline-flex items-center gap-3 rounded-full bg-white px-4 py-2 text-xs font-extrabold text-[#0b6b49] shadow-sm">
+              <span class="grid h-7 w-7 place-items-center rounded-full bg-[#dff1df]">{partners.length}</span>
+              parteneri complementari
+            </div>
+          </div>
         </div>
 
         {partners.length > 0 ? (
           <div class="mx-auto mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {partners.map((partner, index) => (
-              <article data-reveal data-reveal-delay={String(index % 4)} class="soft-shadow group flex min-h-[31rem] flex-col overflow-hidden rounded-[1.75rem] border border-[#17352b]/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(7,61,44,0.16)]">
-                <div class="grid h-44 shrink-0 place-items-center overflow-hidden bg-white p-6">
-                  <img src={`${base}/${partner.logo}`} alt={`Logo ${partner.name}`} class="h-32 w-full scale-110 object-contain transition duration-300 group-hover:scale-[1.15]" loading="lazy" />
+              <article data-partner-card data-reveal data-reveal-delay={String(index % 4)} class="soft-shadow group flex min-h-[29rem] flex-col overflow-hidden rounded-[1.75rem] border border-[#17352b]/10 bg-white transition duration-500 hover:-translate-y-2 hover:shadow-[0_28px_65px_rgba(7,61,44,0.18)]">
+                <div class="relative grid h-40 shrink-0 place-items-center overflow-hidden bg-white p-6">
+                  <span class="absolute left-5 top-4 text-[10px] font-black tracking-[0.16em] text-[#0b6b49]/36">0{index + 1}</span>
+                  <img src={`${base}/${partner.logo}`} alt={`Logo ${partner.name}`} class="h-28 w-full scale-105 object-contain transition duration-500 group-hover:scale-[1.12]" loading="lazy" />
                 </div>
                 <div class="relative flex flex-1 flex-col overflow-hidden bg-[#073d2c] p-6 text-white">
                   <div class="absolute -right-12 -top-12 h-36 w-36 rounded-full border-[24px] border-[#a7d46f]/10"></div>
@@ -402,7 +542,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                     {partner.url && (
                       <a href={partner.url} target="_blank" rel="noreferrer" class="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-extrabold text-[#cfe8a8] transition hover:text-white">
                         Vizitează partenerul
-                        <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+                        <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
                       </a>
                     )}
                   </div>
@@ -424,53 +564,75 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
     </section>
 
-    <section id="contact" class="px-5 py-8 sm:px-8 sm:py-12">
-      <div class="grain relative mx-auto max-w-[1240px] overflow-hidden rounded-[2.25rem] bg-[#073d2c] px-6 py-14 text-white sm:px-12 sm:py-20 lg:px-20">
-        <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#0b6b49]"></div>
+    <section id="contact" data-nav-section="contact" class="paper-grid px-5 py-16 sm:px-8 sm:py-24">
+      <div class="grain relative mx-auto max-w-[1240px] overflow-hidden rounded-[2.5rem] bg-[#073d2c] text-white shadow-[0_32px_90px_rgba(7,61,44,0.22)]">
+        <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#0b6b49]"></div>
         <div class="absolute -bottom-24 left-1/3 h-64 w-64 rounded-full border-[48px] border-[#a7d46f]/10"></div>
-        <div class="relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div data-reveal>
-            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#a7d46f]">Primul pas</p>
-            <h2 class="display-font mt-5 text-5xl leading-[1] sm:text-6xl">Spune-mi ce vrei să construiești.</h2>
-            <p class="mt-7 max-w-lg text-lg leading-8 text-white/68">Într-o discuție inițială stabilim obiectivul, contextul și dacă serviciile mele sunt potrivite pentru situația ta.</p>
-            <div class="mt-9 grid gap-3 text-sm">
-              <a href="tel:+40765066463" class="flex items-center gap-3 font-bold text-white transition hover:text-[#a7d46f]"><span class="grid h-10 w-10 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-3.5-1.5-6.5-4.5-8-8l2-2-2-4Z" /></svg></span>0765 066 463</a>
-              <a href="mailto:mariuscapra.mc@gmail.com" class="flex items-center gap-3 font-bold text-white transition hover:text-[#a7d46f]"><span class="grid h-10 w-10 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.7"><path d="M3 5h18v14H3zM3 6l9 7 9-7" /></svg></span>mariuscapra.mc@gmail.com</a>
+        <div class="relative grid lg:grid-cols-[0.88fr_1.12fr]">
+          <div data-reveal class="p-7 sm:p-12 lg:p-16">
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a7d46f]">Începe simplu</p>
+            <h2 class="display-font mt-5 text-5xl leading-[0.95] sm:text-7xl">Spune-mi ce vrei să <span class="italic text-[#a7d46f]">construiești.</span></h2>
+            <p class="mt-7 max-w-lg text-lg leading-8 text-white/68">Nu ai nevoie de un dosar pregătit. Pentru prima analiză sunt suficiente trei informații:</p>
+
+            <ol class="mt-8 grid gap-3">
+              <li class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/6 p-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#a7d46f] text-xs font-black text-[#073d2c]">1</span><span class="text-sm font-bold">Cine este solicitantul</span></li>
+              <li class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/6 p-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#a7d46f] text-xs font-black text-[#073d2c]">2</span><span class="text-sm font-bold">Ce investiție ai în vedere</span></li>
+              <li class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/6 p-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#a7d46f] text-xs font-black text-[#073d2c]">3</span><span class="text-sm font-bold">Bugetul și locația estimată</span></li>
+            </ol>
+
+            <div class="mt-8 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <a href="tel:+40765066463" class="group flex items-center gap-3 rounded-2xl border border-white/12 px-4 py-3.5 font-bold text-white transition hover:border-[#a7d46f]/50 hover:bg-white/7"><span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-3.5-1.5-6.5-4.5-8-8l2-2-2-4Z" /></svg></span>0765 066 463</a>
+              <button data-copy-email type="button" class="group flex items-center gap-3 rounded-2xl border border-white/12 px-4 py-3.5 text-left font-bold text-white transition hover:border-[#a7d46f]/50 hover:bg-white/7"><span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.7"><path d="M3 5h18v14H3zM3 6l9 7 9-7" /></svg></span><span data-copy-label>Copiază e-mailul</span></button>
             </div>
           </div>
 
-          <form id="contact-form" data-reveal data-reveal-delay="1" class="rounded-[1.75rem] bg-[#fbfaf5] p-6 text-[#17352b] sm:p-8">
-            <div class="grid gap-5 sm:grid-cols-2">
-              <label class="grid gap-2 text-sm font-bold">Nume
-                <input required name="name" autocomplete="name" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-white px-4 font-normal transition focus:border-[#0b6b49]" placeholder="Numele tău" />
+          <div class="bg-[#fbfaf5] p-5 text-[#17352b] sm:p-8 lg:p-12">
+            <form id="contact-form" data-reveal data-reveal-delay="1" class="rounded-[1.75rem] border border-[#17352b]/10 bg-white p-6 shadow-[0_22px_60px_rgba(7,61,44,0.1)] sm:p-8">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0b6b49]">Solicitare inițială</span>
+                  <h3 class="mt-2 text-xl font-extrabold text-[#073d2c]">Descrie proiectul pe scurt</h3>
+                </div>
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dff1df] text-[#0b6b49]"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5" /></svg></span>
+              </div>
+
+              <div class="mt-7 grid gap-5 sm:grid-cols-2">
+                <label class="grid gap-2 text-sm font-bold">Nume *
+                  <input required name="name" autocomplete="name" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-[#fbfaf5] px-4 font-normal transition focus:border-[#0b6b49] focus:bg-white" placeholder="Numele tău" />
+                </label>
+                <label class="grid gap-2 text-sm font-bold">Telefon
+                  <input name="phone" type="tel" autocomplete="tel" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-[#fbfaf5] px-4 font-normal transition focus:border-[#0b6b49] focus:bg-white" placeholder="07xx xxx xxx" />
+                </label>
+              </div>
+              <label class="mt-5 grid gap-2 text-sm font-bold">E-mail *
+                <input required name="email" type="email" autocomplete="email" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-[#fbfaf5] px-4 font-normal transition focus:border-[#0b6b49] focus:bg-white" placeholder="nume@companie.ro" />
               </label>
-              <label class="grid gap-2 text-sm font-bold">Telefon
-                <input name="phone" type="tel" autocomplete="tel" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-white px-4 font-normal transition focus:border-[#0b6b49]" placeholder="07xx xxx xxx" />
+              <label class="mt-5 grid gap-2 text-sm font-bold">Cu ce te pot ajuta?
+                <select name="topic" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-[#fbfaf5] px-4 font-normal transition focus:border-[#0b6b49] focus:bg-white">
+                  <option>Identificarea programului potrivit</option>
+                  <option>Verificarea eligibilității</option>
+                  <option>Scriere și depunere proiect</option>
+                  <option>Implementare și achiziții</option>
+                  <option>Audit de mediu</option>
+                  <option>Parteneriat sau altă solicitare</option>
+                </select>
               </label>
-            </div>
-            <label class="mt-5 grid gap-2 text-sm font-bold">E-mail
-              <input required name="email" type="email" autocomplete="email" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-white px-4 font-normal transition focus:border-[#0b6b49]" placeholder="nume@companie.ro" />
-            </label>
-            <label class="mt-5 grid gap-2 text-sm font-bold">Subiect
-              <select name="topic" class="min-h-12 rounded-xl border border-[#17352b]/15 bg-white px-4 font-normal transition focus:border-[#0b6b49]">
-                <option>Program de stat</option>
-                <option>Program european</option>
-                <option>Audit de mediu</option>
-                <option>Altă solicitare</option>
-              </select>
-            </label>
-            <label class="mt-5 grid gap-2 text-sm font-bold">Pe scurt, despre ce este vorba?
-              <textarea required name="message" rows="4" class="rounded-xl border border-[#17352b]/15 bg-white px-4 py-3 font-normal transition focus:border-[#0b6b49]" placeholder="Descrie ideea, organizația și stadiul actual..."></textarea>
-            </label>
-            <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0b6b49] px-6 py-4 font-extrabold text-white transition hover:bg-[#073d2c]">Trimite solicitarea <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg></button>
-            <p class="mt-3 text-center text-[11px] leading-5 text-[#17352b]/52">Butonul deschide aplicația ta de e-mail cu mesajul completat.</p>
-          </form>
+              <label class="mt-5 grid gap-2 text-sm font-bold">Ideea, bugetul și locația *
+                <textarea required name="message" rows="4" class="rounded-xl border border-[#17352b]/15 bg-[#fbfaf5] px-4 py-3 font-normal transition focus:border-[#0b6b49] focus:bg-white" placeholder="Ex.: SRL din București, investiție în echipamente, buget estimat 150.000 euro..."></textarea>
+              </label>
+              <button type="submit" class="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0b6b49] px-6 py-4 font-extrabold text-white shadow-[0_12px_28px_rgba(11,107,73,0.2)] transition hover:-translate-y-0.5 hover:bg-[#073d2c]">
+                Pregătește mesajul
+                <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+              </button>
+              <p class="mt-3 text-center text-[11px] leading-5 text-[#17352b]/50">Se deschide aplicația de e-mail cu mesajul completat. Datele nu sunt stocate pe site.</p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="px-5 py-10 sm:px-8">
+  <footer class="px-5 pb-28 pt-10 sm:px-8 sm:py-10">
     <div class="mx-auto flex max-w-[1240px] flex-col gap-6 border-t border-[#17352b]/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><div><strong class="block text-xs font-extrabold tracking-[0.16em] text-[#073d2c]">CAPRĂ</strong><span class="text-[10px] uppercase tracking-[0.14em] text-[#0b6b49]">Fonduri & Mediu</span></div></div>
       <p class="text-xs text-[#17352b]/52">© {currentYear} Marius Capră. Toate drepturile rezervate.</p>
@@ -478,56 +640,161 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </footer>
 
+  <div class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[auto_1fr] gap-2 rounded-2xl border border-white/60 bg-[#073d2c]/95 p-2 shadow-[0_20px_55px_rgba(7,61,44,0.34)] backdrop-blur-xl sm:hidden">
+    <a href="tel:+40765066463" aria-label="Sună la 0765 066 463" class="grid h-12 w-12 place-items-center rounded-xl bg-white/10 text-white">
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-3.5-1.5-6.5-4.5-8-8l2-2-2-4Z" /></svg>
+    </a>
+    <a href="#contact" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#a7d46f] px-4 text-sm font-extrabold text-[#073d2c]">
+      Verifică proiectul
+      <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+    </a>
+  </div>
+
   <script is:inline>
-    const menuButton = document.querySelector('#menu-button');
-    const mobileMenu = document.querySelector('#mobile-menu');
+    (() => {
+      const menuButton = document.querySelector('#menu-button');
+      const mobileMenu = document.querySelector('#mobile-menu');
+      const siteHeader = document.querySelector('#site-header');
+      const scrollProgress = document.querySelector('#scroll-progress');
 
-    menuButton?.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      mobileMenu?.classList.toggle('hidden', isOpen);
-    });
-
-    mobileMenu?.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+      const closeMobileMenu = () => {
+        mobileMenu?.classList.add('hidden');
         menuButton?.setAttribute('aria-expanded', 'false');
-      });
-    });
+        menuButton?.setAttribute('aria-label', 'Deschide meniul');
+      };
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+      menuButton?.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+        mobileMenu?.classList.toggle('hidden', isOpen);
+      });
+
+      mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+
+      const updateScrollUI = () => {
+        const distance = document.documentElement.scrollHeight - window.innerHeight;
+        const percentage = distance > 0 ? Math.min(100, (window.scrollY / distance) * 100) : 0;
+        if (scrollProgress) scrollProgress.style.width = `${percentage}%`;
+        siteHeader?.classList.toggle('is-scrolled', window.scrollY > 18);
+      };
+
+      updateScrollUI();
+      window.addEventListener('scroll', updateScrollUI, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -35px' });
+
+        document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
+
+        const navLinks = [...document.querySelectorAll('[data-nav-link]')];
+        const navObserver = new IntersectionObserver((entries) => {
+          const visibleEntry = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visibleEntry?.target.id) return;
+          navLinks.forEach((link) => link.classList.toggle('is-active', link.dataset.navTarget === visibleEntry.target.id));
+        }, { threshold: [0.2, 0.45], rootMargin: '-20% 0px -55% 0px' });
+
+        document.querySelectorAll('[data-nav-section]').forEach((section) => navObserver.observe(section));
+      } else {
+        document.querySelectorAll('[data-reveal]').forEach((element) => element.classList.add('is-visible'));
+      }
+
+      const fundingList = document.querySelector('[data-funding-list]');
+      document.querySelectorAll('[data-funding-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+          window.setTimeout(() => fundingList?.querySelector('[data-program-filter]')?.focus({ preventScroll: true }), 450);
+        });
+      });
+
+      const programFilters = [...document.querySelectorAll('[data-program-filter]')];
+      const programCards = [...document.querySelectorAll('[data-program-card]')];
+      const programCount = document.querySelector('[data-program-count]');
+      const programEmpty = document.querySelector('[data-program-empty]');
+
+      programFilters.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selected = button.dataset.programFilter ?? 'Toate';
+          let visible = 0;
+          programFilters.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+          programCards.forEach((card) => {
+            const show = selected === 'Toate' || card.dataset.status === selected;
+            card.classList.toggle('hidden', !show);
+            if (show) visible += 1;
+          });
+          if (programCount) programCount.textContent = String(visible);
+          programEmpty?.classList.toggle('hidden', visible !== 0);
+        });
+      });
+
+      const processSteps = [...document.querySelectorAll('[data-process-step]')];
+      const processNumber = document.querySelector('[data-process-number]');
+      const processTitle = document.querySelector('[data-process-title]');
+      const processText = document.querySelector('[data-process-text]');
+      const processResult = document.querySelector('[data-process-result]');
+
+      const activateProcessStep = (button) => {
+        processSteps.forEach((item) => {
+          const active = item === button;
+          item.setAttribute('aria-selected', String(active));
+          item.tabIndex = active ? 0 : -1;
+        });
+        if (processNumber) processNumber.textContent = button.dataset.number ?? '';
+        if (processTitle) processTitle.textContent = button.dataset.title ?? '';
+        if (processText) processText.textContent = button.dataset.text ?? '';
+        if (processResult) processResult.textContent = button.dataset.result ?? '';
+      };
+
+      processSteps.forEach((button, index) => {
+        button.addEventListener('click', () => activateProcessStep(button));
+        button.addEventListener('keydown', (event) => {
+          if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.key)) return;
+          event.preventDefault();
+          const direction = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1;
+          const nextIndex = (index + direction + processSteps.length) % processSteps.length;
+          processSteps[nextIndex].focus();
+          activateProcessStep(processSteps[nextIndex]);
+        });
+      });
+
+      const copyButton = document.querySelector('[data-copy-email]');
+      const copyLabel = document.querySelector('[data-copy-label]');
+      copyButton?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('mariuscapra.mc@gmail.com');
+          if (copyLabel) copyLabel.textContent = 'E-mail copiat';
+          window.setTimeout(() => {
+            if (copyLabel) copyLabel.textContent = 'Copiază e-mailul';
+          }, 2200);
+        } catch {
+          window.location.href = 'mailto:mariuscapra.mc@gmail.com';
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px' });
 
-    document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
-
-    const fundingList = document.querySelector('[data-funding-list]');
-    document.querySelectorAll('[data-funding-link]').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (fundingList) fundingList.open = true;
+      document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const name = data.get('name');
+        const topic = data.get('topic');
+        const body = [
+          `Nume: ${name}`,
+          `E-mail: ${data.get('email')}`,
+          `Telefon: ${data.get('phone') || '-'}`,
+          `Subiect: ${topic}`,
+          '',
+          data.get('message'),
+        ].join('\n');
+        window.location.href = `mailto:mariuscapra.mc@gmail.com?subject=${encodeURIComponent(`Solicitare site — ${topic} — ${name}`)}&body=${encodeURIComponent(body)}`;
       });
-    });
-
-    document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      const data = new FormData(form);
-      const name = data.get('name');
-      const topic = data.get('topic');
-      const body = [
-        `Nume: ${name}`,
-        `E-mail: ${data.get('email')}`,
-        `Telefon: ${data.get('phone') || '-'}`,
-        `Subiect: ${topic}`,
-        '',
-        data.get('message'),
-      ].join('\n');
-      window.location.href = `mailto:mariuscapra.mc@gmail.com?subject=${encodeURIComponent(`Solicitare site — ${topic} — ${name}`)}&body=${encodeURIComponent(body)}`;
-    });
+    })();
   </script>
 </Layout>
