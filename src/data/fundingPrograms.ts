@@ -202,14 +202,6 @@ export const fundingPrograms: FundingProgram[] = [
         label: 'Calendarul oficial al apelurilor ADRBI',
         url: 'https://regiobucuresti-ilfov.ro/calendar-apeluri',
       },
-      {
-        label: 'Criteriile de selecție aprobate (.pdf)',
-        url: 'https://www.adrbi.ro/media/4122/anexa_decizia28_criteriiselectie_17_transformaredigitalaavansataimm.pdf',
-      },
-      {
-        label: 'Grila de evaluare tehnică și financiară (.pdf)',
-        url: 'https://prod-inafaceri-uploads.s3.eu-central-1.amazonaws.com/documente/2024/1a2cf5d3-f12a-4daa-bf2e-48405833f4ce/grila-etf-17.pdf',
-      },
     ],
   },
   {

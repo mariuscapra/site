@@ -1,0 +1,369 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const horizontalMeasures = [
+  { name: 'accessibility', points: 2, label: 'Site-urile dezvoltate sunt accesibilizate pentru persoane cu dizabilități.' },
+  { name: 'equal-opportunity', points: 4, label: 'Proiectul include o măsură suplimentară pentru egalitatea de șanse.' },
+  { name: 'reused-components', points: 4, label: 'Echipamentele electrice și electronice includ componente reutilizate.' },
+];
+
+const planMeasures = [
+  { name: 'plan-structure', points: 1, label: 'Planul respectă modelul și are toate secțiunile completate.' },
+  { name: 'plan-analysis', points: 5, label: 'Prezintă maturitatea inițială, nevoile, soluțiile și eficientizarea activității.' },
+  { name: 'plan-indicators', points: 2, label: 'Soluția este justificată și corelată cu indicatorii obligatorii.' },
+  { name: 'plan-gantt', points: 1, label: 'Graficul GANTT este cronologic, în maximum 24 luni, și corelat cu achizițiile.' },
+  { name: 'plan-risks', points: 1, label: 'Riscurile și măsurile de contracarare sunt clar identificate.' },
+];
+
+const budgetMeasures = [
+  { name: 'budget-correlation', points: 2, label: 'Bugetul este calculat corect și corelat cu activitățile proiectului.' },
+  { name: 'budget-eligibility', points: 2, label: 'Cheltuielile sunt încadrate corect și respectă pragurile din ghid.' },
+  { name: 'budget-evidence', points: 1, label: 'Costurile sunt realiste și fundamentate prin minimum două surse.' },
+];
+---
+
+<section data-bi-scoring class="grain relative mt-8 overflow-hidden rounded-[2rem] bg-[#073d2c] text-white shadow-[0_30px_80px_rgba(7,61,44,0.24)]">
+  <div class="pointer-events-none absolute -right-36 -top-40 h-[30rem] w-[30rem] rounded-full border-[80px] border-[#79c8ca]/10"></div>
+  <div class="pointer-events-none absolute -bottom-52 -left-36 h-96 w-96 rounded-full bg-[#0b6b49]/45"></div>
+
+  <header class="relative border-b border-white/10 p-7 sm:p-10">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-[#a7d46f] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-[#073d2c]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#073d2c]"></span>
+          Prescoring orientativ
+        </span>
+        <h2 class="display-font mt-5 text-4xl leading-none sm:text-6xl">Calculator Digitalizare IMM</h2>
+        <p class="mt-5 max-w-2xl text-sm leading-7 text-white/68">
+          Completează criteriile proiectului și indicatorii financiari. Aplicația calculează punctajul estimat și arată contribuția fiecărei secțiuni.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+        <span class="block text-[9px] font-black uppercase tracking-[0.14em] text-white/42">Punctaj maxim</span>
+        <strong class="mt-1 block text-2xl text-[#a7d46f]">100 puncte</strong>
+      </div>
+    </div>
+  </header>
+
+  <div class="relative grid xl:grid-cols-[1.12fr_0.88fr]">
+    <div class="border-b border-white/10 p-7 sm:p-10 xl:border-b-0 xl:border-r">
+      <details open class="rounded-[1.5rem] border border-white/12 bg-white/5">
+        <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+          <span>
+            <span class="text-[9px] font-black uppercase tracking-[0.15em] text-[#a7d46f]">Secțiunea 1</span>
+            <strong class="mt-1 block text-lg">Contribuția la obiectivele programului</strong>
+          </span>
+          <span class="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black text-[#cfe8a8]">max. 50 p.</span>
+        </summary>
+        <div class="grid gap-4 border-t border-white/8 p-5 sm:grid-cols-2">
+          <label class="text-xs font-bold text-white/72">
+            Domeniu RIS3 București-Ilfov
+            <select data-bi-select="ris3" class="mt-2 min-h-12 w-full rounded-xl border border-white/12 bg-[#0a4735] px-3 text-sm text-white outline-none">
+              <option value="0">Nu / necesită verificare — 0 p.</option>
+              <option value="10">Da, domeniu cu potențial RIS3 — 10 p.</option>
+            </select>
+          </label>
+          <label class="text-xs font-bold text-white/72">
+            Tipul soluției digitale
+            <select data-bi-select="solution" class="mt-2 min-h-12 w-full rounded-xl border border-white/12 bg-[#0a4735] px-3 text-sm text-white outline-none">
+              <option value="0">Nedefinită — 0 p.</option>
+              <option value="7">Soluție punctuală — 7 p.</option>
+              <option value="15">Soluție integrată pentru toate procesele — 15 p.</option>
+            </select>
+          </label>
+          <label class="text-xs font-bold text-white/72">
+            Utilizatori unici anual
+            <select data-bi-select="users" class="mt-2 min-h-12 w-full rounded-xl border border-white/12 bg-[#0a4735] px-3 text-sm text-white outline-none">
+              <option value="0">Sub 3 utilizatori — 0 p.</option>
+              <option value="5">Între 3 și 10 utilizatori — 5 p.</option>
+              <option value="10">Peste 10 utilizatori — 10 p.</option>
+            </select>
+          </label>
+          <label class="text-xs font-bold text-white/72">
+            Securitate cibernetică
+            <select data-bi-select="cybersecurity" class="mt-2 min-h-12 w-full rounded-xl border border-white/12 bg-[#0a4735] px-3 text-sm text-white outline-none">
+              <option value="0">Nu este inclusă — 0 p.</option>
+              <option value="5">Soluții parțiale — 5 p.</option>
+              <option value="10">Acoperire pentru toate sistemele vizate — 10 p.</option>
+            </select>
+          </label>
+          <label class="text-xs font-bold text-white/72 sm:col-span-2">
+            Cooperare cu un Centru de Inovare Digitală regional
+            <select data-bi-select="dih" class="mt-2 min-h-12 w-full rounded-xl border border-white/12 bg-[#0a4735] px-3 text-sm text-white outline-none">
+              <option value="0">Nu — 0 p.</option>
+              <option value="5">Da — 5 p.</option>
+            </select>
+          </label>
+        </div>
+      </details>
+
+      <details class="mt-4 rounded-[1.5rem] border border-white/12 bg-white/5">
+        <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+          <span>
+            <span class="text-[9px] font-black uppercase tracking-[0.15em] text-[#a7d46f]">Secțiunea 2</span>
+            <strong class="mt-1 block text-lg">Teme orizontale</strong>
+          </span>
+          <span class="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black text-[#cfe8a8]">max. 10 p.</span>
+        </summary>
+        <div class="grid gap-3 border-t border-white/8 p-5">
+          {horizontalMeasures.map((item) => (
+            <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-[#062f22]/55 p-4 transition hover:border-[#a7d46f]/45">
+              <input data-bi-check={item.name} data-bi-group="horizontal" data-bi-points={item.points} type="checkbox" class="mt-0.5 h-5 w-5 shrink-0 accent-[#a7d46f]" />
+              <span class="flex-1 text-xs font-semibold leading-5 text-white/68">{item.label}</span>
+              <strong class="text-xs text-[#a7d46f]">+{item.points} p.</strong>
+            </label>
+          ))}
+        </div>
+      </details>
+
+      <details class="mt-4 rounded-[1.5rem] border border-white/12 bg-white/5">
+        <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+          <span>
+            <span class="text-[9px] font-black uppercase tracking-[0.15em] text-[#a7d46f]">Secțiunea 3</span>
+            <strong class="mt-1 block text-lg">Calitate, maturitate și sustenabilitate</strong>
+          </span>
+          <span class="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black text-[#cfe8a8]">max. 20 p.</span>
+        </summary>
+        <div class="border-t border-white/8 p-5">
+          <span class="text-[10px] font-black uppercase tracking-[0.13em] text-[#cfe8a8]">Planul de digitalizare · max. 10 p.</span>
+          <div class="mt-3 grid gap-2">
+            {planMeasures.map((item) => (
+              <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-[#062f22]/55 p-3.5 transition hover:border-[#a7d46f]/45">
+                <input data-bi-check={item.name} data-bi-group="plan" data-bi-points={item.points} type="checkbox" class="mt-0.5 h-5 w-5 shrink-0 accent-[#a7d46f]" />
+                <span class="flex-1 text-[11px] font-semibold leading-5 text-white/62">{item.label}</span>
+                <strong class="text-[11px] text-[#a7d46f]">+{item.points} p.</strong>
+              </label>
+            ))}
+          </div>
+
+          <span class="mt-6 block text-[10px] font-black uppercase tracking-[0.13em] text-[#cfe8a8]">Bugetul proiectului · max. 5 p.</span>
+          <div class="mt-3 grid gap-2">
+            {budgetMeasures.map((item) => (
+              <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-[#062f22]/55 p-3.5 transition hover:border-[#a7d46f]/45">
+                <input data-bi-check={item.name} data-bi-group="budget" data-bi-points={item.points} type="checkbox" class="mt-0.5 h-5 w-5 shrink-0 accent-[#a7d46f]" />
+                <span class="flex-1 text-[11px] font-semibold leading-5 text-white/62">{item.label}</span>
+                <strong class="text-[11px] text-[#a7d46f]">+{item.points} p.</strong>
+              </label>
+            ))}
+          </div>
+          <p class="mt-3 rounded-xl border border-[#e8a96a]/25 bg-[#e8a96a]/8 p-3 text-[10px] leading-5 text-[#f4d5a2]">Atenție: potrivit grilei, punctarea cu 0 a criteriului privind bugetul conduce la respingerea proiectului.</p>
+
+          <label class="mt-6 block text-xs font-bold text-white/72">
+            Fluxul de numerar net cumulat pentru cei 3 ani de analiză
+            <select data-bi-select="cashflow" class="mt-2 min-h-12 w-full rounded-xl border border-white/12 bg-[#0a4735] px-3 text-sm text-white outline-none">
+              <option value="0">Prezintă valori negative / neconfirmat — 0 p.</option>
+              <option value="5">Este pozitiv pe întreaga perioadă — 5 p.</option>
+            </select>
+          </label>
+        </div>
+      </details>
+
+      <details class="mt-4 rounded-[1.5rem] border border-white/12 bg-white/5">
+        <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+          <span>
+            <span class="text-[9px] font-black uppercase tracking-[0.15em] text-[#a7d46f]">Secțiunea 4</span>
+            <strong class="mt-1 block text-lg">Capacitatea financiară</strong>
+          </span>
+          <span class="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black text-[#cfe8a8]">max. 20 p.</span>
+        </summary>
+        <div class="border-t border-white/8 p-5">
+          <label class="block">
+            <span class="flex items-center justify-between gap-4 text-xs font-bold text-white/72">
+              <span>Cofinanțare din valoarea eligibilă</span>
+              <strong data-bi-cofin-label class="text-lg text-[#a7d46f]">10%</strong>
+            </span>
+            <input data-bi-cofin type="range" min="10" max="20" step="0.1" value="10" class="mt-3 w-full accent-[#a7d46f]" />
+            <span class="mt-2 flex justify-between text-[9px] font-bold text-white/32"><span>10% · 0 p.</span><span>20% · 10 p.</span></span>
+            <span data-bi-cofin-points class="mt-2 block text-[10px] text-[#cfe8a8]">Punctaj proporțional estimat: 0 p.</span>
+          </label>
+
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            <label class="text-xs font-bold text-white/72">
+              Finanțare nerambursabilă solicitată
+              <span class="mt-2 flex items-center rounded-xl border border-white/12 bg-[#0a4735] px-3">
+                <input data-bi-grant type="number" min="0" max="200000" step="1000" placeholder="ex. 150000" class="min-w-0 flex-1 bg-transparent py-3 text-white outline-none" />
+                <span class="text-[10px] text-white/38">euro</span>
+              </span>
+            </label>
+            <label class="text-xs font-bold text-white/72">
+              Cifra de afaceri din anul anterior
+              <span class="mt-2 flex items-center rounded-xl border border-white/12 bg-[#0a4735] px-3">
+                <input data-bi-turnover type="number" min="0" step="1000" placeholder="ex. 200000" class="min-w-0 flex-1 bg-transparent py-3 text-white outline-none" />
+                <span class="text-[10px] text-white/38">euro</span>
+              </span>
+            </label>
+          </div>
+          <div class="mt-3 rounded-xl border border-white/10 bg-[#062f22]/55 p-3">
+            <div class="flex items-center justify-between gap-4 text-[10px] text-white/48"><span>Raport FN / CA</span><strong data-bi-fnca class="text-sm text-white">—</strong></div>
+            <div class="mt-1 flex items-center justify-between gap-4 text-[10px] text-white/48"><span>Punctaj estimat</span><strong data-bi-fnca-points class="text-sm text-[#a7d46f]">0 p.</strong></div>
+          </div>
+
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            <label class="text-xs font-bold text-white/72">
+              Active totale
+              <span class="mt-2 flex items-center rounded-xl border border-white/12 bg-[#0a4735] px-3">
+                <input data-bi-assets type="number" min="0" step="1000" placeholder="valoare bilanț" class="min-w-0 flex-1 bg-transparent py-3 text-white outline-none" />
+                <span class="text-[10px] text-white/38">lei</span>
+              </span>
+            </label>
+            <label class="text-xs font-bold text-white/72">
+              Datorii totale
+              <span class="mt-2 flex items-center rounded-xl border border-white/12 bg-[#0a4735] px-3">
+                <input data-bi-debts type="number" min="0" step="1000" placeholder="valoare bilanț" class="min-w-0 flex-1 bg-transparent py-3 text-white outline-none" />
+                <span class="text-[10px] text-white/38">lei</span>
+              </span>
+            </label>
+          </div>
+          <div class="mt-3 rounded-xl border border-white/10 bg-[#062f22]/55 p-3">
+            <div class="flex items-center justify-between gap-4 text-[10px] text-white/48"><span>Solvabilitate: active / datorii</span><strong data-bi-solvency class="text-sm text-white">—</strong></div>
+            <div class="mt-1 flex items-center justify-between gap-4 text-[10px] text-white/48"><span>Punctaj</span><strong data-bi-solvency-points class="text-sm text-[#a7d46f]">0 p.</strong></div>
+          </div>
+
+          <p class="mt-4 text-[10px] leading-5 text-[#e8c27a]">Pentru valorile marcate „P” în grilă, calculatorul folosește o estimare liniară între limitele și punctajele publicate. Formula finală trebuie confirmată în ghidul apelului.</p>
+        </div>
+      </details>
+    </div>
+
+    <aside class="bg-[#062f22]/82 p-7 sm:p-10">
+      <div class="sticky top-28">
+        <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#a7d46f]">Rezultatul proiectului</span>
+        <div class="mt-5 flex items-end justify-between gap-5">
+          <div>
+            <strong data-bi-total class="block text-5xl font-black" aria-live="polite">0</strong>
+            <span class="mt-1 block text-xs font-bold text-white/42">din 100 puncte</span>
+          </div>
+          <div data-bi-ring class="grid h-24 w-24 shrink-0 place-items-center rounded-full p-[7px]" style="background: conic-gradient(#a7d46f 0%, rgba(255,255,255,.12) 0)">
+            <div class="grid h-full w-full place-items-center rounded-full bg-[#062f22] text-sm font-black"><span data-bi-percent>0%</span></div>
+          </div>
+        </div>
+
+        <div class="mt-7 h-3 overflow-hidden rounded-full bg-white/10">
+          <div data-bi-progress class="h-full w-0 rounded-full bg-[#a7d46f] transition-[width] duration-300"></div>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-[#a7d46f]/20 bg-[#a7d46f]/8 p-5">
+          <strong data-bi-status class="block text-lg text-[#eaf5db]">Completează grila</strong>
+          <p data-bi-message class="mt-2 text-xs leading-6 text-white/58">Selectează criteriile care pot fi susținute cu documente și completează indicatorii financiari.</p>
+        </div>
+
+        <div class="mt-7">
+          <span class="text-[10px] font-black uppercase tracking-[0.14em] text-[#cfe8a8]">Punctaj pe secțiuni</span>
+          <ul class="mt-4 grid gap-1 text-xs">
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-3"><span class="text-white/58">Obiectivele programului</span><strong><span data-bi-group-row="impact">0</span> / 50</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-3"><span class="text-white/58">Teme orizontale</span><strong><span data-bi-group-row="horizontal">0</span> / 10</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-3"><span class="text-white/58">Calitate și sustenabilitate</span><strong><span data-bi-group-row="quality">0</span> / 20</strong></li>
+            <li class="flex items-center justify-between gap-4 py-3"><span class="text-white/58">Capacitate financiară</span><strong><span data-bi-group-row="financial">0</span> / 20</strong></li>
+          </ul>
+        </div>
+
+        <div class="mt-7 rounded-2xl border border-white/10 p-5">
+          <span class="text-[10px] font-black uppercase tracking-[0.14em] text-[#cfe8a8]">Interpretare corectă</span>
+          <p class="mt-3 text-[11px] leading-5 text-white/48">Punctajul nu confirmă eligibilitatea și nu garantează finanțarea. Proiectele sunt evaluate și ordonate în limita bugetului disponibil.</p>
+        </div>
+
+        <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#a7d46f] px-6 py-4 text-sm font-extrabold text-[#073d2c] transition hover:-translate-y-0.5 hover:bg-[#cfe8a8]">
+          Cere verificarea prescoringului
+          <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"></path></svg>
+        </a>
+        <p class="mt-4 text-center text-[10px] leading-5 text-white/35">Instrument orientativ. Documentația finală și evaluarea autorității competente prevalează.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const calculator = document.querySelector('[data-bi-scoring]');
+    if (!calculator) return;
+
+    const selectInputs = [...calculator.querySelectorAll('[data-bi-select]')];
+    const checkInputs = [...calculator.querySelectorAll('[data-bi-check]')];
+    const cofinInput = calculator.querySelector('[data-bi-cofin]');
+    const grantInput = calculator.querySelector('[data-bi-grant]');
+    const turnoverInput = calculator.querySelector('[data-bi-turnover]');
+    const assetsInput = calculator.querySelector('[data-bi-assets]');
+    const debtsInput = calculator.querySelector('[data-bi-debts]');
+
+    const setText = (selector, value) => {
+      const element = calculator.querySelector(selector);
+      if (element) element.textContent = value;
+    };
+    const selectPoints = (name) => Number(calculator.querySelector(`[data-bi-select="${name}"]`)?.value) || 0;
+    const groupCheckPoints = (group) => [...calculator.querySelectorAll(`[data-bi-group="${group}"]:checked`)]
+      .reduce((sum, input) => sum + (Number(input.dataset.biPoints) || 0), 0);
+    const round2 = (value) => Math.round(value * 100) / 100;
+    const formatScore = (value) => round2(value).toLocaleString('ro-RO', { maximumFractionDigits: 2 });
+
+    const update = () => {
+      const impact = selectPoints('ris3')
+        + selectPoints('solution')
+        + selectPoints('users')
+        + selectPoints('cybersecurity')
+        + selectPoints('dih');
+      const horizontal = groupCheckPoints('horizontal');
+      const plan = groupCheckPoints('plan');
+      const budget = groupCheckPoints('budget');
+      const cashflow = selectPoints('cashflow');
+      const quality = plan + budget + cashflow;
+
+      const cofinPercent = Math.max(10, Math.min(20, Number(cofinInput?.value) || 10));
+      const cofinPoints = round2(cofinPercent - 10);
+      setText('[data-bi-cofin-label]', `${formatScore(cofinPercent)}%`);
+      setText('[data-bi-cofin-points]', `Punctaj proporțional estimat: ${formatScore(cofinPoints)} p.`);
+
+      const grant = Math.max(0, Number(grantInput?.value) || 0);
+      const turnover = Math.max(0, Number(turnoverInput?.value) || 0);
+      const fnca = grant > 0 && turnover > 0 ? grant / turnover : null;
+      let fncaPoints = 0;
+      if (fnca !== null) {
+        if (fnca <= 1) fncaPoints = 5;
+        else if (fnca >= 4) fncaPoints = 1;
+        else fncaPoints = 5 - ((fnca - 1) * 4 / 3);
+      }
+      fncaPoints = round2(fncaPoints);
+      setText('[data-bi-fnca]', fnca === null ? '—' : formatScore(fnca));
+      setText('[data-bi-fnca-points]', `${formatScore(fncaPoints)} p.`);
+
+      const assets = Math.max(0, Number(assetsInput?.value) || 0);
+      const debts = Math.max(0, Number(debtsInput?.value) || 0);
+      const solvency = assets > 0 && debts === 0 ? Infinity : assets > 0 && debts > 0 ? assets / debts : null;
+      const solvencyPoints = solvency === null ? 0 : solvency >= 2 ? 5 : solvency >= 1 ? 3 : 0;
+      setText('[data-bi-solvency]', solvency === null ? '—' : solvency === Infinity ? 'fără datorii' : formatScore(solvency));
+      setText('[data-bi-solvency-points]', `${solvencyPoints} p.`);
+
+      const financial = cofinPoints + fncaPoints + solvencyPoints;
+      const total = round2(impact + horizontal + quality + financial);
+      const percentage = Math.max(0, Math.min(100, total));
+
+      setText('[data-bi-total]', formatScore(total));
+      setText('[data-bi-percent]', `${Math.round(percentage)}%`);
+      setText('[data-bi-group-row="impact"]', formatScore(impact));
+      setText('[data-bi-group-row="horizontal"]', formatScore(horizontal));
+      setText('[data-bi-group-row="quality"]', formatScore(quality));
+      setText('[data-bi-group-row="financial"]', formatScore(financial));
+
+      const progress = calculator.querySelector('[data-bi-progress]');
+      if (progress) progress.style.width = `${percentage}%`;
+      const ring = calculator.querySelector('[data-bi-ring]');
+      if (ring) ring.style.background = `conic-gradient(${budget === 0 ? '#e8a96a' : '#a7d46f'} ${percentage}%, rgba(255,255,255,.12) 0)`;
+
+      let status = 'Prescoring calculat';
+      let message = 'Punctajul este orientativ și trebuie susținut integral prin cererea de finanțare, planul de digitalizare, buget și situațiile financiare.';
+      if (budget === 0) {
+        status = 'Risc de respingere la criteriul buget';
+        message = 'Grila prevede că punctarea cu 0 a criteriului privind bugetul conduce la respingerea proiectului. Verifică toate cele trei cerințe.';
+      } else if (total === 0) {
+        status = 'Completează grila';
+        message = 'Selectează criteriile care pot fi susținute cu documente și completează indicatorii financiari.';
+      }
+      setText('[data-bi-status]', status);
+      setText('[data-bi-message]', message);
+    };
+
+    [...selectInputs, ...checkInputs, cofinInput, grantInput, turnoverInput, assetsInput, debtsInput]
+      .filter(Boolean)
+      .forEach((input) => input.addEventListener('input', update));
+
+    update();
+  })();
+</script>

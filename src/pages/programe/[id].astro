@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import ManufacturingEligibility from '../../components/ManufacturingEligibility.astro';
 import DR12ScoringCalculator from '../../components/DR12ScoringCalculator.astro';
+import DigitalizationBIScoringCalculator from '../../components/DigitalizationBIScoringCalculator.astro';
 import { fundingPrograms, fundingStatusStyles, type FundingProgram } from '../../data/fundingPrograms';
 
 export function getStaticPaths() {
@@ -276,6 +277,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         )}
 
         {program.id === 'dr-12-consolidare-exploatatii' && <DR12ScoringCalculator />}
+
+        {program.id === 'pr-bi-transformare-digitala-imm' && <DigitalizationBIScoringCalculator />}
 
         {program.id === 'investitii-deficit-comercial-industrie' && <ManufacturingEligibility />}
 
