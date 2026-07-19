@@ -2,82 +2,82 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section data-dr12-scoring class="grain relative mt-8 overflow-hidden rounded-[2rem] border border-[#17352b]/10 bg-[#f7f4e9] shadow-[0_30px_80px_rgba(7,61,44,0.16)]">
-  <div class="pointer-events-none absolute -right-28 -top-36 h-96 w-96 rounded-full border-[70px] border-[#a7d46f]/18"></div>
-  <div class="pointer-events-none absolute -bottom-56 -left-32 h-96 w-96 rounded-full bg-[#dfecc7]/55"></div>
+<section data-dr12-scoring class="grain relative mt-8 overflow-hidden rounded-[2rem] border border-[#073d2c]/10 bg-[#f7f4e9] shadow-[0_30px_80px_rgba(7,61,44,0.16)]">
+  <div class="pointer-events-none absolute -right-28 -top-36 h-96 w-96 rounded-full border-[70px] border-[#b9e769]/18"></div>
+  <div class="pointer-events-none absolute -bottom-56 -left-32 h-96 w-96 rounded-full bg-[#f4f6ed]/55"></div>
 
-  <header class="relative border-b border-[#17352b]/10 p-7 sm:p-10">
+  <header class="relative border-b border-[#073d2c]/10 p-7 sm:p-10">
     <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
         <span class="inline-flex items-center gap-2 rounded-full bg-[#073d2c] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-white">
-          <span class="h-1.5 w-1.5 rounded-full bg-[#a7d46f]"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-[#b9e769]"></span>
           Prescoring DR-12
         </span>
         <h2 class="display-font mt-5 text-4xl leading-none text-[#073d2c] sm:text-6xl">Calculează punctajul proiectului</h2>
-        <p class="mt-5 max-w-2xl text-sm leading-7 text-[#17352b]/64">
+        <p class="mt-5 max-w-2xl text-sm leading-7 text-[#073d2c]/64">
           Alege componenta și completează cele șase principii de selecție. Calculatorul aplică automat regulile diferite pentru proprietatea exploatației.
         </p>
       </div>
-      <div class="rounded-2xl border border-[#17352b]/10 bg-white/65 px-5 py-4">
-        <span class="block text-[9px] font-black uppercase tracking-[0.14em] text-[#17352b]/42">Grilă consultativă</span>
+      <div class="rounded-2xl border border-[#073d2c]/10 bg-white/65 px-5 py-4">
+        <span class="block text-[9px] font-black uppercase tracking-[0.14em] text-[#073d2c]/42">Grilă consultativă</span>
         <strong class="mt-1 block text-xl text-[#073d2c]">Maximum 100 puncte</strong>
       </div>
     </div>
   </header>
 
   <div class="relative grid xl:grid-cols-[1.08fr_0.92fr]">
-    <div class="border-b border-[#17352b]/10 p-7 sm:p-10 xl:border-b-0 xl:border-r">
+    <div class="border-b border-[#073d2c]/10 p-7 sm:p-10 xl:border-b-0 xl:border-r">
       <fieldset>
-        <legend class="text-[10px] font-black uppercase tracking-[0.16em] text-[#0b6b49]">Alege componenta proiectului</legend>
+        <legend class="text-[10px] font-black uppercase tracking-[0.16em] text-[#073d2c]">Alege componenta proiectului</legend>
         <div class="mt-4 grid gap-3 sm:grid-cols-2">
           <label class="cursor-pointer">
             <input class="peer sr-only" type="radio" name="dr12-sector" value="vegetal" checked />
-            <span class="flex h-full min-h-28 flex-col rounded-2xl border border-[#17352b]/10 bg-white/60 p-5 transition peer-checked:border-[#0b6b49] peer-checked:bg-[#e8f1da]">
+            <span class="flex h-full min-h-28 flex-col rounded-2xl border border-[#073d2c]/10 bg-white/60 p-5 transition peer-checked:border-[#073d2c] peer-checked:bg-[#f4f6ed]">
               <span class="flex items-center justify-between gap-3">
                 <strong class="text-base text-[#073d2c]">Vegetal / alte sectoare</strong>
-                <span class="grid h-8 w-8 place-items-center rounded-full bg-[#0b6b49] text-sm text-white">V</span>
+                <span class="grid h-8 w-8 place-items-center rounded-full bg-[#073d2c] text-sm text-white">V</span>
               </span>
-              <span class="mt-2 text-xs leading-5 text-[#17352b]/52">Terenul agricol deținut în proprietate poate aduce maximum 25 p.</span>
+              <span class="mt-2 text-xs leading-5 text-[#073d2c]/52">Terenul agricol deținut în proprietate poate aduce maximum 25 p.</span>
             </span>
           </label>
           <label class="cursor-pointer">
             <input class="peer sr-only" type="radio" name="dr12-sector" value="zootehnic" />
-            <span class="flex h-full min-h-28 flex-col rounded-2xl border border-[#17352b]/10 bg-white/60 p-5 transition peer-checked:border-[#0b6b49] peer-checked:bg-[#e8f1da]">
+            <span class="flex h-full min-h-28 flex-col rounded-2xl border border-[#073d2c]/10 bg-white/60 p-5 transition peer-checked:border-[#073d2c] peer-checked:bg-[#f4f6ed]">
               <span class="flex items-center justify-between gap-3">
                 <strong class="text-base text-[#073d2c]">Sector zootehnic</strong>
-                <span class="grid h-8 w-8 place-items-center rounded-full bg-[#0b6b49] text-sm text-white">Z</span>
+                <span class="grid h-8 w-8 place-items-center rounded-full bg-[#073d2c] text-sm text-white">Z</span>
               </span>
-              <span class="mt-2 text-xs leading-5 text-[#17352b]/52">Extinderea clădirilor și terenul în proprietate se pot cumula până la 25 p.</span>
+              <span class="mt-2 text-xs leading-5 text-[#073d2c]/52">Extinderea clădirilor și terenul în proprietate se pot cumula până la 25 p.</span>
             </span>
           </label>
         </div>
       </fieldset>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-2">
-        <label class="rounded-2xl border border-[#17352b]/10 bg-white/70 p-5 focus-within:border-[#0b6b49]/55">
+        <label class="rounded-2xl border border-[#073d2c]/10 bg-white/70 p-5 focus-within:border-[#073d2c]/55">
           <span class="flex items-center gap-3">
-            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0b6b49]/10 text-[10px] font-black text-[#0b6b49]">01</span>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#073d2c]/10 text-[10px] font-black text-[#073d2c]">01</span>
             <span>
               <strong class="block text-sm text-[#073d2c]">Nivelul de calificare</strong>
-              <span class="mt-0.5 block text-[10px] text-[#17352b]/42">Opțiunile nu se cumulează</span>
+              <span class="mt-0.5 block text-[10px] text-[#073d2c]/42">Opțiunile nu se cumulează</span>
             </span>
           </span>
-          <select data-dr12-points="qualification" class="mt-4 min-h-12 w-full rounded-xl border border-[#17352b]/12 bg-[#f7f4e9] px-3 text-sm font-semibold text-[#17352b] outline-none">
+          <select data-dr12-points="qualification" class="mt-4 min-h-12 w-full rounded-xl border border-[#073d2c]/12 bg-[#f7f4e9] px-3 text-sm font-semibold text-[#073d2c] outline-none">
             <option value="0">Fără calificare punctabilă — 0 p.</option>
             <option value="10">Liceu agricol / postliceală / curs min. nivel I — 10 p.</option>
             <option value="15">Studii superioare relevante — 15 p.</option>
           </select>
         </label>
 
-        <label class="rounded-2xl border border-[#17352b]/10 bg-white/70 p-5 focus-within:border-[#0b6b49]/55">
+        <label class="rounded-2xl border border-[#073d2c]/10 bg-white/70 p-5 focus-within:border-[#073d2c]/55">
           <span class="flex items-center gap-3">
-            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0b6b49]/10 text-[10px] font-black text-[#0b6b49]">02</span>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#073d2c]/10 text-[10px] font-black text-[#073d2c]">02</span>
             <span>
               <strong class="block text-sm text-[#073d2c]">Structură asociativă</strong>
-              <span class="mt-0.5 block text-[10px] text-[#17352b]/42">Opțiunile nu se cumulează</span>
+              <span class="mt-0.5 block text-[10px] text-[#073d2c]/42">Opțiunile nu se cumulează</span>
             </span>
           </span>
-          <select data-dr12-points="association" class="mt-4 min-h-12 w-full rounded-xl border border-[#17352b]/12 bg-[#f7f4e9] px-3 text-sm font-semibold text-[#17352b] outline-none">
+          <select data-dr12-points="association" class="mt-4 min-h-12 w-full rounded-xl border border-[#073d2c]/12 bg-[#f7f4e9] px-3 text-sm font-semibold text-[#073d2c] outline-none">
             <option value="0">Nu face parte — 0 p.</option>
             <option value="5">Membru cooperator asociat, Legea 566/2004 — 5 p.</option>
             <option value="10">Membru într-o structură cu rol economic — 10 p.</option>
@@ -85,73 +85,73 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </select>
         </label>
 
-        <div class="rounded-2xl border border-[#17352b]/10 bg-white/70 p-5 sm:col-span-2">
+        <div class="rounded-2xl border border-[#073d2c]/10 bg-white/70 p-5 sm:col-span-2">
           <span class="flex items-center gap-3">
-            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0b6b49]/10 text-[10px] font-black text-[#0b6b49]">03</span>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#073d2c]/10 text-[10px] font-black text-[#073d2c]">03</span>
             <span>
               <strong class="block text-sm text-[#073d2c]">Proprietatea exploatației</strong>
-              <span data-dr12-ownership-note class="mt-0.5 block text-[10px] text-[#17352b]/42">Maximum 25 p., proporțional cu terenul agricol deținut în proprietate</span>
+              <span data-dr12-ownership-note class="mt-0.5 block text-[10px] text-[#073d2c]/42">Maximum 25 p., proporțional cu terenul agricol deținut în proprietate</span>
             </span>
           </span>
 
-          <label data-dr12-building-row class="mt-5 hidden cursor-pointer items-start gap-3 rounded-xl border border-[#0b6b49]/12 bg-[#e8f1da]/75 p-4">
-            <input data-dr12-building class="mt-0.5 h-5 w-5 shrink-0 accent-[#0b6b49]" type="checkbox" />
+          <label data-dr12-building-row class="mt-5 hidden cursor-pointer items-start gap-3 rounded-xl border border-[#073d2c]/12 bg-[#f4f6ed]/75 p-4">
+            <input data-dr12-building class="mt-0.5 h-5 w-5 shrink-0 accent-[#073d2c]" type="checkbox" />
             <span>
               <strong class="block text-xs text-[#073d2c]">Proiectul extinde clădiri zootehnice aflate în proprietate — 20 p.</strong>
-              <span class="mt-1 block text-[10px] leading-5 text-[#17352b]/48">Simpla modernizare fără extindere nu primește acest punctaj.</span>
+              <span class="mt-1 block text-[10px] leading-5 text-[#073d2c]/48">Simpla modernizare fără extindere nu primește acest punctaj.</span>
             </span>
           </label>
 
           <label class="mt-5 block">
-            <span class="flex items-center justify-between gap-4 text-xs font-bold text-[#17352b]/70">
+            <span class="flex items-center justify-between gap-4 text-xs font-bold text-[#073d2c]/70">
               <span>Ponderea terenului agricol deținut în proprietate</span>
-              <strong data-dr12-land-label class="text-base text-[#0b6b49]">0%</strong>
+              <strong data-dr12-land-label class="text-base text-[#073d2c]">0%</strong>
             </span>
-            <input data-dr12-land type="range" min="0" max="100" step="1" value="0" class="mt-3 w-full accent-[#0b6b49]" />
-            <span class="mt-2 flex justify-between text-[9px] font-bold uppercase tracking-[0.1em] text-[#17352b]/32"><span>0%</span><span>100%</span></span>
+            <input data-dr12-land type="range" min="0" max="100" step="1" value="0" class="mt-3 w-full accent-[#073d2c]" />
+            <span class="mt-2 flex justify-between text-[9px] font-bold uppercase tracking-[0.1em] text-[#073d2c]/32"><span>0%</span><span>100%</span></span>
           </label>
         </div>
 
-        <label class="rounded-2xl border border-[#17352b]/10 bg-white/70 p-5">
+        <label class="rounded-2xl border border-[#073d2c]/10 bg-white/70 p-5">
           <span class="flex items-center gap-3">
-            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0b6b49]/10 text-[10px] font-black text-[#0b6b49]">04</span>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#073d2c]/10 text-[10px] font-black text-[#073d2c]">04</span>
             <span>
               <strong class="block text-sm text-[#073d2c]">Agricultură de precizie</strong>
-              <span class="mt-0.5 block text-[10px] text-[#17352b]/42">Minimum 10% din valoarea eligibilă</span>
+              <span class="mt-0.5 block text-[10px] text-[#073d2c]/42">Minimum 10% din valoarea eligibilă</span>
             </span>
           </span>
-          <span class="mt-5 flex items-center justify-between text-xs font-bold text-[#17352b]/70">
+          <span class="mt-5 flex items-center justify-between text-xs font-bold text-[#073d2c]/70">
             <span>Pondere în proiect</span>
-            <strong data-dr12-precision-label class="text-base text-[#0b6b49]">0%</strong>
+            <strong data-dr12-precision-label class="text-base text-[#073d2c]">0%</strong>
           </span>
-          <input data-dr12-precision type="range" min="0" max="50" step="1" value="0" class="mt-3 w-full accent-[#0b6b49]" />
-          <p data-dr12-precision-feedback class="mt-3 text-[10px] leading-5 text-[#17352b]/45">Sub pragul de 10% — 0 p.</p>
+          <input data-dr12-precision type="range" min="0" max="50" step="1" value="0" class="mt-3 w-full accent-[#073d2c]" />
+          <p data-dr12-precision-feedback class="mt-3 text-[10px] leading-5 text-[#073d2c]/45">Sub pragul de 10% — 0 p.</p>
         </label>
 
-        <label class="rounded-2xl border border-[#17352b]/10 bg-white/70 p-5">
+        <label class="rounded-2xl border border-[#073d2c]/10 bg-white/70 p-5">
           <span class="flex items-center gap-3">
-            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0b6b49]/10 text-[10px] font-black text-[#0b6b49]">05</span>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#073d2c]/10 text-[10px] font-black text-[#073d2c]">05</span>
             <span>
               <strong class="block text-sm text-[#073d2c]">Asigurarea exploatației</strong>
-              <span class="mt-0.5 block text-[10px] text-[#17352b]/42">Punctaj proporțional, maximum 10 p.</span>
+              <span class="mt-0.5 block text-[10px] text-[#073d2c]/42">Punctaj proporțional, maximum 10 p.</span>
             </span>
           </span>
-          <span class="mt-5 flex items-center justify-between text-xs font-bold text-[#17352b]/70">
+          <span class="mt-5 flex items-center justify-between text-xs font-bold text-[#073d2c]/70">
             <span>Gradul de acoperire</span>
-            <strong data-dr12-insurance-label class="text-base text-[#0b6b49]">0%</strong>
+            <strong data-dr12-insurance-label class="text-base text-[#073d2c]">0%</strong>
           </span>
-          <input data-dr12-insurance type="range" min="0" max="100" step="1" value="0" class="mt-3 w-full accent-[#0b6b49]" />
-          <p class="mt-3 text-[10px] leading-5 text-[#17352b]/45">Pentru ferme mixte se ia în calcul obiectivul asigurat cu acoperirea cea mai mare.</p>
+          <input data-dr12-insurance type="range" min="0" max="100" step="1" value="0" class="mt-3 w-full accent-[#073d2c]" />
+          <p class="mt-3 text-[10px] leading-5 text-[#073d2c]/45">Pentru ferme mixte se ia în calcul obiectivul asigurat cu acoperirea cea mai mare.</p>
         </label>
 
-        <label class="flex cursor-pointer items-start gap-3 rounded-2xl border border-[#17352b]/10 bg-white/70 p-5 sm:col-span-2">
-          <input data-dr12-first-feadr class="mt-0.5 h-5 w-5 shrink-0 accent-[#0b6b49]" type="checkbox" />
+        <label class="flex cursor-pointer items-start gap-3 rounded-2xl border border-[#073d2c]/10 bg-white/70 p-5 sm:col-span-2">
+          <input data-dr12-first-feadr class="mt-0.5 h-5 w-5 shrink-0 accent-[#073d2c]" type="checkbox" />
           <span>
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0b6b49]/10 text-[10px] font-black text-[#0b6b49]">06</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#073d2c]/10 text-[10px] font-black text-[#073d2c]">06</span>
               <strong class="text-sm text-[#073d2c]">Solicitantul accesează pentru prima dată sprijin FEADR pentru investiții — 20 p.</strong>
             </span>
-            <span class="mt-2 block pl-10 text-[10px] leading-5 text-[#17352b]/45">Sprijinul forfetar prin sM 6.1 și DR-30 nu este considerat intervenție de investiții pentru acest criteriu.</span>
+            <span class="mt-2 block pl-10 text-[10px] leading-5 text-[#073d2c]/45">Sprijinul forfetar prin sM 6.1 și DR-30 nu este considerat intervenție de investiții pentru acest criteriu.</span>
           </span>
         </label>
       </div>
@@ -159,20 +159,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <aside class="bg-[#073d2c] p-7 text-white sm:p-10">
       <div class="sticky top-28">
-        <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#a7d46f]">Prescoring orientativ</span>
+        <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#b9e769]">Prescoring orientativ</span>
         <div class="mt-5 flex items-end justify-between gap-5">
           <div>
             <strong data-dr12-total class="block text-5xl font-black" aria-live="polite">0</strong>
             <span class="mt-1 block text-xs font-bold text-white/42">din 100 puncte</span>
           </div>
-          <div data-dr12-score-ring class="grid h-24 w-24 shrink-0 place-items-center rounded-full p-[7px]" style="background: conic-gradient(#a7d46f 0%, rgba(255,255,255,.12) 0)">
+          <div data-dr12-score-ring class="grid h-24 w-24 shrink-0 place-items-center rounded-full p-[7px]" style="background: conic-gradient(#b9e769 0%, rgba(255,255,255,.12) 0)">
             <div class="grid h-full w-full place-items-center rounded-full bg-[#073d2c] text-sm font-black"><span data-dr12-ring-value>0%</span></div>
           </div>
         </div>
 
         <div class="relative mt-8">
           <div class="h-3 overflow-hidden rounded-full bg-white/10">
-            <div data-dr12-score-bar class="h-full w-0 rounded-full bg-[#a7d46f] transition-[width] duration-300"></div>
+            <div data-dr12-score-bar class="h-full w-0 rounded-full bg-[#b9e769] transition-[width] duration-300"></div>
           </div>
           <div class="pointer-events-none absolute left-[45%] top-0 h-3 w-px bg-white/75"></div>
           <div class="pointer-events-none absolute left-[75%] top-0 h-3 w-px bg-white/75"></div>
@@ -183,14 +183,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
         </div>
 
-        <div class="mt-6 rounded-2xl border border-[#a7d46f]/20 bg-[#a7d46f]/8 p-5">
-          <strong data-dr12-result-title class="block text-lg text-[#eaf5db]">Sub pragul minim</strong>
+        <div class="mt-6 rounded-2xl border border-[#b9e769]/20 bg-[#b9e769]/8 p-5">
+          <strong data-dr12-result-title class="block text-lg text-[#f4f6ed]">Sub pragul minim</strong>
           <p data-dr12-result-message class="mt-2 text-xs leading-6 text-white/58">Mai sunt criterii de analizat pentru atingerea pragului minim de 45 de puncte.</p>
         </div>
 
         <div class="mt-7">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-[0.14em] text-[#cfe8a8]">Detalierea punctajului</span>
+            <span class="text-[10px] font-black uppercase tracking-[0.14em] text-[#b9e769]">Detalierea punctajului</span>
             <span data-dr12-sector-label class="text-[10px] text-white/35">Vegetal / alte sectoare</span>
           </div>
           <ul class="mt-4 grid gap-1 text-xs">
@@ -203,11 +203,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </ul>
         </div>
 
-        <div class="mt-7 rounded-2xl border border-[#e8c27a]/20 bg-[#e8c27a]/7 p-4 text-[11px] leading-5 text-white/52">
+        <div class="mt-7 rounded-2xl border border-[#b9e769]/20 bg-[#b9e769]/7 p-4 text-[11px] leading-5 text-white/52">
           Punctajul se declară pe propria răspundere și trebuie susținut cu documentele cerute pentru fiecare criteriu. Selectarea unei opțiuni nu confirmă automat acceptarea ei de către AFIR.
         </div>
 
-        <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#a7d46f] px-6 py-4 text-sm font-extrabold text-[#073d2c] transition hover:-translate-y-0.5 hover:bg-[#cfe8a8]">
+        <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#b9e769] px-6 py-4 text-sm font-extrabold text-[#073d2c] transition hover:-translate-y-0.5 hover:bg-[#b9e769]">
           Verifică documentele pentru punctaj
           <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"></path></svg>
         </a>
@@ -281,7 +281,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       const scoreBar = calculator.querySelector('[data-dr12-score-bar]');
       if (scoreBar) scoreBar.style.width = `${percentage}%`;
       const scoreRing = calculator.querySelector('[data-dr12-score-ring]');
-      if (scoreRing) scoreRing.style.background = `conic-gradient(${roundedTotal >= 45 ? '#a7d46f' : '#e8a96a'} ${percentage}%, rgba(255,255,255,.12) 0)`;
+      if (scoreRing) scoreRing.style.background = `conic-gradient(${roundedTotal >= 45 ? '#b9e769' : '#b9e769'} ${percentage}%, rgba(255,255,255,.12) 0)`;
 
       let title = 'Sub pragul minim';
       let message = `Mai sunt necesare ${formatPoints(Math.max(0, 45 - roundedTotal))} puncte pentru pragul minim de 45.`;
