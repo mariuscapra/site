@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentYear = new Date().getFullYear();
+
+const caseStudies = [
+  {
+    number: '01',
+    tag: 'Digitalizare · București–Ilfov',
+    title: 'IMM care vrea să automatizeze procesele, nu doar să cumpere software',
+    profile: 'SRL cu minimum un an fiscal integral, activitate în București–Ilfov și o echipă care lucrează încă în fișiere și aplicații neintegrate.',
+    objective: 'Implementarea unei soluții ERP/CRM, automatizarea fluxurilor și creșterea securității cibernetice printr-un proiect de digitalizare avansată.',
+    questions: [
+      'Este codul CAEN eligibil și autorizabil la locația investiției?',
+      'Există drept valabil asupra locației pentru implementare și durabilitate?',
+      'Soluțiile propuse rezolvă procese reale și pot fi demonstrate prin auditul de maturitate digitală?',
+      'Firma poate susține contribuția proprie, TVA-ul și fluxul de numerar până la rambursare?',
+    ],
+    plan: ['Audit al situației digitale inițiale', 'Hartă de procese și cerințe tehnice', 'Buget corelat cu punctajul', 'Plan de achiziție și implementare'],
+    decision: 'Proiectul continuă doar dacă investiția digitală este justificată operațional, bugetul este sustenabil și condițiile de eligibilitate sunt îndeplinite cumulativ.',
+  },
+  {
+    number: '02',
+    tag: 'Agricultură · DR-12',
+    title: 'Fermă care pregătește consolidarea exploatației și trebuie să își cunoască prescorul',
+    profile: 'Fermier organizat ca PFA, II, IF sau SRL, cu exploatație înregistrată, dimensiune economică eligibilă și investiții planificate în utilaje, construcții sau agricultură de precizie.',
+    objective: 'Modernizarea fermei printr-o investiție dimensionată realist, cu sprijin nerambursabil de până la plafonul programului și cofinanțare adaptată intensității aplicabile.',
+    questions: [
+      'Profilul solicitantului, vârsta și competențele profesionale corespund intervenției?',
+      'Exploatația și toate suprafețele sau animalele sunt înregistrate corect?',
+      'Drepturile asupra terenurilor și clădirilor acoperă implementarea și monitorizarea?',
+      'Punctajul vegetal sau zootehnic este suficient pentru etapa de depunere vizată?',
+    ],
+    plan: ['Verificare SO și baze de date', 'Prescorare pe sector', 'Flux tehnologic și deviz', 'Plan de cofinanțare și avize'],
+    decision: 'Investiția este recalibrată înainte de depunere dacă prescorul, documentele asupra locației sau capacitatea de cofinanțare nu susțin proiectul.',
+  },
+  {
+    number: '03',
+    tag: 'Industrie · Ajutor de stat',
+    title: 'Producător care analizează o investiție industrială majoră',
+    profile: 'Întreprindere din industria prelucrătoare care urmărește o investiție inițială în capacități de producție, automatizare și reducerea consumurilor.',
+    objective: 'Realizarea în România a unor produse cu deficit comercial și structurarea unei investiții eligibile de minimum 50 milioane lei.',
+    questions: [
+      'Codul CAEN și produsul CPA se regăsesc în listele eligibile și aduc punctaj?',
+      'Tipul investiției este inițial, iar lucrările nu au fost demarate înainte de cerere?',
+      'Locația și intensitatea regională fac investiția sustenabilă?',
+      'Sunt demonstrabile automatizarea, efectul de mediu și contribuția proprie fără ajutor public?',
+    ],
+    plan: ['Încadrare CAEN și produs CPA', 'Scenarii de locație și intensitate', 'Model financiar și cash-flow', 'Plan tehnic, automatizare și indicatori de mediu'],
+    decision: 'Decizia de depunere se ia după ce punctajul, finanțarea, calendarul și viabilitatea pe termen lung sunt testate împreună, nu separat.',
+  },
+];
+---
+
+<Layout
+  title="Studii de caz pentru proiecte finanțate | Marius Capră"
+  description="Scenarii anonimizate pentru digitalizarea IMM, DR-12 și investiții industriale: întrebări de eligibilitate, riscuri și pași de pregătire."
+>
+  <header class="sticky top-0 z-50 border-b border-[#0f2233]/10 bg-white/95 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-5 px-5 sm:px-8">
+      <a href={`${base}/`} class="flex items-center gap-3" aria-label="Marius Capră - pagina principală">
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
+        <span class="leading-none">
+          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#0f2233]">CAPRĂ</strong>
+          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0f2233]">Fonduri & Mediu</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-6 lg:flex" aria-label="Navigare studii de caz">
+        <a href={`${base}/#lista-programe`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Programe</a>
+        <a href={`${base}/diagnostic-proiect/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Diagnostic</a>
+        <a href={`${base}/audit-de-mediu/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Audit de mediu</a>
+        <a href={`${base}/#despre`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Expertiză</a>
+        <a href={`${base}/intrebari-frecvente/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Întrebări</a>
+      </nav>
+
+      <a href={`${base}/#formular-proiect`} class="hidden rounded-full bg-[#0f2233] px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5 sm:inline-flex">Descrie proiectul</a>
+      <button data-case-menu-button type="button" class="grid h-11 w-11 place-items-center rounded-full border border-[#0f2233]/15 text-[#0f2233] lg:hidden" aria-expanded="false" aria-controls="case-mobile-menu" aria-label="Deschide meniul">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+    </div>
+    <div id="case-mobile-menu" class="hidden border-t border-[#0f2233]/10 bg-white px-5 py-4 shadow-xl lg:hidden">
+      <nav class="mx-auto grid max-w-[1240px] gap-1">
+        <a href={`${base}/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Pagina principală</a>
+        <a href={`${base}/#lista-programe`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Programe de finanțare</a>
+        <a href={`${base}/diagnostic-proiect/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Diagnostic proiect</a>
+        <a href={`${base}/audit-de-mediu/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Audit de mediu</a>
+        <a href={`${base}/intrebari-frecvente/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Întrebări frecvente</a>
+        <a href={`${base}/#formular-proiect`} class="mt-2 rounded-xl bg-[#0f2233] px-4 py-3 text-center font-extrabold text-white">Descrie proiectul</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="paper-grid py-20 sm:py-28">
+      <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <p class="section-kicker">Studii de caz · scenarii anonimizate</p>
+        <div class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-20">
+          <h1 class="display-font max-w-4xl text-[clamp(3.2rem,7.5vw,6.8rem)] leading-[0.94] text-[#0f2233]">Cum arată o decizie bună înainte de depunere.</h1>
+          <div>
+            <p class="text-lg leading-8 text-[#0f2233]/72">Aceste exemple pornesc de la situații recurente întâlnite în practică. Datele sunt anonimizate, iar accentul este pus pe întrebările și deciziile care protejează investiția beneficiarului.</p>
+            <p class="mt-4 rounded-2xl border border-[#0f2233]/10 bg-white px-5 py-4 text-xs font-bold leading-6 text-[#0f2233]/70">Scenariile sunt orientative și nu înlocuiesc verificarea ghidului final aplicabil fiecărui program.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-24 sm:pb-32">
+      <div class="mx-auto grid max-w-[1240px] gap-7 px-5 sm:px-8">
+        {caseStudies.map((study, index) => (
+          <article class:list={['overflow-hidden rounded-[2rem] border border-[#0f2233]/10 shadow-[0_18px_55px_rgba(15,34,51,0.08)]', index % 2 === 0 ? 'bg-white' : 'bg-[#0f2233] text-white']}>
+            <div class="grid lg:grid-cols-[0.72fr_1.28fr]">
+              <div class:list={['p-7 sm:p-10', index % 2 === 0 ? 'bg-[#7eb99a] text-[#0f2233]' : 'bg-white/[0.06]']}>
+                <div class="flex items-center justify-between gap-4">
+                  <span class:list={['grid h-11 w-11 place-items-center rounded-full text-xs font-black', index % 2 === 0 ? 'bg-[#0f2233] text-white' : 'bg-[#7eb99a] text-[#0f2233]']}>{study.number}</span>
+                  <span class:list={['text-[10px] font-extrabold uppercase tracking-[0.14em]', index % 2 === 0 ? 'text-[#0f2233]/65' : 'text-[#7eb99a]']}>{study.tag}</span>
+                </div>
+                <h2 class="display-font mt-9 text-4xl leading-[1.02] sm:text-5xl">{study.title}</h2>
+                <div class="mt-8 grid gap-5 text-sm leading-7">
+                  <div>
+                    <strong class="block text-[10px] uppercase tracking-[0.14em] opacity-65">Profil</strong>
+                    <p class="mt-2 opacity-80">{study.profile}</p>
+                  </div>
+                  <div>
+                    <strong class="block text-[10px] uppercase tracking-[0.14em] opacity-65">Obiectiv</strong>
+                    <p class="mt-2 opacity-80">{study.objective}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-7 sm:p-10 lg:p-12">
+                <p class:list={['text-[10px] font-extrabold uppercase tracking-[0.16em]', index % 2 === 0 ? 'text-[#0f2233]/65' : 'text-[#7eb99a]']}>Întrebările care decid proiectul</p>
+                <ol class="mt-6 grid gap-4">
+                  {study.questions.map((question, questionIndex) => (
+                    <li class:list={['flex gap-4 rounded-2xl border p-4 text-sm leading-6', index % 2 === 0 ? 'border-[#0f2233]/10 bg-[#f7f8f7] text-[#0f2233]/78' : 'border-white/12 bg-white/[0.05] text-white/78']}>
+                      <span class:list={['grid h-7 w-7 shrink-0 place-items-center rounded-full text-[10px] font-black', index % 2 === 0 ? 'bg-[#7eb99a] text-[#0f2233]' : 'bg-[#7eb99a] text-[#0f2233]']}>{questionIndex + 1}</span>
+                      {question}
+                    </li>
+                  ))}
+                </ol>
+
+                <div class="mt-8">
+                  <p class:list={['text-[10px] font-extrabold uppercase tracking-[0.16em]', index % 2 === 0 ? 'text-[#0f2233]/65' : 'text-[#7eb99a]']}>Plan de lucru</p>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {study.plan.map((item) => (
+                      <span class:list={['rounded-full border px-3 py-2 text-xs font-bold', index % 2 === 0 ? 'border-[#0f2233]/12 bg-white text-[#0f2233]' : 'border-white/15 bg-white/[0.06] text-white']}>{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class:list={['mt-8 rounded-2xl p-5', index % 2 === 0 ? 'bg-[#0f2233] text-white' : 'bg-[#7eb99a] text-[#0f2233]']}>
+                  <span class="text-[10px] font-extrabold uppercase tracking-[0.14em] opacity-65">Decizia urmărită</span>
+                  <p class="mt-3 text-sm font-bold leading-7">{study.decision}</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="px-5 pb-24 sm:px-8 sm:pb-32">
+      <div class="grain mx-auto flex max-w-[1240px] flex-col gap-7 overflow-hidden rounded-[2rem] bg-[#0f2233] p-8 text-white sm:p-12 lg:flex-row lg:items-center lg:justify-between">
+        <div class="relative max-w-3xl">
+          <p class="section-kicker section-kicker--dark">Proiectul tău</p>
+          <h2 class="display-font mt-5 text-4xl leading-tight sm:text-5xl">Ai un scenariu diferit? Îl analizăm de la datele tale.</h2>
+          <p class="mt-4 text-sm leading-7 text-white/72">Trimite forma juridică, locația, investiția și bugetul estimat. Prima discuție stabilește dacă există o direcție realistă.</p>
+        </div>
+        <a href={`${base}/#formular-proiect`} class="relative inline-flex shrink-0 items-center justify-center rounded-full bg-[#7eb99a] px-6 py-4 text-sm font-extrabold text-[#0f2233] transition hover:-translate-y-1">Descrie proiectul</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#0f2233]/10 px-5 py-9 sm:px-8">
+    <div class="mx-auto flex max-w-[1240px] flex-col gap-5 text-xs text-[#0f2233]/72 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><strong class="tracking-[0.14em] text-[#0f2233]">CAPRĂ · FONDURI & MEDIU</strong></div>
+      <span>© {currentYear} Marius Capră. Toate drepturile rezervate.</span>
+      <a href={`${base}/`} class="font-bold text-[#0f2233]">Pagina principală</a>
+    </div>
+  </footer>
+
+  <script is:inline>
+    (() => {
+      const button = document.querySelector('[data-case-menu-button]');
+      const menu = document.querySelector('#case-mobile-menu');
+      button?.addEventListener('click', () => {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isOpen));
+        button.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+        menu?.classList.toggle('hidden', isOpen);
+      });
+      menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        button?.setAttribute('aria-expanded', 'false');
+      }));
+    })();
+  </script>
+</Layout>

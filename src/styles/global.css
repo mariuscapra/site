@@ -106,16 +106,36 @@ summary {
 .hero-highlight {
   display: inline;
   color: var(--forest-dark);
-  font-style: italic;
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.08em;
-  text-decoration-skip-ink: none;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .hero-highlight--dark {
   color: white;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid rgba(15, 34, 51, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 0.65rem 0.9rem;
+  box-shadow: 0 8px 24px rgba(15, 34, 51, 0.06);
+  color: var(--ink);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-kicker--dark {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  color: var(--lime);
 }
 
 .partner-stage {

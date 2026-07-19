@@ -3,96 +3,135 @@ import Layout from '../layouts/Layout.astro';
 
 const faqs = [
   {
+    category: 'Fonduri europene',
+    question: 'Ce programe de finanțare pot fi potrivite pentru un IMM în 2026?',
+    answer: 'Programul potrivit depinde de regiunea investiției, dimensiunea firmei, codul CAEN, vechime, rezultate financiare și tipul cheltuielilor. Pentru IMM-uri pot exista apeluri regionale pentru investiții productive sau digitalizare, scheme naționale și ajutoare de stat. Lista programelor de pe site este orientativă, iar eligibilitatea se confirmă numai după publicarea ghidului final.',
+  },
+  {
+    category: 'Eligibilitate',
+    question: 'Cum verific dacă un SRL este eligibil pentru fonduri europene?',
+    answer: 'Verificarea unui SRL începe cu vechimea, categoria IMM, situațiile financiare, profitul solicitat de apel, datoriile, codul CAEN, locația și dreptul asupra imobilului. Apoi se analizează investiția, bugetul, cofinanțarea, ajutoarele de minimis primite și criteriile de punctaj. Condițiile trebuie îndeplinite cumulativ, nu doar parțial.',
+  },
+  {
+    category: 'Eligibilitate',
+    question: 'Pot solicita finanțare un PFA, o întreprindere individuală sau o întreprindere familială?',
+    answer: 'Da, dar numai în programele care includ expres PFA, II sau IF între beneficiarii eligibili. Unele intervenții agricole, precum DR-12, pot accepta aceste forme juridice, în timp ce multe apeluri pentru IMM-uri solicită societăți comerciale. Forma juridică trebuie verificată în ghidul fiecărui apel.',
+  },
+  {
+    category: 'Eligibilitate',
+    question: 'Este obligatoriu ca firma să fi înregistrat profit în ultimul an fiscal?',
+    answer: 'Depinde de program. Unele apeluri solicită profit din exploatare mai mare de zero în anul fiscal anterior, capitaluri proprii pozitive sau rentabilitate pozitivă într-un anumit interval. Alte programe acceptă firme nou-înființate. Situațiile financiare trebuie verificate exact după definiția din ghid.',
+  },
+  {
+    category: 'Eligibilitate',
+    question: 'Ce drept trebuie să am asupra locației de implementare a proiectului?',
+    answer: 'Ghidul poate solicita proprietate, concesiune, superficie, administrare, închiriere sau un alt drept valabil, în funcție de investiție și de existența lucrărilor de construcții. Dreptul trebuie să acopere perioada de implementare și durabilitate, iar imobilul trebuie să permită legal activitatea și investiția propusă.',
+  },
+  {
+    category: 'Eligibilitate',
+    question: 'Cum verific dacă un cod CAEN este eligibil și autorizat corect?',
+    answer: 'Codul CAEN trebuie verificat în lista apelului, în versiunea CAEN cerută de ghid, apoi corelat cu activitatea finanțată și locația proiectului. Unele programe cer codul înscris la depunere și autorizat până la contractare sau prima plată. Eligibilitatea codului nu înseamnă automat că toate cheltuielile sunt eligibile.',
+  },
+  {
+    category: 'Fonduri europene',
+    question: 'Cum se calculează cofinanțarea proprie de 10%–35%?',
+    answer: 'Cofinanțarea se calculează ca procent din valoarea eligibilă a proiectului. De exemplu, la o intensitate de 80%, grantul reprezintă 80% din costurile eligibile, iar contribuția privată 20%. Beneficiarul suportă separat cheltuielile neeligibile, TVA-ul neeligibil și necesarul temporar de numerar până la rambursare.',
+  },
+  {
+    category: 'Fonduri europene',
+    question: 'Ce trebuie să știe un IMM din București–Ilfov despre finanțarea pentru digitalizare avansată?',
+    answer: 'Un IMM din București–Ilfov trebuie să verifice sediul și locația de implementare, vechimea minimă, codul CAEN, dreptul asupra spațiului și contribuția proprie. Investiția trebuie fundamentată prin audit de maturitate digitală și plan de digitalizare, iar soluțiile ERP, CRM, automatizare sau securitate cibernetică trebuie legate de procese reale ale firmei.',
+  },
+  {
+    category: 'Fonduri europene',
+    question: 'Cum se calculează punctajul pentru Start-Up Nation 2025?',
+    answer: 'Punctajul se calculează conform criteriilor din procedură: aport propriu, ponderea echipamentelor, componenta de dezvoltare durabilă, debutul în afaceri, menținerea locurilor de muncă și domeniul de activitate. Calculatorul de pe pagina programului oferă o prescorare orientativă; autoritatea finanțatoare stabilește scorul final.',
+  },
+  {
+    category: 'Fonduri europene',
+    question: 'La DR-12, grantul de până la 200.000 euro este o sumă fixă?',
+    answer: 'Nu. 200.000 euro este plafonul maxim al sprijinului nerambursabil, iar grantul efectiv rezultă din valoarea eligibilă și intensitatea aplicabilă, de exemplu 80% sau 65%. Cofinanțarea se calculează proporțional, prin regula de trei simplă, iar beneficiarul suportă integral cheltuielile neeligibile.',
+  },
+  {
     category: 'Colaborare',
-    question: 'Cu ce tipuri de beneficiari lucrezi?',
-    answer: 'Colaborez cu IMM-uri, antreprenori, ONG-uri și organizații care pregătesc investiții sau implementează proiecte finanțate. Primul pas este o discuție scurtă pentru a verifica dacă experiența și serviciile mele se potrivesc situației tale.',
-  },
-  {
-    category: 'Finanțare',
-    question: 'Poți garanta obținerea finanțării?',
-    answer: 'Nu. Nicio consultanță serioasă nu poate garanta aprobarea, deoarece decizia aparține autorității finanțatoare și depinde de eligibilitate, punctaj, bugetul disponibil și concurență. Pot evalua realist șansele, construi o documentație coerentă și reduce riscurile evitabile.',
-  },
-  {
-    category: 'Implementare',
-    question: 'Te ocupi și de implementare și achiziții?',
-    answer: 'Da. Colaborarea poate continua după contractare cu planificarea achizițiilor, pregătirea documentațiilor, selecția furnizorilor, monitorizarea bugetului, cereri de plată sau rambursare și obligațiile din perioada de durabilitate.',
-  },
-  {
-    category: 'Mediu',
-    question: 'Când este necesar un audit de mediu?',
-    answer: 'Auditul este util pentru verificarea conformării legale, pregătirea unei investiții, îndeplinirea cerințelor unui finanțator sau identificarea riscurilor și oportunităților de îmbunătățire a performanței de mediu.',
-  },
-  {
-    category: 'Finanțare',
-    question: 'Cum aflu dacă firma sau ideea mea este eligibilă?',
-    answer: 'Analiza începe cu forma juridică, vechimea, dimensiunea întreprinderii, locația, codul CAEN, situația financiară, investiția propusă și criteriile de punctaj. O potrivire generală cu descrierea programului nu este suficientă; toate condițiile trebuie verificate cumulativ în ghidul aplicabil.',
-  },
-  {
-    category: 'Finanțare',
-    question: 'Poate aplica și o firmă nou-înființată?',
-    answer: 'Depinde de program. Unele apeluri sunt concepute pentru start-up-uri, iar altele solicită unul sau mai mulți ani fiscali încheiați, profit din exploatare ori o anumită capacitate financiară. Verificarea se face pentru fiecare apel în parte.',
-  },
-  {
-    category: 'Finanțare',
-    question: 'Am nevoie de cofinanțare proprie?',
-    answer: 'În majoritatea programelor de investiții, da. Pe lângă procentul de cofinanțare trebuie luate în calcul cheltuielile neeligibile, TVA-ul atunci când nu este eligibil și resursele necesare până la rambursarea sumelor. Capacitatea de cash-flow este la fel de importantă ca eligibilitatea.',
+    question: 'Cât costă serviciile de consultanță pentru fonduri europene?',
+    answer: 'Costul consultanței se stabilește după o analiză inițială și depinde de program, valoarea și complexitatea investiției, documentația tehnică și serviciile solicitate: eligibilitate, scriere, depunere, achiziții sau implementare. Oferta prezintă clar etapele, livrabilele, termenele și condițiile de plată.',
   },
   {
     category: 'Colaborare',
-    question: 'Cât costă serviciile de consultanță?',
-    answer: 'Costul se stabilește după analiza proiectului și depinde de complexitate, valoarea investiției și serviciile solicitate: eligibilitate, scriere, depunere, achiziții sau implementare. Oferta, etapele, livrabilele și condițiile de plată sunt stabilite transparent înainte de începerea colaborării.',
+    question: 'Ce documente sunt necesare pentru o verificare inițială de eligibilitate?',
+    answer: 'Pentru început sunt utile CUI-ul firmei, forma juridică, locația investiției, codul CAEN, ultimele situații financiare, o descriere a investiției, bugetul estimat și sursa cofinanțării. Ulterior pot fi necesare documente asupra imobilului, oferte, certificate fiscale, avize și documentații tehnice.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Pot comanda echipamente sau începe lucrările înainte de depunerea proiectului?',
+    answer: 'Nu înainte de verificarea regulilor privind demararea investiției și efectul stimulativ. O comandă fermă, un contract de execuție, plata unui avans sau începerea lucrărilor poate face proiectul neeligibil. Activitățile pregătitoare permise trebuie delimitate clar de demararea ireversibilă a investiției.',
+  },
+  {
+    category: 'Achiziții',
+    question: 'Cum se organizează achiziția de echipamente într-un proiect cu fonduri europene?',
+    answer: 'Achiziția pornește de la specificații tehnice neutre și un buget justificat. Se aplică procedura beneficiarului și cerințele programului privind publicitatea, solicitarea ofertelor, conflictele de interese, evaluarea și contractarea. Dosarul achiziției trebuie să permită verificarea completă a deciziei și a prețului.',
+  },
+  {
+    category: 'Achiziții',
+    question: 'Ce riscuri apar dacă procedura de achiziție este realizată greșit?',
+    answer: 'Specificațiile restrictive, ofertele necomparabile, alegerea insuficient justificată, conflictul de interese sau lipsa documentelor pot genera cheltuieli neeligibile și corecții financiare. Prevenția înseamnă planificare, trasabilitate și verificarea documentației înainte de publicare sau transmitere.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Ce presupune implementarea unui proiect după semnarea contractului de finanțare?',
+    answer: 'Implementarea include actualizarea calendarului, achiziții, contracte cu furnizorii, plăți, cereri de plată sau rambursare, raportare tehnică și financiară, vizibilitate și monitorizarea indicatorilor. Modificările de buget, soluție tehnică sau calendar trebuie analizate înainte de a fi aplicate.',
+  },
+  {
+    category: 'Implementare',
+    question: 'Ce obligații trebuie menținute după finalizarea proiectului?',
+    answer: 'Beneficiarul menține, de regulă, investiția, activitatea, locația, activele, locurile de muncă și indicatorii pe perioada de durabilitate. Documentele se arhivează, activele nu se înstrăinează fără aprobare și se respectă cerințele de informare, mediu și evitare a dublei finanțări.',
+  },
+  {
+    category: 'Audit de mediu',
+    question: 'Ce este un audit de mediu și când este util unei firme?',
+    answer: 'Auditul de mediu este o evaluare structurată a conformării și performanței de mediu. Este util înaintea unei investiții, pentru pregătirea unui control, verificarea autorizațiilor, gestiunea deșeurilor, consumurile de resurse și identificarea riscurilor care pot produce sancțiuni sau întârzieri.',
+  },
+  {
+    category: 'Audit de mediu',
+    question: 'Ce documente sunt verificate într-un audit de mediu?',
+    answer: 'În funcție de activitate, se verifică actele de reglementare, evidența deșeurilor, contractele cu operatorii autorizați, raportările, monitorizările, consumurile, obligațiile pentru ambalaje și substanțe, instruirile și procedurile interne. Auditul se finalizează cu neconformități, priorități și măsuri recomandate.',
+  },
+  {
+    category: 'Audit de mediu',
+    question: 'Pot contracta auditul de mediu separat de consultanța pentru fonduri europene?',
+    answer: 'Da. Auditul de mediu poate fi contractat ca serviciu independent pentru activitatea curentă, o investiție nouă, pregătirea unei verificări sau organizarea documentelor și responsabilităților de mediu. Livrabilele și limitele evaluării sunt stabilite înainte de începerea auditului.',
   },
   {
     category: 'Colaborare',
-    question: 'Cât durează pregătirea unui proiect?',
-    answer: 'Durata diferă de la câteva săptămâni la câteva luni, în funcție de complexitate, documentele existente, necesitatea avizelor, proiectarea tehnică și timpul de răspuns al furnizorilor sau instituțiilor. Recomand începerea pregătirii înainte de deschiderea oficială a apelului.',
-  },
-  {
-    category: 'Finanțare',
-    question: 'Ce documente sunt necesare la început?',
-    answer: 'De regulă sunt utile actele societății, situațiile financiare, certificatele fiscale, informațiile despre codul CAEN și locație, documentele asupra imobilului, ofertele pentru investiție și autorizațiile existente. Lista finală diferă de la un program la altul.',
-  },
-  {
-    category: 'Implementare',
-    question: 'Pot începe lucrările sau cumpăra echipamente înainte de depunere?',
-    answer: 'Nu fără verificarea regulilor apelului. În multe programe, începerea lucrărilor sau lansarea unei comenzi ferme înainte de momentul permis poate face investiția neeligibilă. Nu semna contracte și nu plăti avansuri pentru investiție înainte de o analiză clară a efectului stimulativ și a datei de eligibilitate.',
-  },
-  {
-    category: 'Implementare',
-    question: 'Finanțarea se primește integral în avans?',
-    answer: 'De cele mai multe ori proiectele funcționează prin rambursarea cheltuielilor eligibile deja efectuate și plătite. Unele programe permit un avans sau mecanisme de plată, dar acestea pot necesita garanții și respectarea unor condiții speciale.',
-  },
-  {
-    category: 'Implementare',
-    question: 'Cum se fac achizițiile într-un proiect finanțat?',
-    answer: 'Achizițiile trebuie realizate conform procedurii aplicabile beneficiarului și programului: specificații nediscriminatorii, publicitate sau solicitarea ofertelor, justificarea selecției, evitarea conflictelor de interese și păstrarea unei piste complete de audit. O achiziție greșită poate conduce la corecții financiare.',
-  },
-  {
-    category: 'Finanțare',
-    question: 'Ce se întâmplă dacă ghidul se modifică înainte de lansare?',
-    answer: 'Documentele aflate în consultare pot fi schimbate. Pregătirea preliminară ajută, dar eligibilitatea, punctajul și bugetul trebuie reverificate după publicarea ghidului final și a anexelor oficiale. Varianta finală și eventualele corrigendumuri prevalează.',
-  },
-  {
-    category: 'Implementare',
-    question: 'Ce obligații rămân după finalizarea investiției?',
-    answer: 'Beneficiarul trebuie, de regulă, să mențină investiția, activitatea, locația, activele și indicatorii asumați pe perioada de durabilitate. Se păstrează documentele, se respectă cerințele de vizibilitate și se răspunde verificărilor autorității finanțatoare.',
-  },
-  {
-    category: 'Mediu',
-    question: 'Auditul de mediu poate fi contractat separat de proiectul de finanțare?',
-    answer: 'Da. Auditul poate fi realizat ca serviciu distinct pentru conformarea activității curente, pregătirea unui control, organizarea evidențelor și fluxurilor de deșeuri sau stabilirea unui plan de îmbunătățire a performanței de mediu.',
+    question: 'Poate un consultant să garanteze aprobarea unui proiect cu fonduri europene?',
+    answer: 'Nu. Aprobarea depinde de autoritatea finanțatoare, condițiile apelului, punctaj, buget și concurență. Un consultant poate verifica eligibilitatea, estima realist punctajul, construi documentația și reduce riscurile, dar nu poate promite rezultatul evaluării.',
   },
 ];
 
-const categories = ['Toate', 'Finanțare', 'Colaborare', 'Implementare', 'Mediu'];
+const categories = ['Toate', 'Fonduri europene', 'Eligibilitate', 'Colaborare', 'Achiziții', 'Implementare', 'Audit de mediu'];
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+});
 ---
 
 <Layout
-  title="Întrebări frecvente | Marius Capră"
-  description="Răspunsuri clare despre fonduri nerambursabile, eligibilitate, consultanță, cofinanțare, achiziții, implementare și audit de mediu."
+  title="Întrebări despre fonduri europene și audit de mediu | Marius Capră"
+  description="Răspunsuri specifice despre eligibilitatea IMM, cofinanțare, cod CAEN, Start-Up Nation, DR-12, achiziții, implementare și audit de mediu."
 >
+  <script is:inline type="application/ld+json" set:html={faqSchema} />
+
   <header class="sticky top-0 z-50 border-b border-[#0f2233]/10 bg-[#ffffff]/94 backdrop-blur-xl">
     <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-5 px-5 sm:px-8">
       <a href={`${base}/`} class="flex items-center gap-3" aria-label="Înapoi la pagina principală">
@@ -103,18 +142,33 @@ const currentYear = new Date().getFullYear();
         </span>
       </a>
 
-      <nav class="hidden items-center gap-6 md:flex" aria-label="Navigare întrebări frecvente">
+      <nav class="hidden items-center gap-6 lg:flex" aria-label="Navigare întrebări frecvente">
         <a href={`${base}/#lista-programe`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Programe</a>
         <a href={`${base}/diagnostic-proiect/`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Diagnostic</a>
         <a href={`${base}/audit-de-mediu/`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Audit de mediu</a>
         <a href={`${base}/#despre`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Despre</a>
+        <a href={`${base}/studii-de-caz/`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Studii de caz</a>
         <a href={`${base}/#parteneri`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Parteneri</a>
       </nav>
 
-      <a href={`${base}/#contact`} class="inline-flex items-center gap-2 rounded-full bg-[#0f2233] px-4 py-3 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#0f2233] sm:px-5 sm:text-sm">
+      <a href={`${base}/#formular-proiect`} class="hidden items-center gap-2 rounded-full bg-[#0f2233] px-4 py-3 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#0f2233] sm:inline-flex sm:px-5 sm:text-sm">
         Pune o întrebare
         <svg aria-hidden="true" viewBox="0 0 20 20" class="hidden h-4 w-4 fill-none stroke-current sm:block" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
       </a>
+      <button data-faq-menu-button type="button" class="grid h-11 w-11 place-items-center rounded-full border border-[#0f2233]/15 text-[#0f2233] lg:hidden" aria-expanded="false" aria-controls="faq-mobile-menu" aria-label="Deschide meniul">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+    </div>
+    <div id="faq-mobile-menu" class="hidden border-t border-[#0f2233]/10 bg-white px-5 py-4 shadow-xl lg:hidden">
+      <nav class="mx-auto grid max-w-[1240px] gap-1" aria-label="Navigare mobilă întrebări frecvente">
+        <a href={`${base}/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Pagina principală</a>
+        <a href={`${base}/#lista-programe`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Programe de finanțare</a>
+        <a href={`${base}/diagnostic-proiect/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Diagnostic proiect</a>
+        <a href={`${base}/audit-de-mediu/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Audit de mediu</a>
+        <a href={`${base}/studii-de-caz/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Studii de caz</a>
+        <a href={`${base}/#parteneri`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Parteneri</a>
+        <a href={`${base}/#formular-proiect`} class="mt-2 rounded-xl bg-[#0f2233] px-4 py-3 text-center font-extrabold text-white">Descrie proiectul</a>
+      </nav>
     </div>
   </header>
 
@@ -125,11 +179,11 @@ const currentYear = new Date().getFullYear();
       <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
         <div class="grid gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-24">
           <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0f2233]">Întrebări frecvente</p>
-            <h1 class="display-font mt-5 max-w-4xl text-[clamp(3.1rem,8vw,7rem)] leading-[0.98] text-[#0f2233] sm:leading-[0.91]">Clar de la <span class="italic text-[#0f2233]">început.</span></h1>
+            <p class="section-kicker">Întrebări frecvente</p>
+            <h1 class="display-font mt-5 max-w-4xl text-[clamp(3.1rem,7.5vw,6.7rem)] leading-[0.98] text-[#0f2233] sm:leading-[0.94]">Fonduri europene și audit de mediu, explicate concret.</h1>
           </div>
           <div>
-            <p class="text-lg leading-8 text-[#0f2233]/72">Răspunsuri directe despre finanțare, colaborare, implementare și mediu. Folosește căutarea sau filtrează întrebările după subiect.</p>
+            <p class="text-lg leading-8 text-[#0f2233]/72">Răspunsuri specifice despre eligibilitatea IMM, cofinanțare, cod CAEN, pregătirea proiectului, achiziții și conformarea de mediu. Folosește căutarea sau filtrează după subiect.</p>
             <div class="mt-6 flex items-center gap-3 text-sm font-bold text-[#0f2233]">
               <span class="grid h-9 w-9 place-items-center rounded-full bg-[#f5f7f6]">{faqs.length}</span>
               răspunsuri practice
@@ -145,7 +199,7 @@ const currentYear = new Date().getFullYear();
           <div class="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <label class="flex items-center gap-3 rounded-xl border border-[#0f2233]/12 bg-[#f7f8f7] px-4 focus-within:border-[#0f2233]">
               <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-none stroke-[#0f2233]" stroke-width="1.8"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
-              <input data-faq-search type="search" class="min-w-0 flex-1 bg-transparent py-3.5 text-sm outline-none" placeholder="Caută: cofinanțare, achiziții, audit..." />
+              <input data-faq-search type="search" aria-label="Caută în întrebările frecvente" class="min-w-0 flex-1 bg-transparent py-3.5 text-sm outline-none" placeholder="Caută: SRL, CAEN, DR-12, cofinanțare..." />
             </label>
             <div class="flex gap-2 overflow-x-auto pb-1 lg:justify-end">
               {categories.map((category, index) => (
@@ -168,7 +222,7 @@ const currentYear = new Date().getFullYear();
               <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#7eb99a]">Rezultate afișate</p>
               <strong data-faq-count class="display-font mt-3 block text-6xl">{faqs.length}</strong>
               <p class="mt-4 text-sm leading-7 text-white/76">Nu ai găsit răspunsul potrivit? Trimite situația ta și o clarificăm într-o discuție inițială.</p>
-              <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[#7eb99a] px-5 py-3.5 text-sm font-extrabold text-[#0f2233] transition hover:bg-[#7eb99a]">Contactează-mă</a>
+              <a href={`${base}/#formular-proiect`} class="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[#7eb99a] px-5 py-3.5 text-sm font-extrabold text-[#0f2233] transition hover:bg-white">Descrie proiectul</a>
             </div>
           </aside>
 
@@ -205,6 +259,19 @@ const currentYear = new Date().getFullYear();
 
   <script is:inline>
     (() => {
+      const menuButton = document.querySelector('[data-faq-menu-button]');
+      const mobileMenu = document.querySelector('#faq-mobile-menu');
+      menuButton?.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+        mobileMenu?.classList.toggle('hidden', isOpen);
+      });
+      mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuButton?.setAttribute('aria-expanded', 'false');
+      }));
+
       const searchInput = document.querySelector('[data-faq-search]');
       const filters = [...document.querySelectorAll('[data-faq-filter]')];
       const items = [...document.querySelectorAll('[data-faq-item]')];
