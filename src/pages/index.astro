@@ -136,12 +136,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </span>
       </a>
 
-      <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigare principală">
-        <a data-nav-link data-nav-target="fonduri" data-funding-link class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#lista-programe">Programe</a>
-        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
-        <a data-nav-link data-nav-target="despre" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#despre">Expertiză</a>
-        <a data-nav-link data-nav-target="parteneri" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#parteneri">Parteneri</a>
-        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/intrebari-frecvente/`}>Întrebări</a>
+      <nav class="hidden items-center lg:flex" aria-label="Navigare principală">
+        <a data-nav-link data-nav-target="fonduri" data-funding-link class="rounded-full px-3 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#lista-programe">Programe</a>
+        <a class="rounded-full px-3 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/diagnostic-proiect/`}>Diagnostic</a>
+        <a class="rounded-full px-3 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
+        <a data-nav-link data-nav-target="despre" class="rounded-full px-3 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#despre">Expertiză</a>
+        <a data-nav-link data-nav-target="parteneri" class="rounded-full px-3 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#parteneri">Parteneri</a>
+        <a class="rounded-full px-3 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/intrebari-frecvente/`}>Întrebări</a>
       </nav>
 
       <div class="hidden lg:block">
@@ -159,6 +160,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div id="mobile-menu" class="hidden border-t border-[#0f2233]/10 bg-[#ffffff]/98 px-5 py-5 shadow-xl lg:hidden">
       <nav class="mx-auto grid max-w-[1240px] gap-1" aria-label="Navigare mobilă">
         <a data-funding-link class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href="#lista-programe">Programe de finanțare</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href={`${base}/diagnostic-proiect/`}>Diagnostic proiect</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href="#despre">Expertiză</a>
         <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href="#parteneri">Parteneri</a>

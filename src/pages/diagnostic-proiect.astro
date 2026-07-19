@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const questions = [
+  {
+    title: 'Ai un SRL, PFA, II sau IF?',
+    hint: 'Pornim de la entitatea care va depune cererea. Unele apeluri acceptă doar anumite forme juridice.',
+    priority: 'Clarifică forma juridică și entitatea care va solicita finanțarea.',
+    answers: [
+      ['Da, entitatea este activă', 2],
+      ['Este în curs de înființare sau forma trebuie verificată', 1],
+      ['Nu am încă o entitate', 0],
+    ],
+  },
+  {
+    title: 'Ai înregistrat profit în ultimul an fiscal încheiat?',
+    hint: 'Profitul nu este o condiție universală, dar poate conta la eligibilitate, punctaj sau capacitatea financiară.',
+    priority: 'Verifică rezultatul ultimului an fiscal și dacă programul analizat solicită profit.',
+    answers: [
+      ['Da, ultimul an fiscal încheiat a fost pe profit', 2],
+      ['Nu, sau entitatea nu are încă un an fiscal încheiat', 1],
+      ['Nu cunosc rezultatul și trebuie verificat', 0],
+    ],
+  },
+  {
+    title: 'Activitatea și codul CAEN sunt clare?',
+    hint: 'Codul exact și istoricul activității pot schimba programul potrivit.',
+    priority: 'Identifică activitatea finanțată și codul CAEN corespunzător.',
+    answers: [
+      ['Activitatea și codul CAEN sunt identificate', 2],
+      ['Activitatea este clară, codul trebuie verificat', 1],
+      ['Activitatea nu este încă definită', 0],
+    ],
+  },
+  {
+    title: 'Ai un drept asupra posibilei locații de implementare?',
+    hint: 'Dreptul real sau dreptul de utilizare acceptat diferă de la un apel la altul și trebuie susținut cu documente.',
+    priority: 'Clarifică locația și dreptul real sau dreptul de utilizare care poate fi dovedit.',
+    answers: [
+      ['Da, am un drept real și documentele aferente', 2],
+      ['Am chirie / concesiune / alt drept care trebuie verificat', 1],
+      ['Nu am încă un drept asupra locației', 0],
+    ],
+  },
+  {
+    title: 'Investiția și bugetul sunt conturate?',
+    hint: 'O listă realistă de achiziții permite verificarea costurilor eligibile.',
+    priority: 'Pregătește o listă scurtă cu investițiile și un buget estimativ.',
+    answers: [
+      ['Am lista investițiilor și valori estimative', 2],
+      ['Am o idee generală, fără buget detaliat', 1],
+      ['Nu am stabilit încă investițiile', 0],
+    ],
+  },
+  {
+    title: 'Ai cofinanțarea necesară?',
+    hint: 'Contribuția proprie este frecvent între 10% și 35%, dar procentul exact depinde de program, regiune și tipul investiției.',
+    priority: 'Evaluează sursa contribuției proprii și necesarul temporar de numerar.',
+    answers: [
+      ['Da, pot acoperi cofinanțarea și plățile temporare', 2],
+      ['Parțial, voi avea nevoie de credit sau altă sursă', 1],
+      ['Nu am încă o sursă pentru cofinanțare', 0],
+    ],
+  },
+  {
+    title: 'Situația financiară și fiscală este clară?',
+    hint: 'Bilanțurile, datoriile și capacitatea financiară trebuie verificate înainte de depunere.',
+    priority: 'Verifică situațiile financiare, obligațiile fiscale și eventualele restricții.',
+    answers: [
+      ['Da, documentele sunt disponibile și nu cunosc blocaje', 2],
+      ['Documentele există, dar trebuie verificate', 1],
+      ['Există neclarități sau documente lipsă', 0],
+    ],
+  },
+  {
+    title: 'Investiția poate aștepta verificarea regulilor?',
+    hint: 'În multe programe, începerea investiției prea devreme poate afecta eligibilitatea.',
+    priority: 'Nu începe lucrările sau comenzile înainte de verificarea regulilor apelului.',
+    answers: [
+      ['Da, investiția nu a început', 2],
+      ['Am doar discuții și oferte preliminare', 1],
+      ['Am început deja lucrări sau comenzi', 0],
+    ],
+  },
+];
+---
+
+<Layout
+  title="Diagnostic proiect | Marius Capră"
+  description="Diagnostic orientativ pentru nivelul de pregătire al unei idei de investiție înainte de alegerea unui program de finanțare."
+>
+  <header class="sticky top-0 z-40 border-b border-[#0f2233]/10 bg-white/95 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-[1180px] items-center justify-between gap-5 px-5 sm:px-8">
+      <a href={`${base}/`} class="flex items-center gap-3" aria-label="Înapoi la pagina principală">
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
+        <span class="leading-none">
+          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#0f2233]">CAPRĂ</strong>
+          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0f2233]">Fonduri & Mediu</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Navigare diagnostic proiect">
+        <a href={`${base}/#lista-programe`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Programe</a>
+        <span class="rounded-full bg-[#7eb99a] px-4 py-2 text-sm font-extrabold text-[#0f2233]" aria-current="page">Diagnostic</span>
+        <a href={`${base}/audit-de-mediu/`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Audit de mediu</a>
+        <a href={`${base}/intrebari-frecvente/`} class="text-sm font-semibold text-[#0f2233]/70 transition hover:text-[#0f2233]">Întrebări</a>
+      </nav>
+
+      <a href={`${base}/#contact`} class="rounded-full bg-[#0f2233] px-4 py-3 text-xs font-extrabold text-white transition hover:-translate-y-0.5 sm:px-5 sm:text-sm">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden bg-[#0f2233] py-16 text-white sm:py-20">
+      <div class="absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#7eb99a]/16 blur-2xl"></div>
+      <div class="relative mx-auto grid max-w-[1180px] gap-9 px-5 sm:px-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#7eb99a]">Diagnostic orientativ</p>
+          <h1 class="display-font mt-5 max-w-4xl text-[clamp(3rem,7vw,6.4rem)] leading-[0.98] sm:leading-[0.92]">Ești pregătit pentru finanțare?</h1>
+        </div>
+        <div>
+          <p class="text-base leading-8 text-white/76">Răspunde la 8 întrebări și vezi ce este deja bine conturat și ce merită clarificat înainte de alegerea programului.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-[10px] font-extrabold uppercase tracking-[0.12em] text-white/76">
+            <span class="rounded-full border border-white/14 px-3 py-2">2–3 minute</span>
+            <span class="rounded-full border border-white/14 px-3 py-2">Fără date personale</span>
+            <span class="rounded-full border border-white/14 px-3 py-2">Rezultat imediat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 py-12 sm:px-8 sm:py-16">
+      <div data-project-diagnostic class="mx-auto max-w-[920px]">
+        <form data-diagnostic-form class="overflow-hidden rounded-[2rem] border border-[#0f2233]/10 bg-white shadow-[0_24px_70px_rgba(15,34,51,0.1)]">
+          <div class="border-b border-[#0f2233]/10 p-6 sm:p-8">
+            <div class="flex items-center justify-between gap-5">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0f2233]/68">Nivel de pregătire</span>
+                <strong class="mt-1 block text-sm text-[#0f2233]"><span data-step-number>1</span> din {questions.length}</strong>
+              </div>
+              <span data-progress-label class="text-sm font-extrabold text-[#0f2233]">14%</span>
+            </div>
+            <div class="mt-4 h-2 overflow-hidden rounded-full bg-[#0f2233]/8" aria-hidden="true">
+              <span data-progress-bar class="block h-full rounded-full bg-[#7eb99a] transition-all duration-300" style={`width:${100 / questions.length}%`}></span>
+            </div>
+          </div>
+
+          <div data-question-area class="p-6 sm:p-8 lg:p-10">
+            {questions.map((question, questionIndex) => (
+              <fieldset
+                data-diagnostic-step
+                data-priority={question.priority}
+                class:list={[questionIndex !== 0 && 'hidden']}
+              >
+                <legend class="display-font max-w-3xl text-3xl leading-tight text-[#0f2233] sm:text-4xl">{question.title}</legend>
+                <p class="mt-4 max-w-2xl text-sm leading-7 text-[#0f2233]/72">{question.hint}</p>
+
+                <div class="mt-8 grid gap-3">
+                  {question.answers.map(([label, score], answerIndex) => {
+                    const id = `diagnostic-${questionIndex}-${answerIndex}`;
+                    return (
+                      <label for={id} class="group relative cursor-pointer">
+                        <input
+                          id={id}
+                          class="peer sr-only"
+                          type="radio"
+                          name={`diagnostic-${questionIndex}`}
+                          value={score}
+                        />
+                        <span class="flex min-h-16 items-center gap-4 rounded-2xl border border-[#0f2233]/12 bg-[#f5f7f6] px-5 py-4 text-sm font-bold text-[#0f2233] transition group-hover:border-[#7eb99a] group-hover:bg-white peer-checked:border-[#0f2233] peer-checked:bg-[#0f2233] peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[#7eb99a] peer-focus-visible:ring-offset-2">
+                          <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-current/25 text-[10px] font-black">{String.fromCharCode(65 + answerIndex)}</span>
+                          {label}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+
+                <p data-step-error class="mt-5 hidden text-sm font-bold text-[#0f2233]" role="alert">Selectează o variantă pentru a continua.</p>
+              </fieldset>
+            ))}
+          </div>
+
+          <div data-diagnostic-navigation class="flex items-center justify-between gap-4 border-t border-[#0f2233]/10 p-5 sm:px-8 sm:py-6">
+            <button data-previous type="button" class="invisible rounded-full border border-[#0f2233]/14 px-5 py-3 text-sm font-extrabold text-[#0f2233] transition hover:bg-[#f5f7f6]">Înapoi</button>
+            <button data-next type="button" class="rounded-full bg-[#0f2233] px-6 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5">Continuă →</button>
+            <button data-calculate type="submit" class="hidden rounded-full bg-[#7eb99a] px-6 py-3 text-sm font-extrabold text-[#0f2233] transition hover:-translate-y-0.5">Vezi rezultatul</button>
+          </div>
+
+          <section data-diagnostic-result class="hidden p-6 sm:p-8 lg:p-10" aria-live="polite">
+            <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+              <div class="rounded-[1.75rem] bg-[#0f2233] p-7 text-white">
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#7eb99a]">Nivel orientativ</span>
+                <strong data-result-score class="display-font mt-5 block text-6xl leading-none">0 / 14</strong>
+                <div class="mt-6 h-2 overflow-hidden rounded-full bg-white/12">
+                  <span data-result-bar class="block h-full rounded-full bg-[#7eb99a] transition-all duration-500" style="width:0%"></span>
+                </div>
+              </div>
+
+              <div>
+                <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0f2233]/68">Rezultatul tău</p>
+                <h2 data-result-title class="display-font mt-3 text-4xl leading-tight text-[#0f2233]">—</h2>
+                <p data-result-message class="mt-4 text-sm leading-7 text-[#0f2233]/72"></p>
+
+                <div class="mt-7 border-t border-[#0f2233]/10 pt-6">
+                  <h3 class="text-sm font-extrabold text-[#0f2233]">Ce merită clarificat</h3>
+                  <ul data-result-priorities class="mt-4 grid gap-3 text-sm leading-6 text-[#0f2233]/72"></ul>
+                </div>
+
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href={`${base}/#contact`} class="inline-flex items-center justify-center rounded-full bg-[#0f2233] px-6 py-3.5 text-sm font-extrabold text-white transition hover:-translate-y-0.5">Discută rezultatul</a>
+                  <button data-reset type="button" class="rounded-full border border-[#0f2233]/14 px-6 py-3.5 text-sm font-extrabold text-[#0f2233] transition hover:bg-[#f5f7f6]">Reia diagnosticul</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </form>
+
+        <p class="mx-auto mt-6 max-w-3xl text-center text-xs leading-6 text-[#0f2233]/68">Rezultatul măsoară numai nivelul de pregătire al ideii. Nu confirmă eligibilitatea, punctajul sau obținerea finanțării; acestea se verifică separat pentru fiecare program.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#0f2233]/10 px-5 py-8 sm:px-8">
+    <div class="mx-auto flex max-w-[1180px] flex-col gap-4 text-xs text-[#0f2233]/68 sm:flex-row sm:items-center sm:justify-between">
+      <span>© {new Date().getFullYear()} Marius Capră</span>
+      <a href={`${base}/`} class="font-bold text-[#0f2233]">Înapoi la pagina principală →</a>
+    </div>
+  </footer>
+
+  <script is:inline>
+    (() => {
+      const root = document.querySelector('[data-project-diagnostic]');
+      if (!root) return;
+
+      const form = root.querySelector('[data-diagnostic-form]');
+      const questionArea = root.querySelector('[data-question-area]');
+      const navigation = root.querySelector('[data-diagnostic-navigation]');
+      const steps = [...root.querySelectorAll('[data-diagnostic-step]')];
+      const previousButton = root.querySelector('[data-previous]');
+      const nextButton = root.querySelector('[data-next]');
+      const calculateButton = root.querySelector('[data-calculate]');
+      const stepNumber = root.querySelector('[data-step-number]');
+      const progressLabel = root.querySelector('[data-progress-label]');
+      const progressBar = root.querySelector('[data-progress-bar]');
+      const result = root.querySelector('[data-diagnostic-result]');
+      const resultScore = root.querySelector('[data-result-score]');
+      const resultBar = root.querySelector('[data-result-bar]');
+      const resultTitle = root.querySelector('[data-result-title]');
+      const resultMessage = root.querySelector('[data-result-message]');
+      const resultPriorities = root.querySelector('[data-result-priorities]');
+      const resetButton = root.querySelector('[data-reset]');
+      let currentStep = 0;
+
+      const selectedAnswer = (step) => step.querySelector('input[type="radio"]:checked');
+
+      const showStep = (index) => {
+        currentStep = index;
+        steps.forEach((step, stepIndex) => step.classList.toggle('hidden', stepIndex !== currentStep));
+        previousButton?.classList.toggle('invisible', currentStep === 0);
+        nextButton?.classList.toggle('hidden', currentStep === steps.length - 1);
+        calculateButton?.classList.toggle('hidden', currentStep !== steps.length - 1);
+        if (stepNumber) stepNumber.textContent = String(currentStep + 1);
+        const percentage = Math.round(((currentStep + 1) / steps.length) * 100);
+        if (progressLabel) progressLabel.textContent = `${percentage}%`;
+        if (progressBar) progressBar.style.width = `${percentage}%`;
+        steps[currentStep]?.querySelector('input:checked, input')?.focus({ preventScroll: true });
+      };
+
+      const validateCurrentStep = () => {
+        const step = steps[currentStep];
+        const valid = Boolean(selectedAnswer(step));
+        step.querySelector('[data-step-error]')?.classList.toggle('hidden', valid);
+        return valid;
+      };
+
+      nextButton?.addEventListener('click', () => {
+        if (!validateCurrentStep()) return;
+        showStep(Math.min(currentStep + 1, steps.length - 1));
+      });
+
+      previousButton?.addEventListener('click', () => showStep(Math.max(currentStep - 1, 0)));
+
+      steps.forEach((step) => {
+        step.querySelectorAll('input[type="radio"]').forEach((input) => {
+          input.addEventListener('change', () => step.querySelector('[data-step-error]')?.classList.add('hidden'));
+        });
+      });
+
+      form?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!validateCurrentStep()) return;
+
+        const answers = steps.map((step) => selectedAnswer(step));
+        const total = answers.reduce((sum, answer) => sum + Number(answer?.value ?? 0), 0);
+        const percentage = Math.round((total / (steps.length * 2)) * 100);
+        const priorities = steps
+          .map((step, index) => ({ score: Number(answers[index]?.value ?? 0), text: step.dataset.priority ?? '' }))
+          .filter((item) => item.score < 2);
+
+        let title = 'Pregătire înainte de alegerea programului';
+        let message = 'Ideea are nevoie de câteva elemente de bază înainte ca programele de finanțare să poată fi comparate în mod util.';
+        const readiness = total / (steps.length * 2);
+        if (readiness >= 0.78) {
+          title = 'Pregătit pentru analiză';
+          message = 'Profilul este suficient de bine conturat pentru o verificare aplicată pe un program concret.';
+        } else if (readiness >= 0.5) {
+          title = 'Mai sunt aspecte de clarificat';
+          message = 'Există o bază bună, însă câteva elemente pot influența eligibilitatea, punctajul sau bugetul proiectului.';
+        }
+
+        if (resultScore) resultScore.textContent = `${total} / ${steps.length * 2}`;
+        if (resultBar) resultBar.style.width = `${percentage}%`;
+        if (resultTitle) resultTitle.textContent = title;
+        if (resultMessage) resultMessage.textContent = message;
+
+        if (resultPriorities) {
+          resultPriorities.replaceChildren();
+          if (priorities.length === 0) {
+            const item = document.createElement('li');
+            item.className = 'flex gap-3';
+            item.innerHTML = '<span class="font-black text-[#0f2233]">✓</span><span>Nu au fost identificate lacune majore la nivelul informațiilor preliminare.</span>';
+            resultPriorities.appendChild(item);
+          } else {
+            priorities.slice(0, 4).forEach((priority) => {
+              const item = document.createElement('li');
+              item.className = 'flex gap-3';
+              const marker = document.createElement('span');
+              marker.className = 'font-black text-[#0f2233]';
+              marker.textContent = '→';
+              const text = document.createElement('span');
+              text.textContent = priority.text;
+              item.append(marker, text);
+              resultPriorities.appendChild(item);
+            });
+          }
+        }
+
+        questionArea?.classList.add('hidden');
+        navigation?.classList.add('hidden');
+        result?.classList.remove('hidden');
+        result?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      resetButton?.addEventListener('click', () => {
+        form?.reset();
+        result?.classList.add('hidden');
+        questionArea?.classList.remove('hidden');
+        navigation?.classList.remove('hidden');
+        showStep(0);
+        root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
+</Layout>
