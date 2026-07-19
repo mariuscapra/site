@@ -2,24 +2,24 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section data-industry-checker class="grain relative mt-8 overflow-hidden rounded-[2rem] bg-[#0b0e0c] text-white shadow-[0_30px_80px_rgba(11,14,12,0.24)]">
-  <div class="pointer-events-none absolute -right-28 -top-32 h-96 w-96 rounded-full border-[68px] border-[#55d685]/10"></div>
-  <div class="pointer-events-none absolute -bottom-48 -left-40 h-96 w-96 rounded-full bg-[#0b0e0c]/45"></div>
+<section data-industry-checker class="grain relative mt-8 overflow-hidden rounded-[2rem] bg-[#0f2233] text-white shadow-[0_30px_80px_rgba(15,34,51,0.24)]">
+  <div class="pointer-events-none absolute -right-28 -top-32 h-96 w-96 rounded-full border-[68px] border-[#7eb99a]/10"></div>
+  <div class="pointer-events-none absolute -bottom-48 -left-40 h-96 w-96 rounded-full bg-[#0f2233]/45"></div>
 
   <header class="relative border-b border-white/10 p-7 sm:p-10">
     <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 rounded-full bg-[#55d685] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-[#0b0e0c]">
-          <span class="h-1.5 w-1.5 rounded-full bg-[#0b0e0c]"></span>
+        <span class="inline-flex items-center gap-2 rounded-full bg-[#7eb99a] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-[#0f2233]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#0f2233]"></span>
           Instrument orientativ
         </span>
         <h2 class="display-font mt-5 text-4xl leading-none sm:text-6xl">Calculator simplificat de punctaj</h2>
-        <p class="mt-5 max-w-2xl text-sm leading-7 text-white/68">
+        <p class="mt-5 max-w-2xl text-sm leading-7 text-white/76">
           Verifică trei condiții de bază și completează cele șapte criterii din grila programului. Vezi imediat punctajul estimat din maximum 340 de puncte.
         </p>
       </div>
-      <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs leading-5 text-white/58">
-        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-none stroke-[#55d685]" stroke-width="1.8">
+      <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs leading-5 text-white/72">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-none stroke-[#7eb99a]" stroke-width="1.8">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
           <path d="M9 12l2 2 4-5"></path>
         </svg>
@@ -33,16 +33,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <section aria-labelledby="basic-check-title" class="rounded-[1.5rem] border border-white/12 bg-white/5 p-5 sm:p-6">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#55d685]">Pasul 1</span>
+            <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#7eb99a]">Pasul 1</span>
             <h3 id="basic-check-title" class="mt-1 text-xl font-extrabold">Pre-verificare de bază</h3>
           </div>
-          <span class="text-[11px] text-white/42">3 verificări esențiale</span>
+          <span class="text-[11px] text-white/70">3 verificări esențiale</span>
         </div>
 
         <div class="mt-6 grid gap-4 sm:grid-cols-2">
           <label class="block">
             <span class="text-xs font-bold text-white/72">Cod CAEN Rev. 3</span>
-            <span class="mt-2 flex min-h-14 items-center rounded-2xl border border-white/12 bg-[#0b0e0c] px-4 focus-within:border-[#55d685]">
+            <span class="mt-2 flex min-h-14 items-center rounded-2xl border border-white/12 bg-[#0f2233] px-4 focus-within:border-[#7eb99a]">
               <input
                 data-industry-caen
                 inputmode="numeric"
@@ -51,16 +51,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 class="min-w-0 flex-1 bg-transparent py-3 text-lg font-extrabold tracking-[0.12em] text-white outline-none"
                 aria-describedby="industry-caen-feedback"
               />
-              <span data-industry-caen-badge class="rounded-full bg-[#55d685] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.1em] text-[#0b0e0c]">eligibil</span>
+              <span data-industry-caen-badge class="rounded-full bg-[#7eb99a] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.1em] text-[#0f2233]">eligibil</span>
             </span>
-            <span id="industry-caen-feedback" data-industry-caen-feedback class="mt-2 block text-[11px] leading-5 text-white/45">
+            <span id="industry-caen-feedback" data-industry-caen-feedback class="mt-2 block text-[11px] leading-5 text-white/70">
               Codul apare în lista activităților eligibile.
             </span>
           </label>
 
           <label class="block">
             <span class="text-xs font-bold text-white/72">Costuri eligibile, fără TVA</span>
-            <span class="mt-2 flex min-h-14 items-center rounded-2xl border border-white/12 bg-[#0b0e0c] px-4 focus-within:border-[#55d685]">
+            <span class="mt-2 flex min-h-14 items-center rounded-2xl border border-white/12 bg-[#0f2233] px-4 focus-within:border-[#7eb99a]">
               <input
                 data-industry-budget
                 type="number"
@@ -69,18 +69,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 value="50000000"
                 class="min-w-0 flex-1 bg-transparent py-3 text-lg font-extrabold text-white outline-none"
               />
-              <span class="text-xs font-bold text-white/45">lei</span>
+              <span class="text-xs font-bold text-white/70">lei</span>
             </span>
-            <span data-industry-budget-feedback class="mt-2 block text-[11px] leading-5 text-white/45">
+            <span data-industry-budget-feedback class="mt-2 block text-[11px] leading-5 text-white/70">
               Prag minim: 50.000.000 lei.
             </span>
           </label>
 
-          <label class="flex cursor-pointer items-start gap-3 rounded-2xl border border-white/12 bg-[#0b0e0c] p-4 transition hover:border-[#55d685]/50 sm:col-span-2">
-            <input data-industry-not-started class="mt-0.5 h-5 w-5 shrink-0 accent-[#55d685]" type="checkbox" checked />
+          <label class="flex cursor-pointer items-start gap-3 rounded-2xl border border-white/12 bg-[#0f2233] p-4 transition hover:border-[#7eb99a]/50 sm:col-span-2">
+            <input data-industry-not-started class="mt-0.5 h-5 w-5 shrink-0 accent-[#7eb99a]" type="checkbox" checked />
             <span>
               <strong class="block text-sm">Investiția nu a fost demarată</strong>
-              <span class="mt-1 block text-[11px] leading-5 text-white/45">Lucrările și comenzile ferme încep numai după depunerea cererii de finanțare.</span>
+              <span class="mt-1 block text-[11px] leading-5 text-white/70">Lucrările și comenzile ferme încep numai după depunerea cererii de finanțare.</span>
             </span>
           </label>
         </div>
@@ -89,42 +89,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <section aria-labelledby="score-grid-title" class="mt-8">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#55d685]">Pasul 2</span>
+            <span class="text-[10px] font-black uppercase tracking-[0.16em] text-[#7eb99a]">Pasul 2</span>
             <h3 id="score-grid-title" class="mt-1 text-2xl font-extrabold">Grila de punctaj</h3>
           </div>
-          <span class="text-xs font-bold text-[#55d685]">7 criterii · maximum 340 p.</span>
+          <span class="text-xs font-bold text-[#7eb99a]">7 criterii · maximum 340 p.</span>
         </div>
 
         <div class="mt-6 grid gap-4 sm:grid-cols-2">
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">01</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">01</span>
               <span class="text-xs font-extrabold">Tipul investiției</span>
             </span>
-            <select data-score-input="investment" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-score-input="investment" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="0">Selectează opțiunea</option>
               <option value="20">Unitate nouă / diversificare — 20 p.</option>
               <option value="10">Extinderea capacității existente — 10 p.</option>
             </select>
           </label>
 
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">02</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">02</span>
               <span class="text-xs font-extrabold">Membru într-un cluster de inovare</span>
             </span>
-            <select data-score-input="cluster" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-score-input="cluster" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="0">Nu — 0 p.</option>
               <option value="20">Da — 20 p.</option>
             </select>
           </label>
 
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70 sm:col-span-2">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70 sm:col-span-2">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">03</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">03</span>
               <span class="text-xs font-extrabold">Locația realizării investiției</span>
             </span>
-            <select data-industry-location class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-industry-location class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="">Selectează județul sau zona</option>
               <optgroup label="Nord-Vest">
                 <option value="bihor|40">Bihor — intensitate 40%</option>
@@ -186,15 +186,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <option value="bucuresti-ilfov-neacoperit|0">București / altă zonă Ilfov — intensitate sub 40%</option>
               </optgroup>
             </select>
-            <span class="mt-2 block text-[10px] leading-5 text-white/40">Pentru Ilfov, verifică localitatea exactă în documentația oficială înainte de depunere.</span>
+            <span class="mt-2 block text-[10px] leading-5 text-white/70">Pentru Ilfov, verifică localitatea exactă în documentația oficială înainte de depunere.</span>
           </label>
 
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">04</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">04</span>
               <span class="text-xs font-extrabold">Grupa produsului din Anexa nr. 2</span>
             </span>
-            <select data-score-input="deficit" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-score-input="deficit" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="0">Selectează grupa confirmată</option>
               <option value="100">Grupa 1 — 100 p.</option>
               <option value="80">Grupa 2 — 80 p.</option>
@@ -203,15 +203,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               <option value="20">Grupa 5 — 20 p.</option>
               <option value="0">Grupa 6 — 0 p.</option>
             </select>
-            <span class="mt-2 block text-[10px] leading-5 text-[#55d685]">Selectează grupa numai după verificarea produsului CPA.</span>
+            <span class="mt-2 block text-[10px] leading-5 text-[#7eb99a]">Selectează grupa numai după verificarea produsului CPA.</span>
           </label>
 
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">05</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">05</span>
               <span class="text-xs font-extrabold">Gradul de automatizare</span>
             </span>
-            <select data-score-input="automation" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-score-input="automation" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="0">Sub 10% — 0 p.</option>
               <option value="20">Minimum 10% — 20 p.</option>
               <option value="40">Minimum 20% — 40 p.</option>
@@ -220,24 +220,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </select>
           </label>
 
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">06</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">06</span>
               <span class="text-xs font-extrabold">Materii prime și materiale din SEE</span>
             </span>
-            <select data-score-input="materials" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-score-input="materials" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="0">Sub 40% — 0 p.</option>
               <option value="30">Minimum 40% — 30 p.</option>
               <option value="50">Minimum 60% — 50 p.</option>
             </select>
           </label>
 
-          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#55d685]/70">
+          <label class="group rounded-2xl border border-white/12 bg-white/5 p-4 transition focus-within:border-[#7eb99a]/70">
             <span class="flex items-center gap-3">
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#55d685]/12 text-[10px] font-black text-[#55d685]">07</span>
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7eb99a]/12 text-[10px] font-black text-[#7eb99a]">07</span>
               <span class="text-xs font-extrabold">Reducerea intensității solicitate</span>
             </span>
-            <select data-score-input="reduction" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0b0e0c] px-3 text-sm text-white outline-none">
+            <select data-score-input="reduction" class="mt-4 min-h-12 w-full rounded-xl border border-white/12 bg-[#0f2233] px-3 text-sm text-white outline-none">
               <option value="0">Fără reducere — 0 p.</option>
               <option value="5">Cu minimum 5% — 5 p.</option>
               <option value="10">Cu minimum 10% — 10 p.</option>
@@ -249,60 +249,60 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </section>
     </div>
 
-    <aside class="bg-[#0b0e0c]/82 p-7 sm:p-10">
+    <aside class="bg-[#0f2233]/82 p-7 sm:p-10">
       <div class="sticky top-28">
-        <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#55d685]">Rezultatul tău orientativ</span>
+        <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#7eb99a]">Rezultatul tău orientativ</span>
 
         <div class="mt-4 rounded-[1.5rem] border border-white/10 bg-white/6 p-5 sm:p-6">
           <div class="flex items-end justify-between gap-4">
             <div>
-              <span class="text-xs font-bold text-white/48">Punctaj estimat</span>
-              <strong data-industry-score class="mt-1 block text-4xl font-black text-white" aria-live="polite">0 <span class="text-lg text-white/35">/ 340</span></strong>
+              <span class="text-xs font-bold text-white/70">Punctaj estimat</span>
+              <strong data-industry-score class="mt-1 block text-4xl font-black text-white" aria-live="polite">0 <span class="text-lg text-white/70">/ 340</span></strong>
             </div>
-            <span data-industry-percentage class="text-2xl font-black text-[#55d685]">0%</span>
+            <span data-industry-percentage class="text-2xl font-black text-[#7eb99a]">0%</span>
           </div>
           <div class="mt-5 h-2.5 overflow-hidden rounded-full bg-white/10">
-            <div data-industry-progress-bar class="h-full w-0 rounded-full bg-[#55d685] transition-[width] duration-300"></div>
+            <div data-industry-progress-bar class="h-full w-0 rounded-full bg-[#7eb99a] transition-[width] duration-300"></div>
           </div>
         </div>
 
-        <div class="mt-4 rounded-2xl border border-[#55d685]/20 bg-[#55d685]/8 p-5">
-          <strong data-industry-status class="block text-base text-[#f3f4f3]" aria-live="polite">Pre-verificare de bază îndeplinită</strong>
-          <p data-industry-message class="mt-2 text-xs leading-6 text-white/58">
+        <div class="mt-4 rounded-2xl border border-[#7eb99a]/20 bg-[#7eb99a]/8 p-5">
+          <strong data-industry-status class="block text-base text-[#f5f7f6]" aria-live="polite">Pre-verificare de bază îndeplinită</strong>
+          <p data-industry-message class="mt-2 text-xs leading-6 text-white/72">
             Codul CAEN, valoarea investiției și momentul începerii trec verificările automate de bază.
           </p>
         </div>
 
         <div class="mt-6 flex items-center justify-between rounded-2xl border border-white/10 px-4 py-3">
-          <span class="text-xs font-bold text-white/52">Intensitate regională selectată</span>
-          <strong data-industry-intensity class="text-lg text-[#55d685]">—</strong>
+          <span class="text-xs font-bold text-white/72">Intensitate regională selectată</span>
+          <strong data-industry-intensity class="text-lg text-[#7eb99a]">—</strong>
         </div>
 
         <div class="mt-7">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-black uppercase tracking-[0.14em] text-[#55d685]">Cum se formează scorul</span>
-            <span class="text-[10px] text-white/35">Anexa nr. 5</span>
+            <span class="text-[10px] font-black uppercase tracking-[0.14em] text-[#7eb99a]">Cum se formează scorul</span>
+            <span class="text-[10px] text-white/70">Anexa nr. 5</span>
           </div>
           <ul class="mt-4 grid gap-2 text-xs">
-            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/58">Investiția inițială</span><strong data-score-row="investment">0 p.</strong></li>
-            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/58">Cluster de inovare</span><strong data-score-row="cluster">0 p.</strong></li>
-            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/58">Locația investiției</span><strong data-score-row="location">0 p.</strong></li>
-            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/58">Grupa produsului</span><strong data-score-row="deficit">0 p.</strong></li>
-            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/58">Gradul de automatizare</span><strong data-score-row="automation">0 p.</strong></li>
-            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/58">Materiale din SEE</span><strong data-score-row="materials">0 p.</strong></li>
-            <li class="flex items-center justify-between gap-4 py-2"><span class="text-white/58">Reducerea intensității</span><strong data-score-row="reduction">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/72">Investiția inițială</span><strong data-score-row="investment">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/72">Cluster de inovare</span><strong data-score-row="cluster">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/72">Locația investiției</span><strong data-score-row="location">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/72">Grupa produsului</span><strong data-score-row="deficit">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/72">Gradul de automatizare</span><strong data-score-row="automation">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 border-b border-white/8 py-2"><span class="text-white/72">Materiale din SEE</span><strong data-score-row="materials">0 p.</strong></li>
+            <li class="flex items-center justify-between gap-4 py-2"><span class="text-white/72">Reducerea intensității</span><strong data-score-row="reduction">0 p.</strong></li>
           </ul>
         </div>
 
-        <div class="mt-7 rounded-2xl border border-[#55d685]/20 bg-[#55d685]/7 p-4 text-[11px] leading-5 text-white/52">
+        <div class="mt-7 rounded-2xl border border-[#7eb99a]/20 bg-[#7eb99a]/7 p-4 text-[11px] leading-5 text-white/72">
           Grila nu stabilește un punctaj care garantează finanțarea. Cererile sunt ordonate descrescător și analizate în limita bugetului sesiunii.
         </div>
 
-        <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#55d685] px-6 py-4 text-sm font-extrabold text-[#0b0e0c] transition hover:-translate-y-0.5 hover:bg-[#55d685]">
+        <a href={`${base}/#contact`} class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7eb99a] px-6 py-4 text-sm font-extrabold text-[#0f2233] transition hover:-translate-y-0.5 hover:bg-[#7eb99a]">
           Cere verificarea completă
           <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"></path></svg>
         </a>
-        <p class="mt-4 text-center text-[10px] leading-5 text-white/35">
+        <p class="mt-4 text-center text-[10px] leading-5 text-white/70">
           Rezultatul este orientativ. Documentația finală și evaluarea autorității competente prevalează.
         </p>
       </div>
@@ -373,10 +373,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       const caenBadge = checker.querySelector('[data-industry-caen-badge]');
       if (caenBadge) {
         caenBadge.textContent = caenOk ? 'eligibil' : 'neeligibil';
-        caenBadge.classList.toggle('bg-[#55d685]', caenOk);
-        caenBadge.classList.toggle('text-[#0b0e0c]', caenOk);
-        caenBadge.classList.toggle('bg-[#55d685]', !caenOk);
-        caenBadge.classList.toggle('text-[#0b0e0c]', !caenOk);
+        caenBadge.classList.toggle('bg-[#7eb99a]', caenOk);
+        caenBadge.classList.toggle('text-[#0f2233]', caenOk);
+        caenBadge.classList.toggle('bg-[#7eb99a]', !caenOk);
+        caenBadge.classList.toggle('text-[#0f2233]', !caenOk);
       }
       setText(
         '[data-industry-caen-feedback]',

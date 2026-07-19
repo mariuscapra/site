@@ -391,8 +391,8 @@ export const fundingPrograms: FundingProgram[] = [
 ];
 
 export const fundingStatusStyles: Record<FundingStatus, string> = {
-  Activ: 'border-[#55d685]/55 bg-[#55d685] text-[#0b0e0c]',
-  'Urmează': 'border-white/35 bg-white text-[#0b0e0c]',
-  'În implementare': 'border-[#0b0e0c] bg-[#0b0e0c] text-white',
-  'Închis': 'border-[#0b0e0c]/10 bg-[#0b0e0c]/7 text-[#0b0e0c]/58',
+  Activ: 'border-[#7eb99a]/55 bg-[#7eb99a] text-[#0f2233]',
+  'Urmează': 'border-white/35 bg-white text-[#0f2233]',
+  'În implementare': 'border-[#0f2233] bg-[#0f2233] text-white',
+  'Închis': 'border-[#0f2233]/10 bg-[#0f2233]/7 text-[#0f2233]/72',
 };

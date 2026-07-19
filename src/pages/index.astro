@@ -8,21 +8,21 @@ const workPhases = [
     title: 'Clarificăm',
     text: 'Ideea, eligibilitatea și riscurile.',
     result: 'Știi dacă merită să continui.',
-    color: 'bg-[#55d685] text-[#0b0e0c]',
+    color: 'bg-[#7eb99a] text-[#0f2233]',
   },
   {
     number: '02',
     title: 'Construim',
     text: 'Strategia, bugetul și dosarul.',
     result: 'Ai un proiect coerent și pregătit.',
-    color: 'bg-[#55d685] text-[#0b0e0c]',
+    color: 'bg-[#7eb99a] text-[#0f2233]',
   },
   {
     number: '03',
     title: 'Implementăm',
     text: 'Contractarea, achizițiile și raportarea.',
     result: 'Duci investiția la capăt controlat.',
-    color: 'bg-[#55d685] text-[#0b0e0c]',
+    color: 'bg-[#7eb99a] text-[#0f2233]',
   },
 ];
 
@@ -126,73 +126,71 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout>
-  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-[#0b0e0c]/10 bg-[#fbfbfa]/90 backdrop-blur-xl transition-shadow duration-300">
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-[#0f2233]/10 bg-[#ffffff]/90 backdrop-blur-xl transition-shadow duration-300">
     <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between px-5 sm:px-8">
       <a href="#top" class="flex items-center gap-3" aria-label="Marius Capră - Acasă">
         <img src={`${base}/logo.svg`} alt="" class="h-11 w-11 transition duration-300 hover:rotate-3 hover:scale-105" width="44" height="44" />
         <span class="leading-none">
-          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#0b0e0c]">CAPRĂ</strong>
-          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0b0e0c]">Fonduri & Mediu</span>
+          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#0f2233]">CAPRĂ</strong>
+          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0f2233]">Fonduri & Mediu</span>
         </span>
       </a>
 
       <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigare principală">
-        <a data-nav-link data-nav-target="fonduri" data-funding-link class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0b0e0c]/72 transition hover:bg-[#f3f4f3] hover:text-[#0b0e0c]" href="#lista-programe">Programe</a>
-        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0b0e0c]/72 transition hover:bg-[#f3f4f3] hover:text-[#0b0e0c]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
-        <a data-nav-link data-nav-target="despre" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0b0e0c]/72 transition hover:bg-[#f3f4f3] hover:text-[#0b0e0c]" href="#despre">Expertiză</a>
-        <a data-nav-link data-nav-target="parteneri" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0b0e0c]/72 transition hover:bg-[#f3f4f3] hover:text-[#0b0e0c]" href="#parteneri">Parteneri</a>
-        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0b0e0c]/72 transition hover:bg-[#f3f4f3] hover:text-[#0b0e0c]" href={`${base}/intrebari-frecvente/`}>Întrebări</a>
+        <a data-nav-link data-nav-target="fonduri" data-funding-link class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#lista-programe">Programe</a>
+        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
+        <a data-nav-link data-nav-target="despre" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#despre">Expertiză</a>
+        <a data-nav-link data-nav-target="parteneri" class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href="#parteneri">Parteneri</a>
+        <a class="rounded-full px-4 py-2.5 text-sm font-semibold text-[#0f2233]/72 transition hover:bg-[#f5f7f6] hover:text-[#0f2233]" href={`${base}/intrebari-frecvente/`}>Întrebări</a>
       </nav>
 
       <div class="hidden lg:block">
-        <a href="#contact" class="group inline-flex items-center gap-2 rounded-full bg-[#0b0e0c] px-5 py-3 text-sm font-extrabold text-white shadow-[0_10px_25px_rgba(11,107,73,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0b0e0c]">
+        <a href="#contact" class="group inline-flex items-center gap-2 rounded-full bg-[#0f2233] px-5 py-3 text-sm font-extrabold text-white shadow-[0_10px_25px_rgba(15,34,51,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0f2233]">
           Verifică proiectul
           <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
         </a>
       </div>
 
-      <button id="menu-button" class="grid h-11 w-11 place-items-center rounded-full border border-[#0b0e0c]/15 bg-white/70 text-[#0b0e0c] transition hover:border-[#0b0e0c]/40 hover:bg-[#f3f4f3] lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Deschide meniul">
+      <button id="menu-button" class="grid h-11 w-11 place-items-center rounded-full border border-[#0f2233]/15 bg-white/70 text-[#0f2233] transition hover:border-[#0f2233]/40 hover:bg-[#f5f7f6] lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Deschide meniul">
         <svg data-menu-icon aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
       </button>
     </div>
 
-    <div id="mobile-menu" class="hidden border-t border-[#0b0e0c]/10 bg-[#fbfbfa]/98 px-5 py-5 shadow-xl lg:hidden">
+    <div id="mobile-menu" class="hidden border-t border-[#0f2233]/10 bg-[#ffffff]/98 px-5 py-5 shadow-xl lg:hidden">
       <nav class="mx-auto grid max-w-[1240px] gap-1" aria-label="Navigare mobilă">
-        <a data-funding-link class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f3f4f3]" href="#lista-programe">Programe de finanțare</a>
-        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f3f4f3]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
-        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f3f4f3]" href="#despre">Expertiză</a>
-        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f3f4f3]" href="#parteneri">Parteneri</a>
-        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f3f4f3]" href={`${base}/intrebari-frecvente/`}>Întrebări frecvente</a>
-        <a class="mt-2 rounded-xl bg-[#0b0e0c] px-4 py-3 text-center font-extrabold text-white" href="#contact">Verifică proiectul</a>
+        <a data-funding-link class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href="#lista-programe">Programe de finanțare</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href={`${base}/audit-de-mediu/`}>Audit de mediu</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href="#despre">Expertiză</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href="#parteneri">Parteneri</a>
+        <a class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]" href={`${base}/intrebari-frecvente/`}>Întrebări frecvente</a>
+        <a class="mt-2 rounded-xl bg-[#0f2233] px-4 py-3 text-center font-extrabold text-white" href="#contact">Verifică proiectul</a>
       </nav>
     </div>
-    <div class="absolute inset-x-0 bottom-0 h-[2px] bg-[#0b0e0c]/6"><span id="scroll-progress" class="block h-full w-0 bg-[#55d685]"></span></div>
+    <div class="absolute inset-x-0 bottom-0 h-[2px] bg-[#0f2233]/6"><span id="scroll-progress" class="block h-full w-0 bg-[#7eb99a]"></span></div>
   </header>
 
   <main id="top">
     <section data-nav-section="top" class="vibrant-hero relative overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-40">
-      <div class="hero-orb absolute -left-28 top-14 h-80 w-80 rounded-full bg-[#55d685]/60 blur-3xl"></div>
-      <div class="absolute -right-24 top-20 h-64 w-64 rounded-full bg-[#55d685]/75"></div>
-      <div class="absolute bottom-8 left-[46%] h-20 w-20 rotate-12 rounded-[1.75rem] bg-[#55d685]/80"></div>
+      <div class="hero-orb absolute -left-28 top-14 h-80 w-80 rounded-full bg-[#7eb99a]/20 blur-3xl"></div>
 
       <div class="relative mx-auto grid max-w-[1240px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.06fr_0.94fr] lg:gap-20">
         <div>
-          <div data-reveal class="mb-7 inline-flex items-center gap-3 rounded-full border border-[#0b0e0c]/18 bg-white/85 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.17em] text-[#0b0e0c] shadow-sm sm:text-xs">
-            <span class="pulse-dot h-2 w-2 rounded-full bg-[#55d685] ring-4 ring-[#55d685]/25"></span>
+          <div data-reveal class="mb-7 inline-flex items-center gap-3 rounded-full border border-[#0f2233]/18 bg-white/85 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.17em] text-[#0f2233] shadow-sm sm:text-xs">
+            <span class="pulse-dot h-2 w-2 rounded-full bg-[#7eb99a] ring-4 ring-[#7eb99a]/25"></span>
             Consultanță pentru investiții finanțate
           </div>
-          <h1 data-reveal data-reveal-delay="1" class="display-font max-w-[800px] text-[clamp(3.3rem,7.4vw,7rem)] leading-[0.88] text-[#0b0e0c]">
+          <h1 data-reveal data-reveal-delay="1" class="display-font max-w-[800px] text-[clamp(3.1rem,7.4vw,7rem)] leading-[0.98] text-[#0f2233] sm:leading-[0.91]">
             Transformă investiția într-un proiect <span class="hero-highlight">finanțabil.</span>
           </h1>
-          <p data-reveal data-reveal-delay="2" class="mt-8 max-w-2xl text-lg leading-8 text-[#0b0e0c]/70 sm:text-xl">
-            Sunt <strong class="font-extrabold text-[#0b0e0c]">Marius Capră</strong>. Te ajut să alegi programul potrivit, să pregătești proiectul și să controlezi implementarea — cu decizii clare, buget realist și atenție la conformitate.
+          <p data-reveal data-reveal-delay="2" class="mt-8 max-w-2xl text-lg leading-8 text-[#0f2233]/70 sm:text-xl">
+            Sunt <strong class="font-extrabold text-[#0f2233]">Marius Capră</strong>. Te ajut să alegi programul potrivit, să pregătești proiectul și să controlezi implementarea — cu decizii clare, buget realist și atenție la conformitate.
           </p>
           <div data-reveal data-reveal-delay="3" class="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#contact" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[#0b0e0c] px-7 py-4 font-extrabold text-white shadow-[0_16px_35px_rgba(11,107,73,0.24)] transition hover:-translate-y-1 hover:bg-[#0b0e0c]">
+            <a href="#contact" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[#0f2233] px-7 py-4 font-extrabold text-white shadow-[0_16px_35px_rgba(15,34,51,0.24)] transition hover:-translate-y-1 hover:bg-[#0f2233]">
               Verifică eligibilitatea
               <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
             </a>
-            <a data-funding-link href="#lista-programe" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#0b0e0c]/18 bg-white/80 px-7 py-4 font-bold text-[#0b0e0c] transition hover:-translate-y-1 hover:border-[#0b0e0c] hover:bg-white hover:text-[#0b0e0c]">
+            <a data-funding-link href="#lista-programe" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#0f2233]/18 bg-white/80 px-7 py-4 font-bold text-[#0f2233] transition hover:-translate-y-1 hover:border-[#0f2233] hover:bg-white hover:text-[#0f2233]">
               Vezi programele
               <span aria-hidden="true">↓</span>
             </a>
@@ -201,23 +199,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
         <div data-reveal data-reveal-delay="2" class="mx-auto w-full max-w-[520px] lg:mx-0 lg:ml-auto">
           <div class="relative">
-            <div class="grain absolute -inset-5 rotate-3 rounded-[2.5rem] bg-[#55d685] transition duration-700 hover:rotate-1"></div>
-            <div class="soft-shadow group relative overflow-hidden rounded-[2rem] border-[7px] border-white bg-[#f3f4f3]">
+            <div class="absolute -inset-3 rounded-[2.35rem] bg-[#7eb99a]"></div>
+            <div class="soft-shadow group relative overflow-hidden rounded-[2rem] border-[7px] border-white bg-[#f5f7f6]">
               <img src={`${base}/images/marius-capra.jpg`} alt="Marius Capră, consultant în fonduri nerambursabile și auditor de mediu" class="aspect-[4/5] w-full object-cover object-[50%_35%] transition duration-700 group-hover:scale-[1.025]" width="1500" height="1500" fetchpriority="high" />
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0b0e0c]/95 via-[#0b0e0c]/72 to-transparent px-7 pb-7 pt-28 text-white sm:px-9 sm:pb-9">
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#55d685]">Fonduri • Economie • Mediu</p>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f2233]/95 via-[#0f2233]/72 to-transparent px-7 pb-7 pt-28 text-white sm:px-9 sm:pb-9">
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7eb99a]">Fonduri • Economie • Mediu</p>
                 <p class="mt-2 max-w-sm text-lg font-bold leading-snug">Perspectivă completă pentru decizii mai bune.</p>
               </div>
             </div>
-            <div class="absolute -bottom-6 -left-3 rounded-2xl border border-[#0b0e0c]/10 bg-[#fbfbfa] p-4 shadow-xl sm:-left-10 sm:p-5">
-              <span class="text-[10px] font-black uppercase tracking-[0.15em] text-[#0b0e0c]">Experiență</span>
-              <div class="mt-1 flex items-end gap-2"><strong class="display-font text-5xl leading-none text-[#0b0e0c]">5+</strong><span class="mb-1 text-xs font-bold text-[#0b0e0c]/55">ani în fonduri europene</span></div>
+            <div class="absolute -bottom-6 -left-3 rounded-2xl border border-[#0f2233]/10 bg-[#ffffff] p-4 shadow-xl sm:-left-10 sm:p-5">
+              <span class="text-[10px] font-black uppercase tracking-[0.15em] text-[#0f2233]">Experiență</span>
+              <div class="mt-1 flex items-end gap-2"><strong class="display-font text-5xl leading-none text-[#0f2233]">5+</strong><span class="mb-1 text-xs font-bold text-[#0f2233]/72">ani în fonduri europene</span></div>
             </div>
-            <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="group absolute -right-2 top-6 grid h-14 w-14 place-items-center rounded-2xl bg-[#0b0e0c] text-white shadow-[0_14px_30px_rgba(10,102,194,0.3)] transition hover:-translate-y-1 hover:scale-105 hover:bg-[#0b0e0c] sm:-right-7" aria-label="Vezi profilul LinkedIn al lui Marius Capră">
+            <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="group absolute -right-2 top-6 grid h-14 w-14 place-items-center rounded-2xl bg-[#0f2233] text-white shadow-[0_14px_30px_rgba(15,34,51,0.3)] transition hover:-translate-y-1 hover:scale-105 hover:bg-[#0f2233] sm:-right-7" aria-label="Vezi profilul LinkedIn al lui Marius Capră">
               <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current"><path d="M6.5 8.3H3V21h3.5V8.3ZM4.75 3A2.05 2.05 0 1 0 4.8 7.1 2.05 2.05 0 0 0 4.75 3ZM21 13.7c0-3.82-2.04-5.6-4.76-5.6-2.2 0-3.18 1.2-3.73 2.05V8.3H9V21h3.51v-6.3c0-1.66.32-3.27 2.38-3.27 2.03 0 2.06 1.9 2.06 3.38V21H21v-7.3Z" /></svg>
             </a>
           </div>
-          <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="mt-11 flex items-center justify-center gap-2 text-sm font-extrabold text-[#0b0e0c] transition hover:text-[#0b0e0c]">
+          <a href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer" class="mt-11 flex items-center justify-center gap-2 text-sm font-extrabold text-[#0f2233] transition hover:text-[#0f2233]">
             Vezi experiența mea pe LinkedIn
             <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
           </a>
@@ -226,15 +224,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </section>
 
     <section aria-label="Repere profesionale" class="relative z-10 -mt-6 px-5 sm:-mt-8 sm:px-8">
-      <div class="soft-shadow mx-auto grid max-w-[1120px] overflow-hidden rounded-[1.75rem] bg-[#0b0e0c] text-white sm:grid-cols-3">
+      <div class="soft-shadow mx-auto grid max-w-[1120px] overflow-hidden rounded-[1.75rem] bg-[#0f2233] text-white sm:grid-cols-3">
         <div class="border-b border-white/12 p-5 sm:border-b-0 sm:border-r sm:p-6">
-          <strong class="display-font block text-4xl text-[#55d685]">5+ ani</strong><span class="mt-1 block text-xs font-bold text-white/60">experiență în fonduri europene</span>
+          <strong class="display-font block text-4xl text-[#7eb99a]">5+ ani</strong><span class="mt-1 block text-xs font-bold text-white/76">experiență în fonduri europene</span>
         </div>
         <div class="border-b border-white/12 p-5 sm:border-b-0 sm:border-r sm:p-6">
-          <strong class="display-font block text-3xl text-[#55d685] sm:text-4xl">Autorizat ANC</strong><span class="mt-1 block text-xs font-bold leading-5 text-white/60">Expert achiziții publice și audit de mediu</span>
+          <strong class="display-font block text-3xl text-[#7eb99a] sm:text-4xl">Autorizat ANC</strong><span class="mt-1 block text-xs font-bold leading-5 text-white/76">Expert achiziții publice și audit de mediu</span>
         </div>
         <div class="p-5 sm:p-6">
-          <strong class="display-font block text-3xl text-[#55d685] sm:text-4xl">Cercetător</strong><span class="mt-1 block text-xs font-bold text-white/60">în economie · activitate în desfășurare</span>
+          <strong class="display-font block text-3xl text-[#7eb99a] sm:text-4xl">Cercetător</strong><span class="mt-1 block text-xs font-bold text-white/76">în economie · activitate în desfășurare</span>
         </div>
       </div>
     </section>
@@ -243,28 +241,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
         <div data-reveal class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b0e0c]">Alege punctul de pornire</p>
-            <h2 class="display-font mt-4 text-4xl leading-none text-[#0b0e0c] sm:text-6xl">Cu ce te pot ajuta acum?</h2>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0f2233]">Alege punctul de pornire</p>
+            <h2 class="display-font mt-4 text-4xl leading-none text-[#0f2233] sm:text-6xl">Cu ce te pot ajuta acum?</h2>
           </div>
-          <p class="max-w-xl text-sm leading-7 text-[#0b0e0c]/62">Nu trebuie să cunoști programul sau documentele. Alege situația care seamănă cel mai mult cu nevoia ta.</p>
+          <p class="max-w-xl text-sm leading-7 text-[#0f2233]/72">Nu trebuie să cunoști programul sau documentele. Alege situația care seamănă cel mai mult cu nevoia ta.</p>
         </div>
 
         <div class="mt-10 grid gap-4 lg:grid-cols-3">
           {servicePaths.map((service, index) => (
             <a href={service.href} data-reveal data-reveal-delay={String(index)} class:list={[
-              'group relative flex min-h-60 flex-col overflow-hidden rounded-[2rem] p-7 text-[#0b0e0c] transition duration-500 hover:-translate-y-2 hover:shadow-[0_26px_60px_rgba(11,14,12,0.16)] sm:p-8',
-              index === 0 && 'bg-[#55d685]',
-              index === 1 && 'bg-[#0b0e0c] text-white',
-              index === 2 && 'bg-[#55d685]',
+              'group relative flex min-h-60 flex-col overflow-hidden rounded-[2rem] p-7 text-[#0f2233] transition duration-500 hover:-translate-y-2 hover:shadow-[0_26px_60px_rgba(15,34,51,0.16)] sm:p-8',
+              index === 0 && 'bg-[#7eb99a]',
+              index === 1 && 'bg-[#0f2233] text-white',
+              index === 2 && 'bg-[#7eb99a]',
             ]}>
               <div class="absolute -right-8 -top-8 h-24 w-24 rotate-12 rounded-[2rem] border-[16px] border-white/18 transition duration-500 group-hover:rotate-45"></div>
               <div class="relative flex items-center justify-between gap-4">
-                <span class:list={['grid h-10 w-10 place-items-center rounded-full text-xs font-black', index === 1 ? 'bg-[#55d685] text-[#0b0e0c]' : 'bg-white/55 text-[#0b0e0c]']}>{service.number}</span>
-                <span class:list={['text-[9px] font-extrabold uppercase tracking-[0.14em]', index === 1 ? 'text-[#55d685]' : 'text-[#0b0e0c]/60']}>{service.label}</span>
+                <span class:list={['grid h-10 w-10 place-items-center rounded-full text-xs font-black', index === 1 ? 'bg-[#7eb99a] text-[#0f2233]' : 'bg-white/55 text-[#0f2233]']}>{service.number}</span>
+                <span class:list={['text-[10px] font-extrabold uppercase tracking-[0.14em]', index === 1 ? 'text-[#7eb99a]' : 'text-[#0f2233]/72']}>{service.label}</span>
               </div>
               <h3 class="relative mt-3 text-2xl font-extrabold leading-tight">{service.title}</h3>
-              <p class:list={['relative mt-3 text-sm leading-6', index === 1 ? 'text-white/62' : 'text-[#0b0e0c]/65']}>{service.text}</p>
-              <span class:list={['relative mt-auto flex items-center gap-2 pt-6 text-sm font-extrabold', index === 1 ? 'text-[#55d685]' : 'text-[#0b0e0c]']}>
+              <p class:list={['relative mt-3 text-sm leading-6', index === 1 ? 'text-white/76' : 'text-[#0f2233]/72']}>{service.text}</p>
+              <span class:list={['relative mt-auto flex items-center gap-2 pt-6 text-sm font-extrabold', index === 1 ? 'text-[#7eb99a]' : 'text-[#0f2233]']}>
                 {service.action}
                 <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
               </span>
@@ -274,24 +272,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
     </section>
 
-    <section id="fonduri" data-nav-section="fonduri" class="ambient-section relative overflow-hidden border-y border-[#0b0e0c]/10 py-24 sm:py-32">
-      <div class="absolute -right-28 top-16 h-72 w-72 rounded-full border-[50px] border-[#55d685]/18"></div>
+    <section id="fonduri" data-nav-section="fonduri" class="ambient-section relative overflow-hidden border-y border-[#0f2233]/10 py-24 sm:py-32">
+      <div class="absolute -right-28 top-16 h-72 w-72 rounded-full border-[50px] border-[#7eb99a]/18"></div>
       <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
         <div class="relative grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
           <div data-reveal>
-            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b0e0c]">Oportunități de finanțare</p>
-            <h2 class="display-font mt-5 text-5xl leading-[0.98] text-[#0b0e0c] sm:text-7xl">Programe explicate <span class="italic text-[#0b0e0c]">clar.</span></h2>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0f2233]">Oportunități de finanțare</p>
+            <h2 class="display-font mt-5 text-5xl leading-[0.98] text-[#0f2233] sm:text-7xl">Programe explicate <span class="italic text-[#0f2233]">clar.</span></h2>
           </div>
           <div data-reveal data-reveal-delay="1" class="flex items-end">
-            <p class="max-w-2xl text-lg leading-8 text-[#0b0e0c]/68">Vezi rapid stadiul, valoarea finanțării și domeniul fiecărui program. Fiecare card deschide o sinteză completă, într-o pagină separată.</p>
+            <p class="max-w-2xl text-lg leading-8 text-[#0f2233]/72">Vezi rapid stadiul, valoarea finanțării și domeniul fiecărui program. Fiecare card deschide o sinteză completă, într-o pagină separată.</p>
           </div>
         </div>
 
         <div id="lista-programe" data-funding-list class="relative mt-12 scroll-mt-28">
-          <div data-reveal class="flex flex-col gap-4 rounded-[1.5rem] border border-[#0b0e0c]/10 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-5">
+          <div data-reveal class="flex flex-col gap-4 rounded-[1.5rem] border border-[#0f2233]/10 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-5">
             <div>
-              <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0b0e0c]">Filtrează după stadiu</span>
-              <strong class="mt-1 block text-sm text-[#0b0e0c]"><span data-program-count aria-live="polite">{fundingPrograms.length}</span> programe afișate</strong>
+              <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0f2233]">Filtrează după stadiu</span>
+              <strong class="mt-1 block text-sm text-[#0f2233]"><span data-program-count aria-live="polite">{fundingPrograms.length}</span> programe afișate</strong>
             </div>
             <div class="flex gap-2 overflow-x-auto pb-1 sm:justify-end">
               {fundingStatuses.map((status, index) => (
@@ -299,7 +297,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                   data-program-filter={status}
                   type="button"
                   aria-pressed={index === 0 ? 'true' : 'false'}
-                  class="shrink-0 rounded-full border border-[#0b0e0c]/12 px-4 py-2.5 text-xs font-extrabold text-[#0b0e0c]/60 transition hover:border-[#0b0e0c]/30 hover:text-[#0b0e0c] aria-pressed:border-[#0b0e0c] aria-pressed:bg-[#0b0e0c] aria-pressed:text-white"
+                  class="shrink-0 rounded-full border border-[#0f2233]/12 px-4 py-2.5 text-xs font-extrabold text-[#0f2233]/72 transition hover:border-[#0f2233]/30 hover:text-[#0f2233] aria-pressed:border-[#0f2233] aria-pressed:bg-[#0f2233] aria-pressed:text-white"
                 >
                   {status}
                 </button>
@@ -309,20 +307,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
           <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {fundingPrograms.map((program, index) => (
-              <article data-program-card data-status={program.status} data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow group/card relative aspect-square overflow-hidden rounded-[1.75rem] border border-[#0b0e0c]/10 bg-[#0b0e0c] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_70px_rgba(11,14,12,0.22)]">
+              <article data-program-card data-status={program.status} data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow group/card relative aspect-square overflow-hidden rounded-[1.75rem] border border-[#0f2233]/10 bg-[#0f2233] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_70px_rgba(15,34,51,0.22)]">
                 <img src={`${base}/${program.image}`} alt={program.imageAlt} class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover/card:scale-[1.055]" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-b from-[#0b0e0c]/28 via-[#0b0e0c]/4 to-[#0b0e0c]/94"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0f2233]/28 via-[#0f2233]/4 to-[#0f2233]/94"></div>
                 <div class="relative flex h-full flex-col p-5 sm:p-6">
                   <div class="flex items-start justify-between gap-3">
-                    <span class="rounded-full border border-white/18 bg-[#0b0e0c]/78 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-white shadow-lg backdrop-blur-md">{program.funding}</span>
-                    <span class:list={['rounded-full border px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.1em] shadow-lg', fundingStatusStyles[program.status]]}>{program.status}</span>
+                    <span class="rounded-full border border-white/18 bg-[#0f2233]/78 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] text-white shadow-lg backdrop-blur-md">{program.funding}</span>
+                    <span class:list={['rounded-full border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] shadow-lg', fundingStatusStyles[program.status]]}>{program.status}</span>
                   </div>
                   <div class="mt-auto text-white">
-                    <p class="text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#55d685]">{program.category}</p>
+                    <p class="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#7eb99a]">{program.category}</p>
                     <h3 class="display-font mt-2 text-4xl leading-[0.96]">{program.title}</h3>
-                    <p class="mt-3 line-clamp-2 text-xs leading-5 text-white/65">{program.description}</p>
+                    <p class="mt-3 line-clamp-2 text-xs leading-5 text-white/76">{program.description}</p>
                   </div>
-                  <a href={`${base}/programe/${program.id}/`} target="_blank" rel="noreferrer" class="group/link mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#55d685] px-5 py-3.5 text-sm font-extrabold text-[#0b0e0c] shadow-xl transition hover:bg-[#55d685]" aria-label={`Deschide sinteza programului ${program.title} într-o filă nouă`}>
+                  <a href={`${base}/programe/${program.id}/`} target="_blank" rel="noreferrer" class="group/link mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7eb99a] px-5 py-3.5 text-sm font-extrabold text-[#0f2233] shadow-xl transition hover:bg-[#7eb99a]" aria-label={`Deschide sinteza programului ${program.title} într-o filă nouă`}>
                     Vezi programul
                     <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover/link:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
                   </a>
@@ -330,20 +328,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               </article>
             ))}
           </div>
-          <div data-program-empty class="mt-6 hidden rounded-[1.75rem] border border-dashed border-[#0b0e0c]/25 bg-white p-9 text-center">
-            <strong class="text-[#0b0e0c]">Nu există programe în această categorie.</strong>
-            <p class="mt-2 text-sm text-[#0b0e0c]/58">Selectează „Toate” pentru a vedea lista completă.</p>
+          <div data-program-empty class="mt-6 hidden rounded-[1.75rem] border border-dashed border-[#0f2233]/25 bg-white p-9 text-center">
+            <strong class="text-[#0f2233]">Nu există programe în această categorie.</strong>
+            <p class="mt-2 text-sm text-[#0f2233]/72">Selectează „Toate” pentru a vedea lista completă.</p>
           </div>
         </div>
 
-        <div id="proces" data-reveal class="grain relative mt-20 scroll-mt-28 overflow-hidden rounded-[2.75rem] bg-[#0b0e0c] p-6 text-white shadow-[0_30px_80px_rgba(11,14,12,0.2)] sm:p-10 lg:p-14">
-          <div class="absolute -right-20 -top-28 h-72 w-72 rounded-full border-[52px] border-[#55d685]/12"></div>
+        <div id="proces" data-reveal class="grain relative mt-20 scroll-mt-28 overflow-hidden rounded-[2.75rem] bg-[#0f2233] p-6 text-white shadow-[0_30px_80px_rgba(15,34,51,0.2)] sm:p-10 lg:p-14">
           <div class="relative flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#55d685]">Cum lucrăm</p>
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#7eb99a]">Cum lucrăm</p>
               <h3 class="display-font mt-3 max-w-2xl text-4xl leading-none sm:text-6xl">Simplu. Clar. Până la capăt.</h3>
             </div>
-            <p class="max-w-md text-sm leading-7 text-white/60">Trei faze, un singur fir logic. Știi mereu unde este proiectul și ce urmează.</p>
+            <p class="max-w-md text-sm leading-7 text-white/76">Trei faze, un singur fir logic. Știi mereu unde este proiectul și ce urmează.</p>
           </div>
 
           <div class="relative mt-9 grid gap-3 lg:grid-cols-3">
@@ -354,15 +351,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                   <span class="text-2xl transition group-hover:translate-x-1">→</span>
                 </div>
                 <h4 class="display-font mt-9 text-4xl leading-none">{phase.title}</h4>
-                <p class="mt-4 text-sm font-bold opacity-65">{phase.text}</p>
+                <p class="mt-4 text-sm font-bold opacity-80">{phase.text}</p>
                 <p class="mt-7 border-t border-current/15 pt-4 text-xs font-extrabold">{phase.result}</p>
               </article>
             ))}
           </div>
 
           <div class="relative mt-8 flex flex-col gap-5 border-t border-white/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p class="text-sm text-white/62">Pentru început: activitatea firmei, ideea de investiție și locația.</p>
-            <a href="#contact" class="group inline-flex items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-[#0b0e0c] transition hover:-translate-y-1 hover:bg-[#55d685]">
+            <p class="text-sm text-white/76">Pentru început: activitatea firmei, ideea de investiție și locația.</p>
+            <a href="#contact" class="group inline-flex items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-[#0f2233] transition hover:-translate-y-1 hover:bg-[#7eb99a]">
               Spune-mi ideea ta
               <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
             </a>
@@ -372,21 +369,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </section>
 
     <section id="despre" class="paper-grid relative overflow-hidden py-24 sm:py-28">
-      <div class="absolute -right-24 top-20 h-72 w-72 rounded-full bg-[#55d685]/55 blur-3xl"></div>
-      <div class="absolute -left-28 bottom-24 h-64 w-64 rounded-full border-[52px] border-[#55d685]/18"></div>
-
       <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
         <div class="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:gap-20">
           <div data-reveal>
-            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#0b0e0c]">Expertiză la intersecția domeniilor</p>
-            <h2 class="display-font mt-5 max-w-4xl text-5xl leading-[0.98] text-[#0b0e0c] sm:text-7xl">Experiență practică. <span class="italic text-[#0b0e0c]">Gândire economică.</span></h2>
-            <p class="mt-7 max-w-3xl text-lg leading-8 text-[#0b0e0c]/68">Privesc fiecare investiție din trei perspective complementare: finanțare, viabilitate economică și impact asupra mediului.</p>
+            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#0f2233]">Expertiză la intersecția domeniilor</p>
+            <h2 class="display-font mt-5 max-w-4xl text-5xl leading-[0.98] text-[#0f2233] sm:text-7xl">Experiență practică. <span class="italic text-[#0f2233]">Gândire economică.</span></h2>
+            <p class="mt-7 max-w-3xl text-lg leading-8 text-[#0f2233]/72">Privesc fiecare investiție din trei perspective complementare: finanțare, viabilitate economică și impact asupra mediului.</p>
           </div>
 
-          <blockquote data-reveal data-reveal-delay="1" class="relative overflow-hidden rounded-[2rem] bg-[#55d685] p-7 text-[#0b0e0c] shadow-[0_24px_60px_rgba(11,14,12,0.12)] sm:p-9">
-            <span class="display-font absolute -right-2 -top-9 text-[9rem] leading-none text-[#55d685]/35">“</span>
+          <blockquote data-reveal data-reveal-delay="1" class="relative overflow-hidden rounded-[2rem] bg-[#7eb99a] p-7 text-[#0f2233] shadow-[0_24px_60px_rgba(15,34,51,0.12)] sm:p-9">
             <p class="relative text-xl font-bold leading-9">Eligibil pe hârtie. Viabil în realitate.</p>
-            <span class="relative mt-6 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0b0e0c]/55">Principiul meu de lucru</span>
+            <span class="relative mt-6 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0f2233]/72">Principiul meu de lucru</span>
           </blockquote>
         </div>
 
@@ -397,63 +390,62 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               data-reveal-delay={String(index)}
               class:list={[
                 'group relative overflow-hidden rounded-[1.75rem] p-6 transition duration-500 hover:-translate-y-1 sm:p-7',
-                index === 0 && 'bg-[#0b0e0c] text-white',
-                index === 1 && 'bg-[#55d685] text-[#0b0e0c]',
-                index === 2 && 'bg-[#55d685] text-[#0b0e0c]',
+                index === 0 && 'bg-[#0f2233] text-white',
+                index > 0 && 'border border-[#0f2233]/10 bg-white text-[#0f2233] shadow-[0_16px_38px_rgba(15,34,51,0.06)]',
               ]}
             >
               <div class="relative">
-                <span class:list={['text-[9px] font-extrabold uppercase tracking-[0.16em]', index === 0 ? 'text-[#55d685]' : 'text-[#0b0e0c]/55']}>{item.eyebrow}</span>
+                <span class:list={['text-[10px] font-extrabold uppercase tracking-[0.16em]', index === 0 ? 'text-[#7eb99a]' : 'text-[#0f2233]/72']}>{item.eyebrow}</span>
                 <div class="mt-5 flex items-end gap-3">
-                  <strong class:list={['display-font text-5xl leading-none sm:text-6xl', index === 0 ? 'text-[#55d685]' : 'text-[#0b0e0c]']}>{item.metric}</strong>
-                  <span class:list={['mb-1 text-[10px] font-black uppercase tracking-[0.12em]', index === 0 ? 'text-white/52' : 'text-[#0b0e0c]/48']}>{item.unit}</span>
+                  <strong class:list={['display-font text-5xl leading-none sm:text-6xl', index === 0 ? 'text-[#7eb99a]' : 'text-[#0f2233]']}>{item.metric}</strong>
+                  <span class:list={['mb-1 text-[10px] font-black uppercase tracking-[0.12em]', index === 0 ? 'text-white/72' : 'text-[#0f2233]/72']}>{item.unit}</span>
                 </div>
                 <h3 class="mt-5 text-xl font-extrabold">{item.title}</h3>
-                <p class:list={['mt-3 text-sm leading-6', index === 0 ? 'text-white/62' : 'text-[#0b0e0c]/65']}>{item.text}</p>
+                <p class:list={['mt-3 text-sm leading-6', index === 0 ? 'text-white/76' : 'text-[#0f2233]/72']}>{item.text}</p>
               </div>
             </article>
           ))}
         </div>
 
-        <div data-reveal class="mt-5 flex flex-col gap-4 rounded-[1.75rem] border border-[#0b0e0c]/10 bg-white/75 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+        <div data-reveal class="mt-5 flex flex-col gap-4 rounded-[1.75rem] border border-[#0f2233]/10 bg-white/75 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
-            <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0b0e0c]">Cercetător în economie · rol actual</p>
-            <h3 class="display-font mt-2 text-3xl text-[#0b0e0c]">Cercetare care susține practica.</h3>
+            <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0f2233]">Cercetător în economie · rol actual</p>
+            <h3 class="display-font mt-2 text-3xl text-[#0f2233]">Cercetare care susține practica.</h3>
           </div>
-          <p class="max-w-2xl text-sm leading-6 text-[#0b0e0c]/62">Studiez antreprenoriatul, economia circulară și dezvoltarea durabilă, apoi aduc această perspectivă în proiectele aplicate.</p>
+          <p class="max-w-2xl text-sm leading-6 text-[#0f2233]/72">Studiez antreprenoriatul, economia circulară și dezvoltarea durabilă, apoi aduc această perspectivă în proiectele aplicate.</p>
         </div>
       </div>
     </section>
 
-    <section id="parteneri" data-nav-section="parteneri" class="partner-stage relative overflow-hidden border-y border-[#0b0e0c]/10 py-24 sm:py-28">
-      <div class="absolute -right-24 -top-24 h-64 w-64 rounded-full border-[44px] border-[#55d685]/35"></div>
-      <div class="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-[#55d685]/18"></div>
+    <section id="parteneri" data-nav-section="parteneri" class="partner-stage relative overflow-hidden border-y border-[#0f2233]/10 py-24 sm:py-28">
+      <div class="absolute -right-24 -top-24 h-64 w-64 rounded-full border-[44px] border-[#7eb99a]/35"></div>
+      <div class="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-[#7eb99a]/18"></div>
 
       <div class="relative mx-auto max-w-[1240px] px-5 sm:px-8">
         <div data-reveal class="grid gap-7 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-20">
           <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0b0e0c]">Rețea de parteneri</p>
-            <h2 class="display-font mt-5 max-w-4xl text-5xl leading-[0.98] text-[#0b0e0c] sm:text-6xl">O echipă extinsă pentru proiectul tău.</h2>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0f2233]">Rețea de parteneri</p>
+            <h2 class="display-font mt-5 max-w-4xl text-5xl leading-[0.98] text-[#0f2233] sm:text-6xl">O echipă extinsă pentru proiectul tău.</h2>
           </div>
           <div>
-            <p class="text-lg leading-8 text-[#0b0e0c]/65">Tehnic, echipamente, promovare și audit — colaboratori specializați pentru componentele importante ale implementării.</p>
+            <p class="text-lg leading-8 text-[#0f2233]/72">Tehnic, echipamente, promovare și audit — colaboratori specializați pentru componentele importante ale implementării.</p>
           </div>
         </div>
 
         {partners.length > 0 ? (
           <div class="mx-auto mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {partners.map((partner, index) => (
-              <article data-partner-card data-reveal data-reveal-delay={String(index % 4)} class="group flex aspect-square flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-[0_18px_45px_rgba(11,14,12,0.1)] transition duration-500 hover:-translate-y-2 hover:rotate-[-1deg] hover:shadow-[0_28px_65px_rgba(11,14,12,0.17)]">
+              <article data-partner-card data-reveal data-reveal-delay={String(index % 4)} class="group flex aspect-square flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-[0_18px_45px_rgba(15,34,51,0.1)] transition duration-500 hover:-translate-y-2 hover:rotate-[-1deg] hover:shadow-[0_28px_65px_rgba(15,34,51,0.17)]">
                 <div class="relative grid flex-1 place-items-center overflow-hidden p-7">
-                  <span class="absolute left-5 top-4 text-[10px] font-black tracking-[0.16em] text-[#0b0e0c]/30">0{index + 1}</span>
+                  <span class="absolute left-5 top-4 text-[10px] font-black tracking-[0.16em] text-[#0f2233]/72">0{index + 1}</span>
                   <img src={`${base}/${partner.logo}`} alt={`Logo ${partner.name}`} class="h-24 w-full object-contain transition duration-500 group-hover:scale-110" loading="lazy" />
                 </div>
-                <div class:list={['relative p-5 text-[#0b0e0c]', index % 3 === 0 ? 'bg-[#55d685]' : index % 3 === 1 ? 'bg-[#55d685]' : 'bg-[#55d685]']}>
-                  <p class="text-[9px] font-extrabold uppercase leading-4 tracking-[0.1em] text-[#0b0e0c]/58">{partner.role}</p>
+                <div class:list={['relative p-5 text-[#0f2233]', index % 3 === 0 ? 'bg-[#7eb99a]' : index % 3 === 1 ? 'bg-[#7eb99a]' : 'bg-[#7eb99a]']}>
+                  <p class="text-[10px] font-extrabold uppercase leading-4 tracking-[0.1em] text-[#0f2233]/72">{partner.role}</p>
                   <div class="mt-2 flex items-end justify-between gap-3">
                     <h3 class="display-font text-2xl leading-none">{partner.name}</h3>
                     {partner.url && (
-                      <a href={partner.url} target="_blank" rel="noreferrer" class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#0b0e0c] text-white transition hover:scale-110" aria-label={`Vizitează site-ul ${partner.name}`}>
+                      <a href={partner.url} target="_blank" rel="noreferrer" class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#0f2233] text-white transition hover:scale-110" aria-label={`Vizitează site-ul ${partner.name}`}>
                         <span aria-hidden="true">↗</span>
                       </a>
                     )}
@@ -463,13 +455,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             ))}
           </div>
         ) : (
-          <div data-reveal class="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-5 rounded-[2rem] border border-dashed border-[#0b0e0c]/30 bg-white/75 px-7 py-10 text-center sm:flex-row sm:px-10 sm:text-left">
-            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-[#f3f4f3] text-[#0b0e0c]">
+          <div data-reveal class="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-5 rounded-[2rem] border border-dashed border-[#0f2233]/30 bg-white/75 px-7 py-10 text-center sm:flex-row sm:px-10 sm:text-left">
+            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-[#f5f7f6] text-[#0f2233]">
               <svg aria-hidden="true" viewBox="0 0 24 24" class="h-8 w-8 fill-none stroke-current" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12 5.5 9.5a2.1 2.1 0 0 0-3 3L7 17a3 3 0 0 0 4.2 0l1-1M16 12l2.5-2.5a2.1 2.1 0 0 1 3 3L17 17a3 3 0 0 1-4.2 0l-1-1" /><path d="m9 14 6-6M8 8l2-2a3 3 0 0 1 4.2 0L16 8" /></svg>
             </span>
             <div>
-              <h3 class="text-lg font-extrabold text-[#0b0e0c]">O rețea în dezvoltare</h3>
-              <p class="mt-2 text-sm leading-6 text-[#0b0e0c]/60">Identitățile partenerilor vor fi prezentate aici, într-un format unitar și adaptat fiecărui logo.</p>
+              <h3 class="text-lg font-extrabold text-[#0f2233]">O rețea în dezvoltare</h3>
+              <p class="mt-2 text-sm leading-6 text-[#0f2233]/72">Identitățile partenerilor vor fi prezentate aici, într-un format unitar și adaptat fiecărui logo.</p>
             </div>
           </div>
         )}
@@ -477,55 +469,55 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </section>
 
     <section id="contact" data-nav-section="contact" class="paper-grid px-5 py-16 sm:px-8 sm:py-24">
-      <div class="grain relative mx-auto max-w-[1240px] overflow-hidden rounded-[2.5rem] bg-[#0b0e0c] text-white shadow-[0_32px_90px_rgba(11,14,12,0.22)]">
-        <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#55d685]"></div>
-        <div class="absolute -bottom-24 left-1/3 h-64 w-64 rounded-full border-[48px] border-[#55d685]/14"></div>
+      <div class="grain relative mx-auto max-w-[1240px] overflow-hidden rounded-[2.5rem] bg-[#0f2233] text-white shadow-[0_32px_90px_rgba(15,34,51,0.22)]">
+        <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#7eb99a]"></div>
+        <div class="absolute -bottom-24 left-1/3 h-64 w-64 rounded-full border-[48px] border-[#7eb99a]/14"></div>
         <div class="relative grid lg:grid-cols-[0.88fr_1.12fr]">
           <div data-reveal class="p-7 sm:p-12 lg:p-16">
-            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#55d685]">Începe simplu</p>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#7eb99a]">Începe simplu</p>
             <h2 class="display-font mt-5 text-5xl leading-[0.95] sm:text-7xl">Spune-mi ce vrei să <span class="hero-highlight hero-highlight--dark">construiești.</span></h2>
-            <p class="mt-7 max-w-lg text-lg leading-8 text-white/68">Nu ai nevoie de un dosar. Trimite-mi pe scurt:</p>
+            <p class="mt-7 max-w-lg text-lg leading-8 text-white/76">Nu ai nevoie de un dosar. Trimite-mi pe scurt:</p>
 
-            <p class="mt-6 max-w-lg rounded-2xl bg-white/8 px-5 py-4 text-sm font-bold leading-7 text-white/84">Solicitantul <span class="mx-2 text-[#55d685]">•</span> investiția <span class="mx-2 text-[#55d685]">•</span> bugetul și locația</p>
+            <p class="mt-6 max-w-lg rounded-2xl bg-white/8 px-5 py-4 text-sm font-bold leading-7 text-white/84">Solicitantul <span class="mx-2 text-[#7eb99a]">•</span> investiția <span class="mx-2 text-[#7eb99a]">•</span> bugetul și locația</p>
 
             <div class="mt-8 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <a href="tel:+40765066463" class="group flex items-center gap-3 rounded-2xl border border-white/12 px-4 py-3.5 font-bold text-white transition hover:border-[#55d685]/50 hover:bg-white/7"><span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-3.5-1.5-6.5-4.5-8-8l2-2-2-4Z" /></svg></span>0765 066 463</a>
-              <button data-copy-email type="button" class="group flex items-center gap-3 rounded-2xl border border-white/12 px-4 py-3.5 text-left font-bold text-white transition hover:border-[#55d685]/50 hover:bg-white/7"><span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.7"><path d="M3 5h18v14H3zM3 6l9 7 9-7" /></svg></span><span data-copy-label>Copiază e-mailul</span></button>
-              <div class="flex items-center gap-3 rounded-2xl border border-[#55d685]/25 bg-[#55d685]/8 px-4 py-3.5 sm:col-span-2 lg:col-span-1 xl:col-span-2">
-                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#55d685] text-[#0b0e0c]">
+              <a href="tel:+40765066463" class="group flex items-center gap-3 rounded-2xl border border-white/12 px-4 py-3.5 font-bold text-white transition hover:border-[#7eb99a]/50 hover:bg-white/7"><span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-3.5-1.5-6.5-4.5-8-8l2-2-2-4Z" /></svg></span>0765 066 463</a>
+              <button data-copy-email type="button" class="group flex items-center gap-3 rounded-2xl border border-white/12 px-4 py-3.5 text-left font-bold text-white transition hover:border-[#7eb99a]/50 hover:bg-white/7"><span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.7"><path d="M3 5h18v14H3zM3 6l9 7 9-7" /></svg></span><span data-copy-label>Copiază e-mailul</span></button>
+              <div class="flex items-center gap-3 rounded-2xl border border-[#7eb99a]/25 bg-[#7eb99a]/8 px-4 py-3.5 sm:col-span-2 lg:col-span-1 xl:col-span-2">
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#7eb99a] text-[#0f2233]">
                   <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
                 </span>
                 <span>
-                  <span class="block text-[9px] font-black uppercase tracking-[0.14em] text-[#55d685]">Program de lucru</span>
+                  <span class="block text-[10px] font-black uppercase tracking-[0.14em] text-[#7eb99a]">Program de lucru</span>
                   <strong class="mt-0.5 block text-sm text-white">Luni–Vineri · 09:00–18:00</strong>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="bg-[#fbfbfa] p-5 text-[#0b0e0c] sm:p-8 lg:p-12">
-            <form id="contact-form" data-reveal data-reveal-delay="1" class="rounded-[1.75rem] border border-[#0b0e0c]/10 bg-white p-6 shadow-[0_22px_60px_rgba(11,14,12,0.1)] sm:p-8">
+          <div class="bg-[#ffffff] p-5 text-[#0f2233] sm:p-8 lg:p-12">
+            <form id="contact-form" data-reveal data-reveal-delay="1" class="rounded-[1.75rem] border border-[#0f2233]/10 bg-white p-6 shadow-[0_22px_60px_rgba(15,34,51,0.1)] sm:p-8">
               <div class="flex items-center justify-between gap-4">
                 <div>
-                  <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0b0e0c]">Solicitare inițială</span>
-                  <h3 class="mt-2 text-xl font-extrabold text-[#0b0e0c]">Descrie proiectul pe scurt</h3>
+                  <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0f2233]">Solicitare inițială</span>
+                  <h3 class="mt-2 text-xl font-extrabold text-[#0f2233]">Descrie proiectul pe scurt</h3>
                 </div>
-                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#f3f4f3] text-[#0b0e0c]"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5" /></svg></span>
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#f5f7f6] text-[#0f2233]"><svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5" /></svg></span>
               </div>
 
               <div class="mt-7 grid gap-5 sm:grid-cols-2">
                 <label class="grid gap-2 text-sm font-bold">Nume *
-                  <input required name="name" autocomplete="name" class="min-h-12 rounded-xl border border-[#0b0e0c]/15 bg-[#fbfbfa] px-4 font-normal transition focus:border-[#0b0e0c] focus:bg-white" placeholder="Numele tău" />
+                  <input required name="name" autocomplete="name" class="min-h-12 rounded-xl border border-[#0f2233]/15 bg-[#ffffff] px-4 font-normal transition focus:border-[#0f2233] focus:bg-white" placeholder="Numele tău" />
                 </label>
                 <label class="grid gap-2 text-sm font-bold">Telefon
-                  <input name="phone" type="tel" autocomplete="tel" class="min-h-12 rounded-xl border border-[#0b0e0c]/15 bg-[#fbfbfa] px-4 font-normal transition focus:border-[#0b0e0c] focus:bg-white" placeholder="07xx xxx xxx" />
+                  <input name="phone" type="tel" autocomplete="tel" class="min-h-12 rounded-xl border border-[#0f2233]/15 bg-[#ffffff] px-4 font-normal transition focus:border-[#0f2233] focus:bg-white" placeholder="07xx xxx xxx" />
                 </label>
               </div>
               <label class="mt-5 grid gap-2 text-sm font-bold">E-mail *
-                <input required name="email" type="email" autocomplete="email" class="min-h-12 rounded-xl border border-[#0b0e0c]/15 bg-[#fbfbfa] px-4 font-normal transition focus:border-[#0b0e0c] focus:bg-white" placeholder="nume@companie.ro" />
+                <input required name="email" type="email" autocomplete="email" class="min-h-12 rounded-xl border border-[#0f2233]/15 bg-[#ffffff] px-4 font-normal transition focus:border-[#0f2233] focus:bg-white" placeholder="nume@companie.ro" />
               </label>
               <label class="mt-5 grid gap-2 text-sm font-bold">Cu ce te pot ajuta?
-                <select name="topic" class="min-h-12 rounded-xl border border-[#0b0e0c]/15 bg-[#fbfbfa] px-4 font-normal transition focus:border-[#0b0e0c] focus:bg-white">
+                <select name="topic" class="min-h-12 rounded-xl border border-[#0f2233]/15 bg-[#ffffff] px-4 font-normal transition focus:border-[#0f2233] focus:bg-white">
                   <option>Identificarea programului potrivit</option>
                   <option>Verificarea eligibilității</option>
                   <option>Scriere și depunere proiect</option>
@@ -535,13 +527,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 </select>
               </label>
               <label class="mt-5 grid gap-2 text-sm font-bold">Ideea, bugetul și locația *
-                <textarea required name="message" rows="4" class="rounded-xl border border-[#0b0e0c]/15 bg-[#fbfbfa] px-4 py-3 font-normal transition focus:border-[#0b0e0c] focus:bg-white" placeholder="Ex.: SRL din București, investiție în echipamente, buget estimat 150.000 euro..."></textarea>
+                <textarea required name="message" rows="4" class="rounded-xl border border-[#0f2233]/15 bg-[#ffffff] px-4 py-3 font-normal transition focus:border-[#0f2233] focus:bg-white" placeholder="Ex.: SRL din București, investiție în echipamente, buget estimat 150.000 euro..."></textarea>
               </label>
-              <button type="submit" class="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0b0e0c] px-6 py-4 font-extrabold text-white shadow-[0_12px_28px_rgba(11,107,73,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0b0e0c]">
+              <button type="submit" class="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0f2233] px-6 py-4 font-extrabold text-white shadow-[0_12px_28px_rgba(15,34,51,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0f2233]">
                 Pregătește mesajul
                 <svg aria-hidden="true" viewBox="0 0 20 20" class="h-5 w-5 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
               </button>
-              <p class="mt-3 text-center text-[11px] leading-5 text-[#0b0e0c]/50">Se deschide aplicația de e-mail cu mesajul completat. Datele nu sunt stocate pe site.</p>
+              <p class="mt-3 text-center text-[11px] leading-5 text-[#0f2233]/72">Se deschide aplicația de e-mail cu mesajul completat. Datele nu sunt stocate pe site.</p>
             </form>
           </div>
         </div>
@@ -550,18 +542,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </main>
 
   <footer class="px-5 pb-28 pt-10 sm:px-8 sm:py-10">
-    <div class="mx-auto flex max-w-[1240px] flex-col gap-6 border-t border-[#0b0e0c]/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
-      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><div><strong class="block text-xs font-extrabold tracking-[0.16em] text-[#0b0e0c]">CAPRĂ</strong><span class="text-[10px] uppercase tracking-[0.14em] text-[#0b0e0c]">Fonduri & Mediu</span></div></div>
-      <p class="text-xs text-[#0b0e0c]/52">© {currentYear} Marius Capră. Toate drepturile rezervate.</p>
-      <div class="flex gap-5 text-xs font-bold text-[#0b0e0c]/62"><a class="hover:text-[#0b0e0c]" href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer">LinkedIn</a><a class="hover:text-[#0b0e0c]" href="#top">Sus ↑</a></div>
+    <div class="mx-auto flex max-w-[1240px] flex-col gap-6 border-t border-[#0f2233]/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><div><strong class="block text-xs font-extrabold tracking-[0.16em] text-[#0f2233]">CAPRĂ</strong><span class="text-[10px] uppercase tracking-[0.14em] text-[#0f2233]">Fonduri & Mediu</span></div></div>
+      <p class="text-xs text-[#0f2233]/72">© {currentYear} Marius Capră. Toate drepturile rezervate.</p>
+      <div class="flex gap-5 text-xs font-bold text-[#0f2233]/72"><a class="hover:text-[#0f2233]" href="https://www.linkedin.com/in/marius-capră-83381919b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noreferrer">LinkedIn</a><a class="hover:text-[#0f2233]" href="#top">Sus ↑</a></div>
     </div>
   </footer>
 
-  <div class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[auto_1fr] gap-2 rounded-2xl border border-white/60 bg-[#0b0e0c]/95 p-2 shadow-[0_20px_55px_rgba(11,14,12,0.34)] backdrop-blur-xl sm:hidden">
+  <div class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[auto_1fr] gap-2 rounded-2xl border border-white/60 bg-[#0f2233]/95 p-2 shadow-[0_20px_55px_rgba(15,34,51,0.34)] backdrop-blur-xl sm:hidden">
     <a href="tel:+40765066463" aria-label="Sună la 0765 066 463" class="grid h-12 w-12 place-items-center rounded-xl bg-white/10 text-white">
       <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-3.5-1.5-6.5-4.5-8-8l2-2-2-4Z" /></svg>
     </a>
-    <a href="#contact" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#55d685] px-4 text-sm font-extrabold text-[#0b0e0c]">
+    <a href="#contact" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#7eb99a] px-4 text-sm font-extrabold text-[#0f2233]">
       Verifică proiectul
       <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
     </a>
