@@ -1,0 +1,493 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  developmentRegions,
+  regionalFundingPrograms,
+  officialFundingPortalUrl,
+  fundingMapUpdatedAt,
+} from '../data/regionalFundingPrograms';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentYear = new Date().getFullYear();
+const defaultRegion = 'RO32';
+const nationalPrograms = regionalFundingPrograms.filter((program) => program.scope === 'Național');
+const integratedCount = regionalFundingPrograms.length;
+---
+
+<Layout
+  title="Harta finanțărilor pentru IMM | Marius Capră"
+  description="Explorează apelurile active pentru IMM pe harta celor opt regiuni de dezvoltare ale României și verifică sursele oficiale de finanțare."
+>
+  <header class="sticky top-0 z-50 border-b border-[#0f2233]/10 bg-white/95 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-5 px-5 sm:px-8">
+      <a href={`${base}/`} class="flex items-center gap-3" aria-label="Marius Capră - pagina principală">
+        <img src={`${base}/logo.svg`} alt="" class="h-11 w-11" width="44" height="44" />
+        <span class="leading-none">
+          <strong class="block text-[15px] font-extrabold tracking-[0.18em] text-[#0f2233]">CAPRĂ</strong>
+          <span class="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0f2233]">Fonduri & Mediu</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-6 lg:flex" aria-label="Navigare harta finanțărilor">
+        <a href={`${base}/#lista-programe`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Programe</a>
+        <span class="rounded-full bg-[#f5f7f6] px-3 py-2 text-sm font-extrabold text-[#0f2233]">Hartă</span>
+        <a href={`${base}/diagnostic-proiect/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Diagnostic</a>
+        <a href={`${base}/audit-de-mediu/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Audit de mediu</a>
+        <a href={`${base}/studii-de-caz/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Studii de caz</a>
+        <a href={`${base}/intrebari-frecvente/`} class="text-sm font-semibold text-[#0f2233]/70 hover:text-[#0f2233]">Întrebări</a>
+      </nav>
+
+      <a href={`${base}/#formular-proiect`} class="hidden rounded-full bg-[#0f2233] px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5 sm:inline-flex">Verifică proiectul</a>
+      <button data-map-menu-button type="button" class="grid h-11 w-11 place-items-center rounded-full border border-[#0f2233]/15 text-[#0f2233] lg:hidden" aria-expanded="false" aria-controls="map-mobile-menu" aria-label="Deschide meniul">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+    </div>
+    <div id="map-mobile-menu" class="hidden border-t border-[#0f2233]/10 bg-white px-5 py-4 shadow-xl lg:hidden">
+      <nav class="mx-auto grid max-w-[1240px] gap-1" aria-label="Navigare mobilă harta finanțărilor">
+        <a href={`${base}/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Pagina principală</a>
+        <a href={`${base}/#lista-programe`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Programe de finanțare</a>
+        <a href={`${base}/diagnostic-proiect/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Diagnostic proiect</a>
+        <a href={`${base}/audit-de-mediu/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Audit de mediu</a>
+        <a href={`${base}/studii-de-caz/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Studii de caz</a>
+        <a href={`${base}/intrebari-frecvente/`} class="rounded-xl px-4 py-3 font-semibold hover:bg-[#f5f7f6]">Întrebări frecvente</a>
+        <a href={`${base}/#formular-proiect`} class="mt-2 rounded-xl bg-[#0f2233] px-4 py-3 text-center font-extrabold text-white">Verifică proiectul</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="paper-grid pb-16 pt-20 sm:pb-24 sm:pt-28">
+      <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <p class="section-kicker">Finanțări active pentru IMM</p>
+        <div class="mt-6 grid gap-9 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-20">
+          <h1 class="display-font max-w-4xl text-[clamp(3.2rem,7.8vw,7rem)] leading-[0.93] text-[#0f2233]">Explorează harta proiectelor.</h1>
+          <div>
+            <p class="text-lg leading-8 text-[#0f2233]/72">Selectează una dintre cele opt regiuni de dezvoltare și vezi apelurile naționale care o includ, plus oportunitățile dedicate regiunii.</p>
+            <div class="mt-6 flex flex-wrap gap-3 text-xs font-extrabold text-[#0f2233]">
+              <span class="rounded-full bg-white px-4 py-2.5 shadow-sm">8 regiuni</span>
+              <span class="rounded-full bg-white px-4 py-2.5 shadow-sm">{integratedCount} fișe românești integrate</span>
+              <span class="rounded-full bg-white px-4 py-2.5 shadow-sm">383 rezultate IMM în portal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-24 sm:pb-32">
+      <div class="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <div class="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+          <div class="overflow-hidden rounded-[2rem] bg-[#0f2233] p-5 text-white shadow-[0_28px_80px_rgba(15,34,51,0.18)] sm:p-8">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#7eb99a]">Hartă interactivă · NUTS 2</p>
+                <h2 class="display-font mt-3 text-3xl sm:text-4xl">Alege regiunea investiției</h2>
+              </div>
+              <p data-map-status class="max-w-xs text-xs leading-5 text-white/60">Se încarcă limitele oficiale ale regiunilor…</p>
+            </div>
+
+            <div class="map-stage relative mt-5 overflow-hidden rounded-[1.5rem] p-2 sm:p-4">
+              <div aria-hidden="true" class="pointer-events-none absolute inset-x-[18%] top-[14%] h-[58%] rounded-full bg-[#7eb99a]/12 blur-3xl"></div>
+              <svg data-romania-map viewBox="0 0 720 540" class="relative block h-auto w-full" role="img" aria-labelledby="romania-map-title romania-map-description">
+                <title id="romania-map-title">Harta regiunilor de dezvoltare ale României</title>
+                <desc id="romania-map-description">Selectează una dintre cele opt regiuni pentru a filtra apelurile de finanțare active pentru IMM.</desc>
+                <defs>
+                  <linearGradient id="region-face" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#b9ddc9" />
+                    <stop offset="48%" stop-color="#7eb99a" />
+                    <stop offset="100%" stop-color="#4f8c70" />
+                  </linearGradient>
+                  <linearGradient id="region-hover" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#d7eddf" />
+                    <stop offset="54%" stop-color="#93c8aa" />
+                    <stop offset="100%" stop-color="#65a183" />
+                  </linearGradient>
+                  <linearGradient id="region-selected" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e6f5ec" />
+                    <stop offset="42%" stop-color="#9bd0b1" />
+                    <stop offset="100%" stop-color="#69a889" />
+                  </linearGradient>
+                  <radialGradient id="map-ground" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#06131d" stop-opacity="0.72" />
+                    <stop offset="100%" stop-color="#06131d" stop-opacity="0" />
+                  </radialGradient>
+                  <filter id="selected-region-shadow" x="-35%" y="-35%" width="170%" height="190%">
+                    <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#06131d" flood-opacity="0.56" />
+                  </filter>
+                </defs>
+                <ellipse class="map-ground" cx="360" cy="478" rx="292" ry="38" fill="url(#map-ground)" aria-hidden="true" />
+                <g data-map-depth aria-hidden="true"></g>
+                <g data-map-faces></g>
+                <g data-map-labels aria-hidden="true"></g>
+              </svg>
+            </div>
+
+            <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-white/68">
+              <span class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-[#7eb99a]"></span> regiune selectată</span>
+              <span>{nationalPrograms.length} apeluri naționale sunt incluse în fiecare regiune</span>
+            </div>
+          </div>
+
+          <aside class="rounded-[2rem] border border-[#0f2233]/10 bg-white p-5 shadow-[0_18px_55px_rgba(15,34,51,0.08)] sm:p-7">
+            <p class="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0f2233]/60">Selectare rapidă</p>
+            <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+              {developmentRegions.map((region) => {
+                const count = regionalFundingPrograms.filter((program) => program.regions.includes(region.code)).length;
+                const regionalCount = regionalFundingPrograms.filter((program) => program.scope === 'Regional' && program.regions.includes(region.code)).length;
+                return (
+                  <button
+                    type="button"
+                    data-region-button={region.code}
+                    aria-pressed={region.code === defaultRegion ? 'true' : 'false'}
+                    class="rounded-2xl border border-[#0f2233]/10 p-3 text-left transition hover:border-[#7eb99a] aria-pressed:border-[#0f2233] aria-pressed:bg-[#0f2233] aria-pressed:text-white"
+                  >
+                    <span class="text-[10px] font-black uppercase tracking-[0.12em] opacity-60">{region.shortName}</span>
+                    <strong class="mt-1 block text-sm">{region.name}</strong>
+                    <span class="mt-2 block text-[10px] opacity-65">{count} apeluri · {regionalCount} regionale</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div class="mt-6 rounded-2xl bg-[#f5f7f6] p-5">
+              <span class="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#0f2233]/60">Regiunea selectată</span>
+              <h3 data-selected-region class="display-font mt-2 text-3xl text-[#0f2233]">București–Ilfov</h3>
+              <p data-selected-count class="mt-3 text-sm font-bold text-[#0f2233]">9 apeluri active în selecția curentă</p>
+              <p data-selected-counties class="mt-3 text-xs leading-5 text-[#0f2233]/68">Municipiul București și județul Ilfov</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="mt-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="section-kicker">Apeluri pentru regiunea selectată</p>
+            <h2 class="display-font mt-4 text-4xl leading-tight text-[#0f2233] sm:text-5xl">Oportunități de verificat acum</h2>
+          </div>
+          <a href={officialFundingPortalUrl} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 text-sm font-extrabold text-[#0f2233]">
+            Vezi toate rezultatele în portalul oficial <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div data-program-results class="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {regionalFundingPrograms.map((program) => (
+            <article
+              data-map-program
+              data-program-regions={program.regions.join(',')}
+              class:list={[
+                'flex min-h-72 flex-col rounded-[1.75rem] border border-[#0f2233]/10 bg-white p-6 shadow-[0_16px_42px_rgba(15,34,51,0.07)]',
+                !program.regions.includes(defaultRegion) && 'hidden',
+              ]}
+            >
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class:list={['rounded-full px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em]', program.scope === 'Regional' ? 'bg-[#7eb99a] text-[#0f2233]' : 'bg-[#f5f7f6] text-[#0f2233]']}>{program.scope}</span>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#0f2233]/55">Activ în portal</span>
+              </div>
+              <p class="mt-5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0f2233]/58">{program.domain}</p>
+              <h3 class="mt-2 text-xl font-extrabold leading-7 text-[#0f2233]">{program.title}</h3>
+              <p class="mt-3 line-clamp-3 text-xs leading-5 text-[#0f2233]/62">{program.officialTitle}</p>
+              <dl class="mt-5 grid grid-cols-2 gap-3 border-t border-[#0f2233]/10 pt-5 text-xs">
+                <div><dt class="text-[#0f2233]/52">Deschis din</dt><dd class="mt-1 font-bold text-[#0f2233]">{program.opened}</dd></div>
+                <div><dt class="text-[#0f2233]/52">Buget publicat</dt><dd class="mt-1 font-bold text-[#0f2233]">{program.budget}</dd></div>
+              </dl>
+              <a href={program.url} target="_blank" rel="noreferrer" class="group mt-auto inline-flex items-center gap-2 pt-6 text-sm font-extrabold text-[#0f2233]">
+                Verifică fișa oficială
+                <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-8 grid gap-4 rounded-[1.75rem] border border-[#0f2233]/10 bg-[#f5f7f6] p-6 text-sm leading-7 text-[#0f2233]/70 lg:grid-cols-[1fr_auto] lg:items-center sm:p-8">
+          <p><strong class="text-[#0f2233]">Actualizare: {fundingMapUpdatedAt}.</strong> Portalul oficial returna 383 rezultate active pentru filtrul IMM. Harta integrează cele {integratedCount} apeluri cu fișă românească și date teritoriale clare; apelurile europene directe rămân accesibile în lista oficială completă.</p>
+          <a href={`${base}/#formular-proiect`} class="inline-flex shrink-0 items-center justify-center rounded-full bg-[#0f2233] px-6 py-3.5 font-extrabold text-white transition hover:-translate-y-1">Verifică aplicabilitatea</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#0f2233]/10 px-5 py-9 sm:px-8">
+    <div class="mx-auto flex max-w-[1240px] flex-col gap-5 text-xs text-[#0f2233]/72 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3"><img src={`${base}/logo.svg`} alt="" class="h-9 w-9" width="36" height="36" /><strong class="tracking-[0.14em] text-[#0f2233]">CAPRĂ · FONDURI & MEDIU</strong></div>
+      <span>© {currentYear} Marius Capră. Toate drepturile rezervate.</span>
+      <a href={`${base}/`} class="font-bold text-[#0f2233]">Pagina principală</a>
+    </div>
+  </footer>
+
+  <style is:global>
+    .map-stage {
+      background:
+        radial-gradient(circle at 50% 28%, rgba(126, 185, 154, 0.18), transparent 48%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -30px 70px rgba(2, 12, 18, 0.28);
+      perspective: 1100px;
+    }
+
+    [data-romania-map] {
+      filter: drop-shadow(0 24px 24px rgba(2, 12, 18, 0.24));
+      shape-rendering: geometricPrecision;
+      text-rendering: geometricPrecision;
+      transform: rotateX(3deg) rotateZ(-0.8deg);
+      transform-origin: 50% 56%;
+    }
+
+    [data-romania-map] .map-ground {
+      opacity: 0.82;
+    }
+
+    [data-romania-map] .map-region-depth {
+      fill: #356f57;
+      stroke: rgba(5, 23, 32, 0.3);
+      stroke-width: 1.2;
+      transform: translateY(var(--depth-offset));
+      transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      vector-effect: non-scaling-stroke;
+    }
+
+    [data-romania-map] .map-region-depth.depth-deep {
+      fill: #214f3e;
+    }
+
+    [data-romania-map] .map-region-depth.is-selected {
+      transform: translateY(calc(var(--depth-offset) - 8px));
+    }
+
+    [data-romania-map] .map-region {
+      cursor: pointer;
+      fill: url(#region-face);
+      stroke: rgba(239, 250, 244, 0.95);
+      stroke-width: 2;
+      transition: fill 180ms ease, stroke 180ms ease, transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 240ms ease;
+      transform-box: fill-box;
+      transform-origin: center;
+      vector-effect: non-scaling-stroke;
+    }
+
+    [data-romania-map] .map-region:hover,
+    [data-romania-map] .map-region:focus {
+      fill: url(#region-hover);
+      stroke: #ffffff;
+      outline: none;
+      filter: brightness(1.06);
+    }
+
+    [data-romania-map] .map-region.is-selected {
+      fill: url(#region-selected);
+      stroke: #ffffff;
+      stroke-width: 3.2;
+      filter: url(#selected-region-shadow);
+      transform: translateY(-8px);
+    }
+
+    [data-romania-map] .map-label-group {
+      pointer-events: none;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    [data-romania-map] .map-label-plate {
+      fill: rgba(255, 255, 255, 0.94);
+      stroke: rgba(15, 34, 51, 0.2);
+      stroke-width: 1.2;
+      filter: drop-shadow(0 4px 5px rgba(3, 18, 26, 0.34));
+      vector-effect: non-scaling-stroke;
+      transition: fill 180ms ease, stroke 180ms ease;
+    }
+
+    [data-romania-map] .map-label {
+      fill: #0f2233;
+      font-family: "Aptos", "Inter", "Segoe UI", sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      pointer-events: none;
+      text-anchor: middle;
+      transition: fill 180ms ease;
+    }
+
+    [data-romania-map] .map-label-group.is-selected {
+      transform: translateY(-8px);
+    }
+
+    [data-romania-map] .map-label-group.is-selected .map-label-plate {
+      fill: #0f2233;
+      stroke: rgba(255, 255, 255, 0.92);
+      stroke-width: 1.8;
+    }
+
+    [data-romania-map] .map-label-group.is-selected .map-label {
+      fill: #ffffff;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-romania-map],
+      [data-romania-map] .map-region,
+      [data-romania-map] .map-region-depth,
+      [data-romania-map] .map-label-group,
+      [data-romania-map] .map-label-plate,
+      [data-romania-map] .map-label {
+        transition: none;
+      }
+    }
+  </style>
+
+  <script is:inline define:vars={{ defaultRegion }}>
+    (() => {
+      const regions = {
+        RO11: { name: 'Nord-Vest', short: 'NV', counties: 'Bihor, Bistrița-Năsăud, Cluj, Maramureș, Satu Mare, Sălaj' },
+        RO12: { name: 'Centru', short: 'C', counties: 'Alba, Brașov, Covasna, Harghita, Mureș, Sibiu' },
+        RO21: { name: 'Nord-Est', short: 'NE', counties: 'Bacău, Botoșani, Iași, Neamț, Suceava, Vaslui' },
+        RO22: { name: 'Sud-Est', short: 'SE', counties: 'Brăila, Buzău, Constanța, Galați, Tulcea, Vrancea' },
+        RO31: { name: 'Sud-Muntenia', short: 'SM', counties: 'Argeș, Călărași, Dâmbovița, Giurgiu, Ialomița, Prahova, Teleorman' },
+        RO32: { name: 'București–Ilfov', short: 'BI', counties: 'Municipiul București și județul Ilfov' },
+        RO41: { name: 'Sud-Vest Oltenia', short: 'SVO', counties: 'Dolj, Gorj, Mehedinți, Olt, Vâlcea' },
+        RO42: { name: 'Vest', short: 'V', counties: 'Arad, Caraș-Severin, Hunedoara, Timiș' },
+      };
+      const labelOffsets = {
+        RO12: { x: 0, y: -7 },
+        RO31: { x: -34, y: 19 },
+        RO32: { x: 55, y: -8 },
+        RO41: { x: -8, y: 8 },
+      };
+
+      const regionButtons = [...document.querySelectorAll('[data-region-button]')];
+      const programCards = [...document.querySelectorAll('[data-map-program]')];
+      const selectedName = document.querySelector('[data-selected-region]');
+      const selectedCount = document.querySelector('[data-selected-count]');
+      const selectedCounties = document.querySelector('[data-selected-counties]');
+      const map = document.querySelector('[data-romania-map]');
+      const mapDepth = document.querySelector('[data-map-depth]');
+      const mapFaces = document.querySelector('[data-map-faces]');
+      const mapLabels = document.querySelector('[data-map-labels]');
+      const mapStatus = document.querySelector('[data-map-status]');
+      let selectedRegion = defaultRegion;
+
+      const selectRegion = (code) => {
+        if (!regions[code]) return;
+        selectedRegion = code;
+        regionButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.regionButton === code)));
+        document.querySelectorAll('[data-region-path]').forEach((path) => path.classList.toggle('is-selected', path.dataset.regionPath === code));
+        document.querySelectorAll('[data-region-depth]').forEach((path) => path.classList.toggle('is-selected', path.dataset.regionDepth === code));
+        document.querySelectorAll('[data-region-label]').forEach((label) => label.classList.toggle('is-selected', label.dataset.regionLabel === code));
+
+        let visible = 0;
+        programCards.forEach((card) => {
+          const show = (card.dataset.programRegions ?? '').split(',').includes(code);
+          card.classList.toggle('hidden', !show);
+          if (show) visible += 1;
+        });
+
+        if (selectedName) selectedName.textContent = regions[code].name;
+        if (selectedCount) selectedCount.textContent = `${visible} apeluri active în selecția curentă`;
+        if (selectedCounties) selectedCounties.textContent = regions[code].counties;
+      };
+
+      regionButtons.forEach((button) => button.addEventListener('click', () => selectRegion(button.dataset.regionButton)));
+
+      const renderMap = async () => {
+        if (!map || !mapDepth || !mapFaces || !mapLabels) return;
+        try {
+          const [{ geoMercator, geoPath }, response] = await Promise.all([
+            import('https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/+esm'),
+            fetch('https://raw.githubusercontent.com/eurostat/Nuts2json/master/pub/v2/2024/4326/20M/nutsrg_2.json'),
+          ]);
+          if (!response.ok) throw new Error('Geometria nu a putut fi încărcată.');
+          const source = await response.json();
+          const features = source.features.filter((feature) => regions[feature.properties?.id]);
+          if (features.length !== 8) throw new Error('Set incomplet de regiuni.');
+
+          const collection = { type: 'FeatureCollection', features };
+          const projection = geoMercator().fitExtent([[28, 28], [692, 492]], collection);
+          const pathGenerator = geoPath(projection);
+          const namespace = 'http://www.w3.org/2000/svg';
+
+          const depthOffsets = [12, 10, 8, 6, 4, 2];
+          depthOffsets.forEach((offset, layerIndex) => {
+            features.forEach((feature) => {
+              const code = feature.properties.id;
+              const depthPath = document.createElementNS(namespace, 'path');
+              depthPath.setAttribute('d', pathGenerator(feature));
+              depthPath.style.setProperty('--depth-offset', `${offset}px`);
+              depthPath.setAttribute('class', `map-region-depth${layerIndex < 2 ? ' depth-deep' : ''}${code === selectedRegion ? ' is-selected' : ''}`);
+              depthPath.setAttribute('data-region-depth', code);
+              mapDepth.appendChild(depthPath);
+            });
+          });
+
+          features.forEach((feature) => {
+            const code = feature.properties.id;
+            const path = document.createElementNS(namespace, 'path');
+            path.setAttribute('d', pathGenerator(feature));
+            path.setAttribute('class', `map-region${code === selectedRegion ? ' is-selected' : ''}`);
+            path.setAttribute('data-region-path', code);
+            path.setAttribute('role', 'button');
+            path.setAttribute('tabindex', '0');
+            path.setAttribute('aria-label', `Selectează regiunea ${regions[code].name}`);
+            path.addEventListener('click', () => selectRegion(code));
+            path.addEventListener('keydown', (event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                selectRegion(code);
+              }
+            });
+            const title = document.createElementNS(namespace, 'title');
+            title.textContent = regions[code].name;
+            path.appendChild(title);
+            mapFaces.appendChild(path);
+          });
+
+          features.forEach((feature) => {
+            const code = feature.properties.id;
+            const [x, y] = pathGenerator.centroid(feature);
+            const name = regions[code].name;
+            const offset = labelOffsets[code] ?? { x: 0, y: 0 };
+            const labelX = x + offset.x;
+            const labelY = y + offset.y;
+            const labelWidth = Math.max(62, Math.min(142, name.length * 7.1 + 24));
+            const labelGroup = document.createElementNS(namespace, 'g');
+            labelGroup.setAttribute('class', `map-label-group${code === selectedRegion ? ' is-selected' : ''}`);
+            labelGroup.setAttribute('data-region-label', code);
+
+            const plate = document.createElementNS(namespace, 'rect');
+            plate.setAttribute('x', String(labelX - labelWidth / 2));
+            plate.setAttribute('y', String(labelY - 16));
+            plate.setAttribute('width', String(labelWidth));
+            plate.setAttribute('height', '32');
+            plate.setAttribute('rx', '16');
+            plate.setAttribute('class', 'map-label-plate');
+
+            const label = document.createElementNS(namespace, 'text');
+            label.setAttribute('x', String(labelX));
+            label.setAttribute('y', String(labelY));
+            label.setAttribute('dy', '0.35em');
+            label.setAttribute('class', 'map-label');
+            label.textContent = name;
+
+            labelGroup.appendChild(plate);
+            labelGroup.appendChild(label);
+            mapLabels.appendChild(labelGroup);
+          });
+
+          if (mapStatus) mapStatus.textContent = 'Selectează direct pe hartă sau folosește lista de regiuni.';
+        } catch (error) {
+          if (mapStatus) mapStatus.textContent = 'Selectează regiunea din lista alăturată; harta grafică nu s-a putut încărca.';
+        }
+      };
+
+      const menuButton = document.querySelector('[data-map-menu-button]');
+      const mobileMenu = document.querySelector('#map-mobile-menu');
+      menuButton?.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Deschide meniul' : 'Închide meniul');
+        mobileMenu?.classList.toggle('hidden', isOpen);
+      });
+      mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuButton?.setAttribute('aria-expanded', 'false');
+      }));
+
+      selectRegion(defaultRegion);
+      renderMap();
+    })();
+  </script>
+</Layout>
