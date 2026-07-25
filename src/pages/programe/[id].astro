@@ -4,6 +4,7 @@ import ManufacturingEligibility from '../../components/ManufacturingEligibility.
 import DR12ScoringCalculator from '../../components/DR12ScoringCalculator.astro';
 import DigitalizationBIScoringCalculator from '../../components/DigitalizationBIScoringCalculator.astro';
 import StartupNationScoringCalculator from '../../components/StartupNationScoringCalculator.astro';
+import StorageAidSimulator from '../../components/StorageAidSimulator.astro';
 import { fundingPrograms, fundingStatusStyles, type FundingProgram } from '../../data/fundingPrograms';
 
 export function getStaticPaths() {
@@ -47,6 +48,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div class="max-w-4xl">
             <div class="flex flex-wrap items-center gap-3">
+              {program.priority && <span class="inline-flex rounded-full bg-[#7eb99a] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-[#0f2233]">Program prioritar</span>}
               <span class:list={['inline-flex rounded-full border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.12em]', fundingStatusStyles[program.status]]}>{program.status}</span>
               <span class="text-[10px] font-extrabold uppercase tracking-[0.17em] text-[#7eb99a]">{program.category}</span>
             </div>
@@ -125,6 +127,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
 
         {program.id === 'start-up-nation-2025' && <StartupNationScoringCalculator />}
+
+        {program.id === 'stocare-autonoma-baterii-fm' && <StorageAidSimulator />}
 
         {program.id === 'dr-12-consolidare-exploatatii' && (
           <section data-dr12-calculator class="grain relative mt-8 overflow-hidden rounded-[2rem] bg-[#0f2233] text-white shadow-[0_30px_80px_rgba(15,34,51,0.22)]">

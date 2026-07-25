@@ -1,0 +1,160 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section data-storage-simulator class="grain relative mt-8 overflow-hidden rounded-[2rem] bg-[#0f2233] text-white shadow-[0_30px_80px_rgba(15,34,51,0.22)]">
+  <div class="absolute -right-28 -top-28 h-96 w-96 rounded-full border-[70px] border-[#7eb99a]/10"></div>
+  <div class="relative border-b border-white/10 p-7 sm:p-10">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-[#7eb99a] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-[#0f2233]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#0f2233]"></span>
+          Simulator orientativ
+        </span>
+        <h2 class="display-font mt-5 text-5xl leading-none sm:text-6xl">Calculează plafonul posibil.</h2>
+        <p class="mt-5 max-w-2xl text-sm leading-7 text-white/76">Introdu puterea, capacitatea și costurile eligibile estimate. Vezi rapid dacă proiectul respectă durata minimă și care este ajutorul maxim teoretic conform plafoanelor din ghid.</p>
+      </div>
+      <div class="flex max-w-sm items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs leading-5 text-white/72">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-none stroke-[#7eb99a]" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M12 8v4m0 4h.01" /></svg>
+        Estimare pe baza ghidului aflat în pregătire. Nu reprezintă o decizie de finanțare.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative grid lg:grid-cols-[1.02fr_0.98fr]">
+    <div class="border-b border-white/10 p-7 sm:p-10 lg:border-b-0 lg:border-r">
+      <div class="grid gap-6 sm:grid-cols-2">
+        <label class="block">
+          <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#7eb99a]">Putere instalată</span>
+          <span class="mt-3 flex items-center rounded-2xl border border-white/12 bg-white/7 px-4 focus-within:border-[#7eb99a]">
+            <input data-storage-power type="number" min="0" step="0.5" value="10" class="min-w-0 flex-1 bg-transparent py-4 text-lg font-extrabold text-white outline-none" />
+            <span class="text-xs font-bold text-white/70">MW</span>
+          </span>
+          <span class="mt-2 block text-[11px] text-white/65">Minimum 1 MW pentru fiecare instalație.</span>
+        </label>
+
+        <label class="block">
+          <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#7eb99a]">Capacitate de stocare</span>
+          <span class="mt-3 flex items-center rounded-2xl border border-white/12 bg-white/7 px-4 focus-within:border-[#7eb99a]">
+            <input data-storage-capacity type="number" min="0" step="1" value="20" class="min-w-0 flex-1 bg-transparent py-4 text-lg font-extrabold text-white outline-none" />
+            <span class="text-xs font-bold text-white/70">MWh</span>
+          </span>
+          <span class="mt-2 block text-[11px] text-white/65">Raportul MWh:MW trebuie să fie cel puțin 2:1.</span>
+        </label>
+
+        <label class="block sm:col-span-2">
+          <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#7eb99a]">Costuri eligibile estimate</span>
+          <span class="mt-3 flex items-center rounded-2xl border border-white/12 bg-white/7 px-4 focus-within:border-[#7eb99a]">
+            <input data-storage-costs type="number" min="0" step="10000" value="1380000" class="min-w-0 flex-1 bg-transparent py-4 text-lg font-extrabold text-white outline-none" />
+            <span class="text-xs font-bold text-white/70">euro</span>
+          </span>
+          <input data-storage-costs-range aria-label="Costuri eligibile estimate" type="range" min="100000" max="15000000" step="10000" value="1380000" class="mt-4 w-full accent-[#7eb99a]" />
+        </label>
+      </div>
+
+      <div class="mt-7 rounded-2xl border border-[#7eb99a]/20 bg-[#7eb99a]/8 p-5">
+        <strong class="text-sm text-[#bfe7d0]">Ce înseamnă „până la 100%”?</strong>
+        <p class="mt-2 text-xs leading-6 text-white/72">Ajutorul nu poate depăși costurile eligibile, 69.000 euro/MWh și 15 milioane euro/întreprindere. Diferența până la valoarea totală și toate costurile neeligibile rămân în sarcina beneficiarului.</p>
+      </div>
+    </div>
+
+    <aside class="bg-[#0b1e2b]/72 p-7 sm:p-10">
+      <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#7eb99a]">Rezultat orientativ</span>
+      <strong data-storage-status class="mt-2 block text-2xl text-white">Configurație în parametrii minimi</strong>
+      <p data-storage-message class="mt-3 text-sm leading-6 text-white/72">Capacitatea asigură minimum două ore de stocare la puterea introdusă.</p>
+
+      <div class="mt-7 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+          <span class="text-[10px] font-black uppercase tracking-[0.12em] text-white/65">Durată calculată</span>
+          <strong data-storage-duration class="mt-2 block text-2xl text-[#7eb99a]">2 ore</strong>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+          <span class="text-[10px] font-black uppercase tracking-[0.12em] text-white/65">Plafon 69.000 €/MWh</span>
+          <strong data-storage-mwh-cap class="mt-2 block text-2xl text-white">1.380.000 €</strong>
+        </div>
+        <div class="rounded-2xl border border-[#7eb99a]/25 bg-[#7eb99a]/10 p-4 sm:col-span-2">
+          <span class="text-[10px] font-black uppercase tracking-[0.12em] text-[#bfe7d0]">Ajutor maxim teoretic</span>
+          <strong data-storage-max-aid class="mt-2 block text-4xl text-[#7eb99a]">1.380.000 €</strong>
+          <span data-storage-intensity class="mt-2 block text-xs font-bold text-white/72">Până la 100% din costurile eligibile introduse</span>
+        </div>
+      </div>
+
+      <div class="mt-7 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <span class="text-[10px] font-black uppercase tracking-[0.12em] text-[#7eb99a]">Atenție la selecție</span>
+        <p class="mt-2 text-xs leading-6 text-white/72">Punctajul final nu poate fi anticipat înainte de închiderea apelului: cea mai mică valoare solicitată pe MWh primește 100 de puncte, iar cea mai mare primește 0. Un ajutor solicitat mai mic poate crește competitivitatea proiectului.</p>
+      </div>
+
+      <a href={`${base}/#formular-proiect`} class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7eb99a] px-6 py-4 text-sm font-extrabold text-[#0f2233] transition hover:-translate-y-0.5 hover:bg-white">
+        Verifică investiția
+        <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+      </a>
+    </aside>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const calculator = document.querySelector('[data-storage-simulator]');
+    if (!calculator) return;
+
+    const powerInput = calculator.querySelector('[data-storage-power]');
+    const capacityInput = calculator.querySelector('[data-storage-capacity]');
+    const costsInput = calculator.querySelector('[data-storage-costs]');
+    const costsRange = calculator.querySelector('[data-storage-costs-range]');
+    const formatEuro = new Intl.NumberFormat('ro-RO', { maximumFractionDigits: 0 });
+    const formatHours = new Intl.NumberFormat('ro-RO', { maximumFractionDigits: 2 });
+
+    const numberValue = (input) => Math.max(0, Number(input?.value) || 0);
+    const setText = (selector, value) => {
+      const element = calculator.querySelector(selector);
+      if (element) element.textContent = value;
+    };
+
+    const update = () => {
+      const power = numberValue(powerInput);
+      const capacity = numberValue(capacityInput);
+      const eligibleCosts = numberValue(costsInput);
+      const duration = power > 0 ? capacity / power : 0;
+      const capByCapacity = capacity * 69000;
+      const maxAid = Math.min(eligibleCosts, capByCapacity, 15000000);
+      const intensity = eligibleCosts > 0 ? Math.min(100, (maxAid / eligibleCosts) * 100) : 0;
+
+      setText('[data-storage-duration]', `${formatHours.format(duration)} ore`);
+      setText('[data-storage-mwh-cap]', `${formatEuro.format(capByCapacity)} €`);
+      setText('[data-storage-max-aid]', `${formatEuro.format(maxAid)} €`);
+      setText('[data-storage-intensity]', `Până la ${formatHours.format(intensity)}% din costurile eligibile introduse`);
+
+      let status = 'Configurație în parametrii minimi';
+      let message = 'Capacitatea asigură minimum două ore de stocare la puterea introdusă.';
+
+      if (power < 1) {
+        status = 'Puterea este sub prag';
+        message = 'Ghidul cere minimum 1 MW pentru fiecare instalație autonomă.';
+      } else if (duration < 2) {
+        status = 'Capacitatea trebuie mărită';
+        message = `Pentru ${formatHours.format(power)} MW sunt necesari cel puțin ${formatHours.format(power * 2)} MWh.`;
+      } else if (eligibleCosts > capByCapacity || eligibleCosts > 15000000) {
+        status = 'Finanțarea este limitată de plafon';
+        message = 'Configurația tehnică respectă durata minimă, dar valoarea maximă este limitată de plafonul pe MWh sau de plafonul pe întreprindere.';
+      }
+
+      setText('[data-storage-status]', status);
+      setText('[data-storage-message]', message);
+    };
+
+    if (costsRange && costsInput) {
+      costsRange.addEventListener('input', () => {
+        costsInput.value = costsRange.value;
+        update();
+      });
+      costsInput.addEventListener('input', () => {
+        const value = numberValue(costsInput);
+        costsRange.value = String(Math.min(Number(costsRange.max), Math.max(Number(costsRange.min), value)));
+        update();
+      });
+    }
+
+    [powerInput, capacityInput].filter(Boolean).forEach((input) => input.addEventListener('input', update));
+    update();
+  })();
+</script>

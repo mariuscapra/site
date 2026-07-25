@@ -357,21 +357,37 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
           <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {fundingPrograms.map((program, index) => (
-              <article data-program-card data-status={program.status} data-reveal data-reveal-delay={String(index % 3)} class="soft-shadow group/card relative aspect-square overflow-hidden rounded-[1.75rem] border border-[#0f2233]/10 bg-[#0f2233] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_70px_rgba(15,34,51,0.22)]">
-                <img src={`${base}/${program.image}`} alt={program.imageAlt} class="absolute inset-0 h-full w-full object-cover opacity-60 saturate-[0.72] transition duration-700 group-hover/card:scale-[1.045] group-hover/card:opacity-70" loading="lazy" />
+              <article
+                data-program-card
+                data-status={program.status}
+                data-priority={program.priority ? 'true' : undefined}
+                data-reveal
+                data-reveal-delay={String(index % 3)}
+                class:list={[
+                  'soft-shadow group/card relative overflow-hidden rounded-[1.75rem] bg-[#0f2233] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_70px_rgba(15,34,51,0.22)]',
+                  program.priority
+                    ? 'aspect-[4/5] border-2 border-[#7eb99a] shadow-[0_24px_65px_rgba(15,34,51,0.2)] sm:aspect-square md:col-span-2 md:aspect-[2/1] xl:col-span-2'
+                    : 'aspect-square border border-[#0f2233]/10',
+                ]}
+              >
+                <img src={`${base}/${program.image}`} alt={program.imageAlt} class:list={['absolute inset-0 h-full w-full object-cover opacity-60 saturate-[0.72] transition duration-700 group-hover/card:scale-[1.045] group-hover/card:opacity-70', program.priority && 'object-[center_56%] opacity-72 saturate-100']} loading="lazy" />
                 <div class="absolute inset-0 bg-[#0f2233]/38"></div>
                 <div class="absolute inset-0 bg-gradient-to-b from-[#0f2233]/78 via-[#0f2233]/46 to-[#0f2233]/98"></div>
-                <div class="relative flex h-full flex-col p-5 sm:p-6">
+                <div class:list={['relative flex h-full flex-col p-5 sm:p-6', program.priority && 'md:p-8']}>
                   <div class="flex items-start justify-between gap-3">
-                    <span class="rounded-full border border-white/18 bg-[#0f2233]/78 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] text-white shadow-lg backdrop-blur-md">{program.funding}</span>
+                    <div class="flex flex-wrap gap-2">
+                      {program.priority && <span class="rounded-full bg-[#7eb99a] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-[#0f2233] shadow-lg">Program prioritar</span>}
+                      <span class="rounded-full border border-white/18 bg-[#0f2233]/78 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] text-white shadow-lg backdrop-blur-md">{program.funding}</span>
+                    </div>
                     <span class:list={['rounded-full border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] shadow-lg', fundingStatusStyles[program.status]]}>{program.status}</span>
                   </div>
                   <div class="mt-auto text-white">
                     <p class="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#7eb99a]">{program.category}</p>
-                    <h3 class="display-font mt-2 text-4xl leading-[0.96]">{program.title}</h3>
-                    <p class="mt-3 line-clamp-2 text-xs leading-5 text-white/76">{program.description}</p>
+                    {program.priority && <p class="mt-3 inline-flex rounded-full border border-[#7eb99a]/50 bg-[#7eb99a]/15 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] text-[#bfe7d0]">Până la 100% din cheltuielile eligibile</p>}
+                    <h3 class:list={['display-font mt-2 leading-[0.96]', program.priority ? 'text-4xl sm:text-5xl md:max-w-2xl md:text-6xl' : 'text-4xl']}>{program.title}</h3>
+                    <p class:list={['mt-3 line-clamp-2 text-xs leading-5 text-white/76', program.priority && 'md:max-w-2xl md:text-sm md:leading-6']}>{program.description}</p>
                   </div>
-                  <a href={`${base}/programe/${program.id}/`} target="_blank" rel="noreferrer" class="group/link mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7eb99a] px-5 py-3.5 text-sm font-extrabold text-[#0f2233] shadow-xl transition hover:bg-[#7eb99a]" aria-label={`Deschide sinteza programului ${program.title} într-o filă nouă`}>
+                  <a href={`${base}/programe/${program.id}/`} target="_blank" rel="noreferrer" class:list={['group/link mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-[#7eb99a] px-5 py-3.5 text-sm font-extrabold text-[#0f2233] shadow-xl transition hover:-translate-y-0.5 hover:bg-white', program.priority ? 'w-full md:w-fit md:min-w-56' : 'w-full']} aria-label={`Deschide sinteza programului ${program.title} într-o filă nouă`}>
                     Vezi programul
                     <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 fill-none stroke-current transition group-hover/link:translate-x-1" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
                   </a>

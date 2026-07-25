@@ -6,6 +6,7 @@ export interface FundingProgram {
   officialName: string;
   category: string;
   status: FundingStatus;
+  priority?: boolean;
   description: string;
   image: string;
   imageAlt: string;
@@ -25,6 +26,63 @@ export interface FundingProgram {
 }
 
 export const fundingPrograms: FundingProgram[] = [
+  {
+    id: 'stocare-autonoma-baterii-fm',
+    title: 'Stocare autonomă în baterii',
+    officialName: 'Sprijinirea investițiilor în dezvoltarea instalațiilor autonome (stand-alone) de stocare în baterii a energiei electrice, cu finanțare din Fondul pentru modernizare.',
+    category: 'Fondul pentru modernizare · Energie',
+    status: 'Urmează',
+    priority: true,
+    description: 'Finanțare pentru instalații noi, autonome, de stocare a energiei electrice în baterii, conectate la rețea și realizate de companii.',
+    image: 'images/programs/stocare-autonoma-baterii.svg',
+    imageAlt: 'Instalație autonomă modernă de stocare a energiei electrice în baterii, conectată la rețea',
+    funding: 'Până la 15 mil. euro',
+    cofinancing: 'Până la 100% eligibil',
+    deadline: 'Apel în pregătire. Data deschiderii și perioada de depunere vor fi anunțate oficial de Ministerul Energiei; cererile se vor depune prin MySMIS2021',
+    keyFacts: [
+      ['Buget estimat', '150 mil. euro'],
+      ['Intensitate maximă', 'până la 100% eligibil'],
+      ['Plafon ajutor', '69.000 euro / MWh'],
+      ['Capacitate minimă', '1 MW · minimum 2 ore'],
+    ],
+    eligibility: [
+      'Pot aplica societăți — microîntreprinderi, întreprinderi mici, mijlocii și mari, inclusiv întreprinderi nou-înființate — înregistrate la ONRC în România cel târziu la semnarea contractului.',
+      'Întreprinderile nou-înființate trebuie să aibă capital social subscris și vărsat de minimum 100.000 lei.',
+      'Actul constitutiv trebuie să includă activitatea de producție sau comercializare a energiei electrice, diviziunea CAEN 35 Rev. 3 ori echivalentul aplicabil.',
+      'Proiectul trebuie să vizeze o instalație nouă, autonomă de stocare, cu putere de minimum 1 MW și raport capacitate/putere de cel puțin 2:1 — minimum două ore de încărcare sau descărcare.',
+      'Solicitantul trebuie să demonstreze capacitatea financiară pentru diferența de finanțare și costurile neeligibile, precum și dreptul real cerut asupra locației proiectului.',
+    ],
+    process: [
+      'Stabilirea locației, a punctului de racordare, a puterii în MW și a capacității în MWh; proiectele care combină producția și stocarea nu sunt eligibile în acest apel.',
+      'Pregătirea studiului de fezabilitate, a soluției tehnice, bugetului, drepturilor asupra locației și documentelor financiare.',
+      'Alegerea cuantumului ajutorului solicitat pe MWh și depunerea proiectului în MySMIS2021 după lansarea oficială a apelului.',
+      'Clasificarea competitivă: cea mai mică valoare a ajutorului solicitat pe MWh primește 100 de puncte, iar cea mai mare primește 0 puncte.',
+      'Contractarea în limita bugetului și implementarea investiției în maximum 48 de luni de la acordarea ajutorului.',
+    ],
+    eligibleCosts: [
+      'Achiziționarea de instalații și echipamente noi necesare construirii instalației autonome de stocare în baterii.',
+      'Realizarea construcțiilor care fac obiectul proiectului de stocare și sunt direct legate de investiția finanțată.',
+      'Componentele tehnice, electrice și de control incluse în soluția de stocare, în măsura în care sunt încadrate în categoriile eligibile ale ghidului.',
+      'Costurile de operare, TVA, terenurile, echipamentele second-hand, branșamentul, studiile și avizele, managementul, auditul și publicitatea nu sunt eligibile.',
+    ],
+    obligations: [
+      'Ajutorul poate acoperi până la 100% din cheltuielile eligibile, fără a depăși 69.000 euro/MWh și 15 milioane euro cumulat pentru aceeași întreprindere.',
+      'Diferența până la valoarea totală a proiectului și toate cheltuielile neeligibile sunt suportate de beneficiar din surse care nu includ alt ajutor public pentru aceleași costuri.',
+      'Instalația trebuie să fie nouă și autonomă; nu sunt acceptate înlocuirea unei capacități vechi, echipamentele second-hand sau bateriile cu plumb, NiCd ori NiMH.',
+      'Avizul tehnic de racordare trebuie prezentat înaintea primei cereri de plată, în condițiile prevăzute de ghid.',
+      'Dreptul asupra locației trebuie menținut pentru perioada solicitată, iar dubla finanțare a acelorași cheltuieli este interzisă.',
+    ],
+    sources: [
+      {
+        label: 'Fondul pentru modernizare – Program-cheie 1',
+        url: 'https://energie.gov.ro/category/fondul-pentru-modernizare/program-cheie-1/',
+      },
+      {
+        label: 'Platforma oficială MySMIS2021',
+        url: 'https://mysmis2021.gov.ro/',
+      },
+    ],
+  },
   {
     id: 'start-up-nation-2025',
     title: 'Start-Up Nation 2025',

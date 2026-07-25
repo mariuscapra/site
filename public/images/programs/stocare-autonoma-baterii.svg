@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title description">
+  <title id="title">Instalație autonomă de stocare a energiei în baterii</title>
+  <desc id="description">Containere industriale cu baterii conectate la rețeaua electrică, într-un peisaj tehnologic verde închis.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071827"/>
+      <stop offset=".55" stop-color="#0f2a36"/>
+      <stop offset="1" stop-color="#245f4c"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#142c32"/>
+      <stop offset="1" stop-color="#07131f"/>
+    </linearGradient>
+    <linearGradient id="container" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf6f1"/>
+      <stop offset=".55" stop-color="#c8ded3"/>
+      <stop offset="1" stop-color="#83b69b"/>
+    </linearGradient>
+    <linearGradient id="battery" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a4d4b9"/>
+      <stop offset="1" stop-color="#4b9470"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#9ae0bc" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#9ae0bc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#020a10" flood-opacity=".55"/>
+    </filter>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#sky)"/>
+  <circle cx="765" cy="230" r="250" fill="url(#glow)"/>
+  <circle cx="180" cy="195" r="150" fill="#7eb99a" opacity=".06"/>
+  <path d="M0 554C180 510 309 544 459 515c184-35 326-94 565-46v555H0Z" fill="url(#ground)"/>
+
+  <g opacity=".38" fill="none" stroke="#a7d9be" stroke-width="4">
+    <path d="M86 444h146l54-61h137l52-96h153l59-80h173"/>
+    <circle cx="86" cy="444" r="8" fill="#a7d9be"/>
+    <circle cx="286" cy="383" r="8" fill="#a7d9be"/>
+    <circle cx="475" cy="287" r="8" fill="#a7d9be"/>
+    <circle cx="687" cy="207" r="8" fill="#a7d9be"/>
+    <circle cx="860" cy="207" r="8" fill="#a7d9be"/>
+  </g>
+
+  <g opacity=".5" stroke="#6da989" stroke-width="7">
+    <path d="M75 461v-162m-30 0h60m-48 38h36m-30 35h24"/>
+    <path d="M909 470V261m-38 0h76m-62 44h48m-39 45h30"/>
+    <path d="M75 301 147 557M909 263l-74 299"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="translate(116 456)">
+    <g transform="translate(0 88)">
+      <path d="M0 38 77 0h294l74 38v296H0Z" fill="url(#container)"/>
+      <path d="M0 38h445v70H0Z" fill="#d9ebe2"/>
+      <path d="M19 55h407" stroke="#8ab89f" stroke-width="8"/>
+      <g transform="translate(38 133)">
+        <rect width="94" height="151" rx="10" fill="#0f2632"/>
+        <rect x="14" y="19" width="66" height="108" rx="5" fill="url(#battery)"/>
+        <path d="M39 51h17v20h19L47 105V82H26Z" fill="#effaf4"/>
+        <rect x="40" y="9" width="14" height="10" rx="2" fill="#7eb99a"/>
+      </g>
+      <g transform="translate(176 133)">
+        <rect width="94" height="151" rx="10" fill="#0f2632"/>
+        <rect x="14" y="19" width="66" height="108" rx="5" fill="url(#battery)"/>
+        <path d="M39 51h17v20h19L47 105V82H26Z" fill="#effaf4"/>
+        <rect x="40" y="9" width="14" height="10" rx="2" fill="#7eb99a"/>
+      </g>
+      <g transform="translate(314 133)">
+        <rect width="94" height="151" rx="10" fill="#0f2632"/>
+        <rect x="14" y="19" width="66" height="108" rx="5" fill="url(#battery)"/>
+        <path d="M39 51h17v20h19L47 105V82H26Z" fill="#effaf4"/>
+        <rect x="40" y="9" width="14" height="10" rx="2" fill="#7eb99a"/>
+      </g>
+      <path d="M38 310h370" stroke="#4e8268" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(456 0)">
+      <path d="M0 38 67 0h250l65 38v384H0Z" fill="url(#container)"/>
+      <path d="M0 38h382v68H0Z" fill="#e1eee7"/>
+      <path d="M20 55h342" stroke="#8ab89f" stroke-width="8"/>
+      <g transform="translate(42 133)">
+        <rect width="127" height="222" rx="12" fill="#102a36"/>
+        <rect x="18" y="25" width="91" height="167" rx="7" fill="url(#battery)"/>
+        <path d="M57 67h21v30h25l-42 51v-35H27Z" fill="#effaf4"/>
+        <rect x="54" y="11" width="20" height="14" rx="3" fill="#7eb99a"/>
+      </g>
+      <g transform="translate(213 133)">
+        <rect width="127" height="222" rx="12" fill="#102a36"/>
+        <rect x="18" y="25" width="91" height="167" rx="7" fill="url(#battery)"/>
+        <path d="M57 67h21v30h25l-42 51v-35H27Z" fill="#effaf4"/>
+        <rect x="54" y="11" width="20" height="14" rx="3" fill="#7eb99a"/>
+      </g>
+      <path d="M42 383h298" stroke="#4e8268" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <g opacity=".8">
+    <ellipse cx="591" cy="878" rx="389" ry="64" fill="#020b11" opacity=".48"/>
+    <path d="M220 886h575" stroke="#7eb99a" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 22"/>
+  </g>
+
+  <g transform="translate(788 658)">
+    <circle r="72" fill="#7eb99a" opacity=".14" filter="url(#softGlow)"/>
+    <circle r="52" fill="#0f2233" stroke="#bce3cd" stroke-width="4"/>
+    <path d="M-8-34h21v31h27L-13 50V15h-28Z" fill="#a8d7bd"/>
+  </g>
+</svg>
