@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">CAPRĂ — Fonduri &amp; Mediu</title>
+  <desc id="logo-desc">Logo premium CAPRĂ, cu monogramă M și frunză, pentru consultanță în fonduri și mediu.</desc>
+
+  <g id="brand-mark" transform="translate(32 32) scale(2.75)">
+    <rect width="64" height="64" rx="16" fill="#087653"/>
+    <path
+      d="M14.5 45V24L30 39.5 43.5 26V45"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="5.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M40.5 22.5c2.2-7.2 8.8-10.2 15-9.2-.1 7.5-4.4 13.4-12.7 13.5"
+      fill="#A7D46F"
+    />
+    <path
+      d="M40.7 27c3.1-3.6 6.2-6.4 10.7-9"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="2.1"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <g id="wordmark" fill="#0F2233" font-family="Aptos Display, Aptos, Inter, Segoe UI, Arial, sans-serif">
+    <text x="250" y="108" font-size="56" font-weight="800" letter-spacing="8">CAPRĂ</text>
+    <text x="252" y="156" font-size="20" font-weight="600" letter-spacing="5.1">FONDURI &amp; MEDIU</text>
+  </g>
+</svg>
